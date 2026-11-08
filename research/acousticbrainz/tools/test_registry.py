@@ -55,3 +55,22 @@ lossy = mod.inspect_submission(fake("It's No Good", "Ultra", "It's No Good.mp3",
 assert "lossy_low_bitrate" in lossy["flags"]
 assert mod.FEATURES["harmony.hpcp_entropy"] == "tonal.hpcp_entropy.mean"
 print("PASS: source album mismatch, recording quality flag and descriptor paths")
+
+
+# Bounded candidate resolver must preserve quality ordering; no source is
+# certified as the intended master purely because its tags match.
+sys.path.insert(0, str(ROOT / "tools"))
+from resolve_candidates import quality_score
+q_good = {"flags": [], "lossless": True, "bit_rate": 0}
+q_320 = {"flags": [], "lossless": False, "bit_rate": 320000}
+q_128 = {"flags": ["lossy_low_bitrate"], "lossless": False, "bit_rate": 128000}
+q_bad_album = {"flags": ["source_album_mismatch"], "lossless": True}
+q_missing = {"flags": ["insufficient_source_tags"], "lossless": False}
+assert quality_score(q_good) == 115
+assert quality_score(q_320) == 100
+assert quality_score(q_128) == 60
+assert quality_score(q_bad_album) < 0
+assert quality_score(q_missing) < 0
+assert quality_score(q_good) > quality_score(q_320) > quality_score(q_128)
+assert quality_score(None) < quality_score(q_bad_album)
+print("PASS: bounded candidate survey prioritizes evidence and flags wrong editions")
