@@ -1,0 +1,48 @@
+name: AcousticBrainz 25-song coverage audit
+on:
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: "Audit six pilot songs or all 25"
+        required: true
+        type: choice
+        options:
+          - pilot_6
+          - all_25
+        default: pilot_6
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate 25-song registry
+        run: python research/acousticbrainz/tools/test_registry.py
+      - name: Collect candidate evidence from MusicBrainz and AcousticBrainz
+        run: python research/acousticbrainz/tools/audit25.py --scope "${{ inputs.scope }}" --timeout 10 --output research/acousticbrainz/results/github_run
+      - name: Report summary
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path("research/acousticbrainz/results/github_run/coverage_report.json")
+          if p.exists():
+              print(json.dumps(json.loads(p.read_text())["summary"],indent=2))
+          else:
+              print("No coverage_report.json produced; inspect logs.")
+          PY
+      - name: Save coverage artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: acousticbrainz-25-song-coverage-${{ github.run_number }}
+          path: research/acousticbrainz/results/github_run/
+          retention-days: 30
+          if-no-files-found: warn
