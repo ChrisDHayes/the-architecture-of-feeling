@@ -9,7 +9,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 rows = list(csv.DictReader((ROOT / "data/target_25_recordings.csv").open(encoding="utf-8")))
 assert len(rows) == 25, len(rows)
 assert len({r["track_id"] for r in rows}) == 25
-assert len([r for r in rows if int(r["year"]) > 2022]) == 1
+assert len([r for r in rows if int(r["year"]) > 2022]) == 0
 spec = importlib.util.spec_from_file_location("audit25", ROOT / "tools/audit25.py")
 mod = importlib.util.module_from_spec(spec)
 sys.modules[spec.name] = mod
@@ -19,7 +19,17 @@ assert len(pilots) == 6
 assert pilots == {"Everything Counts", "Never Let Me Down Again", "Enjoy the Silence",
                   "In Your Room", "It's No Good", "World in My Eyes"}
 assert "Wagging Tongue" not in pilots
-assert any(r["title"] == "Wagging Tongue" for r in rows)  # still part of 25-song collection
+assert not any(r["title"] == "Wagging Tongue" for r in rows)
+barrel = next(r for r in rows if r["title"] == "Barrel of a Gun")
+assert barrel["track_id"] == "a09_t01" and barrel["album"] == "Ultra" and barrel["year"] == "1997"
+assert not any(r["title"] == "Barrel of a Gun" and r["is_pilot"] == "True" for r in rows)
+focus_names = {"Barrel of a Gun", "Mercy in You", "Higher Love"}
+assert all(len([r for r in rows if r["title"] == name]) == 1 for name in focus_names)
+with (ROOT / "data/focus_tracks.csv").open(encoding="utf-8", newline="") as fh:
+    focus_rows = list(csv.DictReader(fh))
+assert len(focus_rows) == 3
+assert {r["track_id"] for r in focus_rows} == {"a09_t01", "a08_t04", "a08_t10"}
+assert {r["title"] for r in focus_rows} == focus_names
 assert all(int(r["year"]) <= 2022 for r in rows if r["title"] in pilots)
 world = next(r for r in rows if r["title"] == "World in My Eyes")
 assert world["legacy_candidate_mbid"] == "26f7bb0d-133d-4811-a8bf-0ff930c5a11a"
