@@ -36,6 +36,8 @@ jobs:
           AUDIT_SCOPE: ${{ inputs.scope || 'all_25' }}
         run: |
           python research/acousticbrainz/tools/audit25.py --scope "$AUDIT_SCOPE" --timeout 10 --output research/acousticbrainz/results/github_run
+      - name: Review alternate album-linked recording candidates
+        run: python research/acousticbrainz/tools/resolve_candidates.py --output research/acousticbrainz/results/github_run --timeout 10 --max-candidates 4
       - name: Report full and pilot summaries
         if: always()
         run: |
