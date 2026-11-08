@@ -1,0 +1,81 @@
+name: Depeche Mode full-catalogue acoustic evidence discovery
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "research/catalogue/**"
+      - ".github/workflows/full-catalogue-acoustic-evidence.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: catalogue-expansion-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    name: Album batch ${{ matrix.batch }} · candidate evidence
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        batch: ['01','02','03','04','05']
+    steps:
+      - name: Checkout research repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test catalogue identity and fail-closed evidence gates
+        run: python research/catalogue/tools/test_catalogue_coverage.py
+      - name: Search historical MusicBrainz and AcousticBrainz submissions
+        run: |
+          python research/catalogue/tools/catalogue_coverage.py \
+            --batch '${{ matrix.batch }}' \
+            --timeout 12 \
+            --max-candidates 4 \
+            --output 'research/catalogue/results/batch-${{ matrix.batch }}'
+      - name: Retain original CC0 source receipts for private scientific review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: catalogue-expansion-batch-${{ matrix.batch }}
+          path: research/catalogue/results/batch-${{ matrix.batch }}/
+          retention-days: 30
+          if-no-files-found: warn
+
+  combine:
+    name: Merge all 167 catalogue entry statuses
+    needs: discover
+    if: ${{ needs.discover.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Download five candidate-evidence batches
+        uses: actions/download-artifact@v4
+        with:
+          pattern: catalogue-expansion-batch-*
+          path: _incoming
+          merge-multiple: false
+      - name: Join evidence without declaring scientific comparability
+        run: |
+          python research/catalogue/tools/merge_catalogue_coverage.py \
+            --artifacts-dir _incoming \
+            --output research/catalogue/results/combined
+      - name: Archive full-catalogue coverage and missingness register
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-catalogue-167-coverage-index
+          path: research/catalogue/results/combined/
+          retention-days: 90
+          if-no-files-found: error
