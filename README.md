@@ -3,6 +3,15 @@
 
 An interactive investigation into sonic identity, the patterns we can measure, and what music means to human listeners.
 
+## Editions and research progress
+
+**V2.9 — locked creative baseline.** An unchanged, SHA-256 verified copy lives at [V2.9 archived HTML](docs/archive/v2-9/index.html). Its sonic tree, fictional acoustic descriptors and emotional relationships are illustrative.
+
+**V3.0 — measured research beta.** [Open V3.0 HTML source](docs/previews/v3-measured-beta/index.html) (download the raw HTML file and open it locally to run the interactive experience). This preserves the story and adds source-linked acoustic measurements for 148/167 catalogue entries, with missingness, codec/extractor filters and recording receipts. It **does not claim that the synthetic tree is measured**, nor that archived recordings are independently verified masters.
+
+[Read V3 methods and publication gates](docs/V3_MEASURED_BETA_README.md). V3 is deliberately not promoted to the live homepage pending scientific and editorial QA. GitHub's file browser shows HTML *source*, not the running experience. A separate Pages deployment is required for a one-click website.
+
+
 **Research state:** Creative experience **V2.9 is locked and unchanged**. The acoustic workbench is an independent research preview. Real AcousticBrainz submitted-file descriptors are **not validated studio masters** and are **not approved for acoustic clustering, mood inference, or catalogue-wide claims**.
 
 ## Open the interactive experience
