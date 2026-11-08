@@ -45,6 +45,13 @@ jobs:
           python research/acousticbrainz/tools/validate_measured_evidence.py \
             --artifact-dir research/acousticbrainz/results/github_run \
             --output research/acousticbrainz/results/github_run/evidence_qa
+      - name: Test measured-source evidence explorer
+        run: python research/acousticbrainz/tools/test_evidence_explorer.py
+      - name: Create offline source-descriptor evidence lab
+        run: |
+          python research/acousticbrainz/tools/build_evidence_explorer.py \
+            --qa-dir research/acousticbrainz/results/github_run/evidence_qa \
+            --output research/acousticbrainz/results/github_run/evidence_qa/Measured_Evidence_Lab.html
       - name: Report full and pilot summaries
         if: always()
         run: |
