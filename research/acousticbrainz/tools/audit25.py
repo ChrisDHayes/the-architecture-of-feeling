@@ -16,13 +16,19 @@ import urllib.request
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 MBID = re.compile(r"^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$")
 PILOT = {"Everything Counts", "Never Let Me Down Again", "Enjoy the Silence", "In Your Room", "It's No Good", "Wagging Tongue"}
+# These are direct source descriptors. They are NOT normalized V2.9 features.
+# Names with proxy/candidate deliberately do not assert exact semantic equivalence.
 FEATURES = {
     "rhythm.tempo": "rhythm.bpm",
     "rhythm.onset_density": "rhythm.onset_rate",
+    "rhythm.beat_histogram_peak_spread": "rhythm.bpm_histogram_first_peak_spread.mean",
     "timbre.spectral_centroid": "lowlevel.spectral_centroid.mean",
-    "timbre.spectral_flatness": "lowlevel.spectral_flatness.mean",
+    "timbre.spectral_flux": "lowlevel.spectral_flux.mean",
+    "timbre.barkbands_flatness_db": "lowlevel.barkbands_flatness_db.mean",
+    "harmony.hpcp_entropy": "tonal.hpcp_entropy.mean",
     "harmony.tonal_change_candidate_proxy": "tonal.chords_changes_rate",
     "dynamics.loudness": "lowlevel.average_loudness",
+    "dynamics.dynamic_complexity": "lowlevel.dynamic_complexity",
 }
 UNRESOLVED = ["rhythm.pulse_regularity", "timbre.mfcc_dispersion", "harmony.chroma_entropy",
               "harmony.pitch_class_contrast", "dynamics.crest_factor", "dynamics.structural_novelty"]
@@ -82,6 +88,51 @@ def value_at(doc, path):
         node = node[part]
     return node if type(node) in (float, int) else None
 
+def first_tag(tags, key):
+    value = tags.get(key)
+    return str(value[0]) if isinstance(value, list) and value else (str(value) if value else "")
+
+def inspect_submission(doc, requested_title, requested_album, recording_id):
+    """Assess tags from the *submitted audio*, not the many MusicBrainz releases."""
+    meta = doc.get("metadata", {}) if isinstance(doc, dict) else {}
+    tags = meta.get("tags", {})
+    audio = meta.get("audio_properties", {})
+    source_title = first_tag(tags, "title")
+    source_album = first_tag(tags, "album")
+    source_file = first_tag(tags, "file_name")
+    source_mbid = first_tag(tags, "musicbrainz_recordingid")
+    codec = audio.get("codec", "")
+    bit_rate = audio.get("bit_rate")
+    lossless = audio.get("lossless")
+    flags = []
+    if not source_title or not source_album:
+        flags.append("insufficient_source_tags")
+    if source_album and normal(source_album) != normal(requested_album):
+        flags.append("source_album_mismatch")
+    if source_title and normal(source_title) != normal(requested_title):
+        flags.append("source_title_or_version_mismatch")
+    if source_mbid and source_mbid != recording_id:
+        flags.append("source_mbid_mismatch")
+    # A matching album and song title can still be a reissue or remaster.
+    # A file-name version suffix deserves human inspection.
+    if re.search(r"(?i)(?:\bremix\b|\blive\b|\bdemo\b|\bacoustic\b|\bedit\b|\bextended\b|\bversion\b)", source_file):
+        flags.append("file_name_version_qualifier")
+    if lossless is False and isinstance(bit_rate, int) and bit_rate < 192000:
+        flags.append("lossy_low_bitrate")
+    if flags:
+        verdict = ("source_mismatch_needs_replacement"
+                   if any(f in flags for f in ("source_album_mismatch", "source_title_or_version_mismatch", "source_mbid_mismatch"))
+                   else "album_track_candidate_needs_quality_review")
+    else:
+        verdict = "album_track_candidate_not_master_verified"
+    return {
+        "verdict": verdict, "flags": flags, "source_title": source_title,
+        "source_album": source_album, "source_file_name": source_file,
+        "source_recording_mbid": source_mbid, "source_length_seconds": audio.get("length"),
+        "codec": codec, "lossless": lossless, "bit_rate": bit_rate,
+        "essentia_version": meta.get("version", {}).get("essentia")
+    }
+
 def run(scope, timeout, output):
     output = pathlib.Path(output)
     output.mkdir(parents=True, exist_ok=True)
@@ -139,6 +190,7 @@ def run(scope, timeout, output):
             path.write_text(json.dumps(doc, indent=2, ensure_ascii=False), encoding="utf-8")
             entry[label + "_file"] = str(path.relative_to(output))
             if label == "lowlevel":
+                entry["submission_quality"] = inspect_submission(doc, row["title"], row["album"], mbid)
                 entry["measurement_values"] = {
                     name: {"source_path": feat, "source_value": value_at(doc, feat)}
                     for name, feat in FEATURES.items()
@@ -156,18 +208,31 @@ def run(scope, timeout, output):
             "highlevel_retrieved": sum(r["highlevel_status"] == "retrieved" for r in results),
             "outside_archive_window": sum(not r["archive_eligible_by_release_year"] for r in results),
             "needs_recording_review": sum(r["selected_mbid"] is None for r in results if r["archive_eligible_by_release_year"]),
+            "retrieved_with_source_mismatch": sum(
+                r.get("submission_quality", {}).get("verdict") == "source_mismatch_needs_replacement"
+                for r in results),
+            "retrieved_with_quality_flags": sum(bool(r.get("submission_quality", {}).get("flags")) for r in results),
         }, "records": results
     }
     (output / "coverage_report.json").write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
     (output / "musicbrainz_candidates.json").write_text(json.dumps(candidates_all, indent=2, ensure_ascii=False), encoding="utf-8")
     fields = ["track_id", "title", "album", "year", "selected_mbid",
               "selected_identity_status", "musicbrainz_status", "candidate_count",
-              "lowlevel_status", "highlevel_status"]
+              "lowlevel_status", "highlevel_status", "source_album", "source_title",
+              "source_quality_verdict", "source_quality_flags"]
     with (output / "coverage_report.csv").open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fields)
         writer.writeheader()
         for r in results:
-            writer.writerow({k: r.get(k, "") for k in fields})
+            row = {k: r.get(k, "") for k in fields}
+            quality = r.get("submission_quality", {})
+            row.update({
+                "source_album": quality.get("source_album", ""),
+                "source_title": quality.get("source_title", ""),
+                "source_quality_verdict": quality.get("verdict", ""),
+                "source_quality_flags": ";".join(quality.get("flags", [])),
+            })
+            writer.writerow(row)
     print(json.dumps(report["summary"], indent=2))
     return report
 
