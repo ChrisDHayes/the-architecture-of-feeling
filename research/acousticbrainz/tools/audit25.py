@@ -197,6 +197,25 @@ def run(scope, timeout, output):
                     for name, feat in FEATURES.items()
                 }
         results.append(entry)
+    # Summarize the same fetched records for the six curated pilot tracks.
+    # The pilot is a subset of the all-25 audit, not a second API run.
+    with (ROOT / "data" / "target_25_recordings.csv").open(newline="", encoding="utf-8") as f:
+        registry = list(csv.DictReader(f))
+    pilot_ids = {r["track_id"] for r in registry if r["is_pilot"].strip().lower() == "true"}
+    assert len(pilot_ids) == 6, "Exactly six pilot songs required"
+    pilot_rows = [r for r in results if r["track_id"] in pilot_ids]
+    pilot_summary = {
+        "songs_in_pilot": 6,
+        "songs_in_current_result": len(pilot_rows),
+        "lowlevel_retrieved": sum(r["lowlevel_status"] == "retrieved" for r in pilot_rows),
+        "highlevel_retrieved": sum(r["highlevel_status"] == "retrieved" for r in pilot_rows),
+        "unresolved_recording_identity": sum(
+            r.get("selected_mbid") is None for r in pilot_rows),
+        "source_mismatches": sum(
+            r.get("submission_quality", {}).get("verdict") == "source_mismatch_needs_replacement"
+            for r in pilot_rows),
+        "quality_flagged": sum(bool(r.get("submission_quality", {}).get("flags")) for r in pilot_rows),
+    }
     report = {
         "schema": "architecture-of-feeling.acousticbrainz-25-coverage.v1",
         "generated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
@@ -213,10 +232,16 @@ def run(scope, timeout, output):
                 r.get("submission_quality", {}).get("verdict") == "source_mismatch_needs_replacement"
                 for r in results),
             "retrieved_with_quality_flags": sum(bool(r.get("submission_quality", {}).get("flags")) for r in results),
-        }, "records": results
+        }, "pilot_summary": pilot_summary, "records": results
     }
     (output / "coverage_report.json").write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
     (output / "musicbrainz_candidates.json").write_text(json.dumps(candidates_all, indent=2, ensure_ascii=False), encoding="utf-8")
+    (output / "pilot_summary.json").write_text(json.dumps({
+        "schema": "architecture-of-feeling.acousticbrainz-pilot-summary.v1",
+        "summary": pilot_summary,
+        "records": pilot_rows,
+        "notice": "Pilot is a subset of the same API run. No extra fetches performed."
+    }, indent=2, ensure_ascii=False), encoding="utf-8")
     fields = ["track_id", "title", "album", "year", "selected_mbid",
               "selected_identity_status", "musicbrainz_status", "candidate_count",
               "lowlevel_status", "highlevel_status", "source_album", "source_title",
@@ -234,7 +259,8 @@ def run(scope, timeout, output):
                 "source_quality_flags": ";".join(quality.get("flags", [])),
             })
             writer.writerow(row)
-    print(json.dumps(report["summary"], indent=2))
+    print("All songs:", json.dumps(report["summary"], indent=2))
+    print("Six-song pilot subset:", json.dumps(report["pilot_summary"], indent=2))
     return report
 
 if __name__ == "__main__":
