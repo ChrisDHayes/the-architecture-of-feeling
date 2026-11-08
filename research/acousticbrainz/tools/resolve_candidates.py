@@ -79,6 +79,34 @@ def save_report(report, output):
             "records": [r for r in report["records"] if r["track_id"] in report["pilot_track_ids"]],
             "notice": "Pilot subset of same audit; no additional full-catalogue run."
         }, indent=2, ensure_ascii=False), encoding="utf-8")
+    # Focus songs are an editorial review subset of this same 25-song run.
+    # No extra API calls or new analysis features are invented here.
+    with (ROOT / "data/focus_tracks.csv").open(encoding="utf-8", newline="") as fh:
+        focus_registry = list(csv.DictReader(fh))
+    assert len(focus_registry) == 3 and len({x["track_id"] for x in focus_registry}) == 3
+    by_id = {x["track_id"]: x for x in report["records"]}
+    focus_evidence = []
+    for target in focus_registry:
+        row = by_id.get(target["track_id"])
+        focus_evidence.append({
+            "track_id": target["track_id"],
+            "title": target["title"], "album": target["album"],
+            "priority_group": target["priority_group"],
+            "reason": target["reason"],
+            "checked_in_scope": row is not None,
+            "selected_mbid": row.get("selected_mbid") if row else None,
+            "lowlevel_status": row.get("lowlevel_status") if row else "not_checked",
+            "highlevel_status": row.get("highlevel_status") if row else "not_checked",
+            "source_quality": row.get("submission_quality") if row else None,
+            "measurement_values": row.get("measurement_values") if row else {},
+            "identity_gate": "requires_independent_studio_master_review",
+        })
+    (output / "focus_tracks_review.json").write_text(json.dumps({
+        "schema": "architecture-of-feeling.focus-acoustic-review.v1",
+        "source": "Same retrieval as coverage_report.json. No extra audio or API calls.",
+        "normalization_status": "not_started",
+        "records": focus_evidence
+    }, indent=2, ensure_ascii=False), encoding="utf-8")
     columns = ["track_id", "title", "album", "year", "selected_mbid",
                "selected_identity_status", "musicbrainz_status", "candidate_count",
                "lowlevel_status", "highlevel_status", "source_album", "source_title",
