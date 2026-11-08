@@ -15,7 +15,7 @@ import urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 MBID = re.compile(r"^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$")
-PILOT = {"Everything Counts", "Never Let Me Down Again", "Enjoy the Silence", "In Your Room", "It's No Good", "Wagging Tongue"}
+# The six-song pilot is defined solely by the CSV is_pilot column.
 # These are direct source descriptors. They are NOT normalized V2.9 features.
 # Names with proxy/candidate deliberately do not assert exact semantic equivalence.
 FEATURES = {
@@ -142,7 +142,8 @@ def run(scope, timeout, output):
         rows = list(csv.DictReader(f))
     assert len(rows) == 25 and len({r["track_id"] for r in rows}) == 25
     if scope == "pilot_6":
-        rows = [r for r in rows if r["title"] in PILOT]
+        rows = [r for r in rows if r["is_pilot"].strip().lower() == "true"]
+        assert len(rows) == 6 and len({r["track_id"] for r in rows}) == 6, "Pilot registry must specify six unique songs"
     results, candidates_all = [], []
     last_mb_request = 0.0
     for row in rows:
