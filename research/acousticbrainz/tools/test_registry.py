@@ -14,7 +14,16 @@ spec = importlib.util.spec_from_file_location("audit25", ROOT / "tools/audit25.p
 mod = importlib.util.module_from_spec(spec)
 sys.modules[spec.name] = mod
 spec.loader.exec_module(mod)
-assert len(mod.PILOT) == 6
+pilots = {r["title"] for r in rows if r["is_pilot"].strip().lower() == "true"}
+assert len(pilots) == 6
+assert pilots == {"Everything Counts", "Never Let Me Down Again", "Enjoy the Silence",
+                  "In Your Room", "It's No Good", "World in My Eyes"}
+assert "Wagging Tongue" not in pilots
+assert any(r["title"] == "Wagging Tongue" for r in rows)  # still part of 25-song collection
+assert all(int(r["year"]) <= 2022 for r in rows if r["title"] in pilots)
+world = next(r for r in rows if r["title"] == "World in My Eyes")
+assert world["legacy_candidate_mbid"] == "26f7bb0d-133d-4811-a8bf-0ff930c5a11a"
+assert world["candidate_identity_status"].endswith("submission_unverified")
 assert mod.normal("Depeche Mode") == "depechemode"
 assert mod.value_at({"rhythm":{"bpm":123}}, "rhythm.bpm") == 123
 assert mod.value_at({"rhythm":{}}, "rhythm.bpm") is None
