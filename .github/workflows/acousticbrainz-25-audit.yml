@@ -38,6 +38,13 @@ jobs:
           python research/acousticbrainz/tools/audit25.py --scope "$AUDIT_SCOPE" --timeout 10 --output research/acousticbrainz/results/github_run
       - name: Review alternate album-linked recording candidates
         run: python research/acousticbrainz/tools/resolve_candidates.py --output research/acousticbrainz/results/github_run --timeout 10 --max-candidates 4
+      - name: Run measured-evidence QA regression tests
+        run: python research/acousticbrainz/tools/test_measured_evidence.py
+      - name: Validate source descriptors, provenance and unapproved research status
+        run: |
+          python research/acousticbrainz/tools/validate_measured_evidence.py \
+            --artifact-dir research/acousticbrainz/results/github_run \
+            --output research/acousticbrainz/results/github_run/evidence_qa
       - name: Report full and pilot summaries
         if: always()
         run: |
