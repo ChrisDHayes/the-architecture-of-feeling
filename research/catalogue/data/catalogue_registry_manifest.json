@@ -1,0 +1,32 @@
+{
+  "schema": "architecture-of-feeling.full-catalogue-registry.v1",
+  "source": "The Architecture of Feeling V2.9 catalogue metadata, NOT synthetic features",
+  "original_v29_html_sha256": "3ba59e0030951051bcc4842fb2471b08a306dcb1aa838cdf1a9d06a8166eac21",
+  "data_origin": "embedded DATA.albums and DATA.tracks only; numeric f/energy/darkness/space deliberately discarded",
+  "population": {
+    "album_count": 15,
+    "studio_core": 166,
+    "edition_extension": 1,
+    "total": 167
+  },
+  "previous_research_registry_count": 25,
+  "new_target_count": 142,
+  "eligible_for_historical_archive_lookup": 130,
+  "outside_2022_archive_window": 12,
+  "batch_counts": {
+    "01": 29,
+    "02": 25,
+    "03": 15,
+    "04": 36,
+    "05": 37
+  },
+  "batch_eligible_counts": {
+    "01": 29,
+    "02": 25,
+    "03": 15,
+    "04": 36,
+    "05": 25
+  },
+  "not_a_complete_acoustic_dataset": true,
+  "rights": "No commercial audio included. AcousticBrainz CC0 descriptors only; every source/master requires independent quality review."
+}
