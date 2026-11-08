@@ -1,0 +1,119 @@
+name: Publish The Architecture of Feeling — Research Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/publish-research-pages.yml"
+      - "docs/index.html"
+      - "docs/research/acousticbrainz/**"
+  workflow_run:
+    workflows: ["AcousticBrainz 25-song coverage audit"]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: architecture-of-feeling-public-pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    # Only successful main-branch research runs may refresh the public site.
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      (github.event_name != 'workflow_run' ||
+       (github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_branch == 'main'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout the latest main research snapshot
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+
+      - name: Validate and prepare public-only files
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+          from shutil import copyfile
+
+          docs = Path("docs")
+          page = docs / "research/acousticbrainz/Measured_Evidence_Lab.html"
+          manifest_path = docs / "research/acousticbrainz/preview_manifest.json"
+          index = docs / "index.html"
+
+          for p in (page, manifest_path, index):
+              if not p.is_file() or not p.stat().st_size:
+                  raise SystemExit(f"Missing required public research asset: {p}")
+
+          m = json.loads(manifest_path.read_text(encoding="utf-8"))
+          content = page.read_bytes()
+          actual_sha = hashlib.sha256(content).hexdigest()
+          if actual_sha != m.get("html_sha256"):
+              raise SystemExit("HTML hash differs from evidence manifest")
+          if m.get("schema") != "architecture-of-feeling.research-preview.v1":
+              raise SystemExit("Unexpected evidence manifest schema")
+          if m.get("status") != "EXPLORATORY_UNAPPROVED":
+              raise SystemExit("Public preview must be labelled exploratory/unapproved")
+          if m.get("approval") != "NOT_APPROVED_FOR_SONIC_SIMILARITY_OR_PUBLICATION":
+              raise SystemExit("Unreviewed scientific claims cannot be published as approved")
+          if m.get("songs_registered") != 25:
+              raise SystemExit("Expected a 25-song registry, including explicit missing values")
+          n = m.get("records_retrieved")
+          if not isinstance(n, int) or n < 20 or m.get("records_feature_parity_checked") != n:
+              raise SystemExit("Insufficient retrieval coverage or source-value parity")
+          if b"EXPLORATORY_UNAPPROVED" not in content:
+              raise SystemExit("Missing research status in HTML")
+          if b"Measured Evidence Lab" not in content:
+              raise SystemExit("Expected exhibit title not found")
+          if "The Architecture of Feeling" not in index.read_text(encoding="utf-8"):
+              raise SystemExit("Public landing page is incomplete")
+
+          # Fail-closed allowlist: no source JSON archive, private scripts, audio, or lyrics.
+          site = Path("_public_site")
+          target = site / "research/acousticbrainz"
+          target.mkdir(parents=True, exist_ok=True)
+          copyfile(index, site / "index.html")
+          copyfile(page, target / "Measured_Evidence_Lab.html")
+          copyfile(manifest_path, target / "preview_manifest.json")
+          (site / ".nojekyll").touch()
+          staged = {p.relative_to(site).as_posix() for p in site.rglob("*") if p.is_file()}
+          expected = {
+            ".nojekyll", "index.html",
+            "research/acousticbrainz/Measured_Evidence_Lab.html",
+            "research/acousticbrainz/preview_manifest.json",
+          }
+          if staged != expected:
+              raise SystemExit("Unexpected public files detected")
+          print(f"Public-site package staged: {len(staged)} files; {n}/25 evidence sources; UNAPPROVED")
+          PY
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload only allowlisted public site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _public_site
+
+      - name: Deploy research site
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Report live research site URL
+        if: success()
+        run: echo "Published ${{ steps.deployment.outputs.page_url }}"
