@@ -13,7 +13,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-ROOT = pathlib.Path(__file__).resolve().parents[2]
+ROOT = pathlib.Path(__file__).resolve().parents[1]
 MBID = re.compile(r"^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$")
 PILOT = {"Everything Counts", "Never Let Me Down Again", "Enjoy the Silence", "In Your Room", "It's No Good", "Wagging Tongue"}
 FEATURES = {
