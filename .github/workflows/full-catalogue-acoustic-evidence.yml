@@ -4,8 +4,8 @@ on:
   push:
     branches: [main]
     paths:
-      - "research/catalogue/**"
-      - ".github/workflows/full-catalogue-acoustic-evidence.yml"
+      - "research/catalogue/data/**"
+      - "research/catalogue/tools/catalogue_coverage.py"
   workflow_dispatch:
 
 permissions:
