@@ -3,6 +3,12 @@
 
 An interactive investigation into sonic identity, the patterns we can measure, and what music means to human listeners.
 
+## Public interactive website — owner activation required
+
+The repository now includes a [GitHub Pages Actions deployment workflow](.github/workflows/publish-interactive-pages.yml) and a [one-time setup guide](docs/GITHUB_PAGES_SETUP.md). The landing page will link directly to V2.9, the V3.0 measured research beta, and the 25-song Evidence Lab when public hosting is enabled.
+
+**The website is not yet confirmed live.** In **Settings → Pages**, select **GitHub Actions** as the deployment source, then run **Actions → Publish The Architecture of Feeling interactive research website** (if needed). The site URL must be verified after a successful deployment. The repository can remain private while Pages may be publicly visible, depending on GitHub plan/settings.
+
 ## Editions and research progress
 
 **V2.9 — locked creative baseline.** An unchanged, SHA-256 verified copy lives at [V2.9 archived HTML](docs/archive/v2-9/index.html). Its sonic tree, fictional acoustic descriptors and emotional relationships are illustrative.
