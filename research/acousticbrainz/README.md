@@ -16,7 +16,7 @@ Once this branch is reviewed and the workflow added to `main`, open **GitHub →
 
 ## Data readiness and interpretation
 
-- A 2022 archive cannot contain a recording released in 2023, so *Wagging Tongue* is excluded from archival availability checks.
+- The revised 25-song target list (November 2026) now ends in 2005, after replacing *Wagging Tongue* (2023) with *Barrel of a Gun* (1997). Older run artifacts retain their original historical song selection.
 - MusicBrainz recording IDs are not proof of a unique edition/master; candidates must undergo independent review.
 - AcousticBrainz submission availability is unknown until an actual successful network response. A network error is **not** evidence of absence.
 - The acoustic descriptors are not yet V2.9's twelve 0–1 features. Normalization and methodology validation are separate research gates.
@@ -41,7 +41,7 @@ Re-run the existing workflow after merging this patch with `pilot_6`; review `co
 
 ## Pilot update — World in My Eyes (November 2026)
 
-The `pilot_6` scope now covers **Everything Counts, Never Let Me Down Again, Enjoy the Silence, World in My Eyes, In Your Room, and It's No Good**. *Wagging Tongue* remains one of the complete 25 editorial songs and is still outside the archive's pre-2023 acquisition range, but is **not** included in the six-song AcousticBrainz pilot. This change improves the feasibility of obtaining six historical low- and high-level records.
+The `pilot_6` scope covers **Everything Counts, Never Let Me Down Again, Enjoy the Silence, World in My Eyes, In Your Room, and It's No Good**. At the time of that November pilot change, *Wagging Tongue* was still in the 25-song collection. A later curation revision replaced it with *Barrel of a Gun* in the 25-song acoustic registry, while retaining the six-song pilot.
 
 The selected provisional AcousticBrainz recording candidate for *World in My Eyes* is [26f7bb0d-133d-4811-a8bf-0ff930c5a11a](https://acousticbrainz.org/26f7bb0d-133d-4811-a8bf-0ff930c5a11a), listed as a 4:26 *Violator* track. Its individual submission's source file still requires the edition/codec/quality checks introduced in PR #2; **an artist/album match does not validate the master**. The pilot is driven by the `is_pilot` column of the 25-song registry to avoid maintaining two inconsistent lists.
 
@@ -64,3 +64,13 @@ The current workflow extends the **same GitHub Actions run** with `tools/resolve
 Selection is **provisional**, not final identity confirmation. A song may get multiple candidate submissions, including wrong versions or lossy sources. Submitted-file title, album, MBID (when present), filename and basic codec quality are used to rank candidates; preference is given to matching lossless audio. Missing tags, explicit version qualifiers and incorrect albums are flagged rather than silently approved. Song-level descriptors and high-level predictions are retained only with source-identifying metadata and explicit unresolved methodological limitations.
 
 **Publication gate:** Neither the retrieved measurements nor any visualizations should be described as comparable studio-master fingerprints until version selection, extractor comparability and feature normalization pass independent QA. No copyright-protected audio enters the repository and the V2.9 experience remains unchanged.
+
+## Current editorial selection — Barrel of a Gun, Mercy in You, Higher Love
+
+The authoritative **25-song acoustic research registry** now includes *Barrel of a Gun* (1997, `Ultra`, opening track) **in place of** *Wagging Tongue* (2023, `Memento Mori`). This is one replacement, not an expansion to 26. [Official Ultra tracklisting](https://archives.depechemode.com/discography/albums/14_ultra.html).
+
+*Mercy in You* and *Higher Love* were **already present** in the 25-song registry under `a08_t04` and `a08_t10`, respectively. The earlier GitHub Actions run #3 successfully acquired low-level and high-level data for both from lossless ALAC submissions tagged with `Songs of Faith and Devotion`. These are promising candidates, not verified individual studio masters. [Official Songs of Faith and Devotion tracklisting](https://archives.depechemode.com/discography/albums/12_songsoffaithanddevotion.html).
+
+For the **next one-pass GitHub Actions audit**, `data/focus_tracks.csv` marks all three as prioritized for editorial and source-quality review. The resolver writes `focus_tracks_review.json` into the **same downloadable artifact**, reporting source identity, source-quality flags and measured descriptor values where retrieved. No additional network run, separate audio file or automatically normalized feature is created for the focus trio.
+
+The **six-song scientific pilot remains unchanged**, while the curated **25-song acoustic research list changes**. This update does not modify the previously locked V2.9 HTML exhibit or older concert/fan publication datasets; those remain separate, versioned artifacts that would require coordinated updates before a new public exhibition release.
