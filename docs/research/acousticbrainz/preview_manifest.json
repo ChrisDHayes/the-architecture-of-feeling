@@ -1,0 +1,29 @@
+{
+  "schema": "architecture-of-feeling.research-preview.v1",
+  "status": "EXPLORATORY_UNAPPROVED",
+  "approval": "NOT_APPROVED_FOR_SONIC_SIMILARITY_OR_PUBLICATION",
+  "source": "AcousticBrainz historical precomputed submitted-file descriptors",
+  "git_source_commit": "f475d27c9600e9e0abb00a6691aa785d79e3654c",
+  "github_run_id": "42452474436",
+  "source_run_utc": "2026-11-08T05:53:39.685591+00:00",
+  "songs_registered": 25,
+  "records_retrieved": 24,
+  "records_feature_parity_checked": 24,
+  "lossless_recordings_tagged": 17,
+  "lossy_recordings_tagged": 7,
+  "essentia_versions": [
+    "2.1-beta1",
+    "2.1-beta2"
+  ],
+  "html_sha256": "47530a798c07db6ca3395555d8732d178bd882040e44264dcc972629b0bd1071",
+  "evidence_qa_summary_sha256": "e3b9177fc480b873a75b4b7f714f2e6aaa2cefe53b5374a53d57cb8267ed72e9",
+  "evidence_receipts_sha256": "7788e3c806407610c863e91ae9eb85ff1ec56609dbd2140350f285304bef76d7",
+  "source_observations_sha256": "e12af8dd91ed7f8e5d7fa664d8631b9929f01cf6e9e963fa582d0a1c4fc684b6",
+  "notes": [
+    "All 25 songs are represented; missing sources remain explicitly missing.",
+    "Neither recording/master identity nor cross-extractor comparability has been independently approved.",
+    "Values remain original-source descriptors; no measured sonic-family clustering claims.",
+    "No raw AcousticBrainz JSON, recordings, lyrics, or images are copied by this step.",
+    "V2.9 interactive creative edition is not modified."
+  ]
+}
