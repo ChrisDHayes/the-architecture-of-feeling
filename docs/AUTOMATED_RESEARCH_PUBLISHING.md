@@ -29,7 +29,9 @@ The HTML contains exploratory source descriptor values already present in the re
 ## Viewing and optional Pages publishing
 - Immediately after a successful run, visit the HTML file inside GitHub at `docs/research/acousticbrainz/Measured_Evidence_Lab.html`, or download it from the raw-file view. GitHub's code browser is not a guaranteed interactive HTML host.
 - `docs/index.html` is a landing page ready for an optional GitHub Pages site.
-- **Do not assume GitHub Pages is enabled**. The owner can examine **Settings → Pages** and, if appropriate, select a branch deployment from **main /docs**. Availability depends on account/repo settings; a Pages site may be **public even for a private repository**.
+- **Do not assume GitHub Pages is enabled**. The owner can examine **Settings → Pages** and, if appropriate, configure a publishing source. Availability depends on account/repo settings; a Pages site may be **public even for a private repository**.
+- **Critical deployment gap:** GitHub documents that a commit pushed using the Actions `GITHUB_TOKEN` **will not trigger a GitHub Pages build**. Our existing automated preview commit therefore keeps `docs/research/acousticbrainz/Measured_Evidence_Lab.html` up to date in the repository but does **not automatically refresh a live Pages site**. For true hands-off live publishing, use an explicit Pages deployment workflow (after separately authorizing website visibility) or a carefully reviewed alternate trigger.
+- To open the experience **now**, download the HTML file from GitHub's source view and open it locally. GitHub `blob/main/` links show source code, not a running app.
 - For an eventual public research exhibit, retain the explicit unapproved label and revisit intellectual property, master comparability, methodology, accessibility and editorial review before presenting measured relationships as findings.
 
 ## Reproduce locally
