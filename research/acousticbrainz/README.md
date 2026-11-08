@@ -32,3 +32,9 @@ Once this branch is reviewed and the workflow added to `main`, open **GitHub →
 - Workflow results are **artifacts**, not commits. Avoid checking raw copies into the public project until rights and quality have been reviewed.
 
 Source documentation: [AcousticBrainz API](https://acousticbrainz.readthedocs.io/api.html) · [MusicBrainz recording search](https://musicbrainz.org/doc/MusicBrainz_API/Search/RecordingSearch)
+
+## First real six-song run and quality gate
+
+The first successful GitHub Actions run (2026-11-08, run #1) retrieved low- and high-level AcousticBrainz JSON for five pre-2023 pilot-song candidates. These are precomputed measurements from **submitted files** and **not verified same-master audio**. Inspection of the underlying `metadata.tags` revealed that the selected `Enjoy the Silence` submission is a 7-inch version from *Singles 19–24*, not the intended *Violator* album track; the `It's No Good` submission came from a lossy 128 kbps MP3. The v2 collector now records source-tag identity mismatches, lossiness and codec, and leaves flagged sources unapproved. Retrieved candidate descriptors must not silently activate the 12-feature V2.9 bridge. The direct `lowlevel.spectral_flatness.mean` field used in the first run does not exist in this JSON, so it has been removed in favor of source-present descriptors such as `lowlevel.barkbands_flatness_db.mean` and `tonal.hpcp_entropy.mean`; these are **not** one-for-one substitutes for the original features.
+
+Re-run the existing workflow after merging this patch with `pilot_6`; review `coverage_report.json` and its `submission_quality` fields before expanding to `all_25`.
