@@ -46,3 +46,11 @@ The `pilot_6` scope now covers **Everything Counts, Never Let Me Down Again, Enj
 The selected provisional AcousticBrainz recording candidate for *World in My Eyes* is [26f7bb0d-133d-4811-a8bf-0ff930c5a11a](https://acousticbrainz.org/26f7bb0d-133d-4811-a8bf-0ff930c5a11a), listed as a 4:26 *Violator* track. Its individual submission's source file still requires the edition/codec/quality checks introduced in PR #2; **an artist/album match does not validate the master**. The pilot is driven by the `is_pilot` column of the 25-song registry to avoid maintaining two inconsistent lists.
 
 After merging this change, run GitHub Actions → AcousticBrainz 25-song coverage audit → Run workflow → `pilot_6` on `main`. Check the `submission_quality` verdict for each retrieved low-level record. *Enjoy the Silence* from the first run remains flagged as the wrong edition until replaced. V2.9 remains unchanged.
+
+## Consolidated acquisition — single run (V4)
+
+The audit is now configured to **run automatically once upon merging a change to the acoustic research directory into `main`**. The default run audits all 25 registered songs and writes `coverage_report.json`, `coverage_report.csv`, `musicbrainz_candidates.json`, retrieved source JSON and an additional `pilot_summary.json` summarizing the **six acoustic pilot songs from the same run**. The pilot subset is a view into those results; it does not cause additional network requests. A manual `workflow_dispatch` remains available when deliberately needed; choose `all_25` (default) or `pilot_6` for debugging only.
+
+**Workflow success means retrieval completed, not all recordings passed identity/quality checks.** There is no automatic merging of raw measurements into the exhibition, and the 12-feature normalized V2.9 contract remains unfilled until separately validated. GitHub Actions runs are limited by permissions and service availability; a failing network response is reported as such rather than as a missing recording.
+
+Future research updates should be batched into one reviewed change instead of repeatedly asking for manual pull-request merging. The approved workflow change will itself be merged with the connected GitHub integration and trigger the first automatic all-25 run.
