@@ -60,7 +60,7 @@ jobs:
           if hashlib.sha256(v29.read_bytes()).hexdigest()!='3ba59e0030951051bcc4842fb2471b08a306dcb1aa838cdf1a9d06a8166eac21':
               raise SystemExit('Locked V2.9 creative exhibit changed')
           v3text=v3.read_text(encoding='utf-8')
-          match=re.search(r'window\\.AOF_V3_EVIDENCE\\s*=\\s*(\\{.*?\\});\\s*const DATA\\s*=',v3text,re.S)
+          match=re.search(r'window\.AOF_V3_EVIDENCE\s*=\s*(\{.*?\});\s*const DATA\s*=',v3text,re.S)
           if not match:
               raise SystemExit('V3 evidence contract missing')
           data=json.loads(match.group(1))
