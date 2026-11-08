@@ -21,3 +21,28 @@ assert mod.value_at({"rhythm":{}}, "rhythm.bpm") is None
 assert mod.value_at({"rhythm":{"bpm":"unknown"}}, "rhythm.bpm") is None
 assert len(mod.UNRESOLVED) == 6
 print("PASS: 25 identifiers, six pilot tracks, 2022 cutoff, no fabricated descriptors")
+
+# Regression: MusicBrainz album links do not establish uploaded source identity.
+def fake(title, album, file_name, lossless=True, bit_rate=1000000):
+    return {"metadata": {"tags": {"title": [title], "album": [album],
+                                  "file_name": [file_name],
+                                  "musicbrainz_recordingid": ["1234"]},
+                         "audio_properties": {"lossless": lossless,
+                                              "bit_rate": bit_rate,
+                                              "codec": "flac" if lossless else "mp3",
+                                              "length": 260}}}
+mismatch = mod.inspect_submission(fake("Enjoy the Silence (7\"\" version)", "Singles 19-24",
+                                            "01 - Enjoy the Silence (7in version).m4a"),
+                                  "Enjoy the Silence", "Violator", "1234")
+assert mismatch["verdict"] == "source_mismatch_needs_replacement"
+assert "source_album_mismatch" in mismatch["flags"]
+good = mod.inspect_submission(fake("Everything Counts", "Construction Time Again",
+                                 "04 Everything Counts.flac"),
+                              "Everything Counts", "Construction Time Again", "1234")
+assert good["verdict"] == "album_track_candidate_not_master_verified"
+lossy = mod.inspect_submission(fake("It's No Good", "Ultra", "It's No Good.mp3",
+                                  lossless=False, bit_rate=128000),
+                               "It's No Good", "Ultra", "1234")
+assert "lossy_low_bitrate" in lossy["flags"]
+assert mod.FEATURES["harmony.hpcp_entropy"] == "tonal.hpcp_entropy.mean"
+print("PASS: source album mismatch, recording quality flag and descriptor paths")
