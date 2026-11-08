@@ -1,15 +1,21 @@
 name: AcousticBrainz 25-song coverage audit
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "research/acousticbrainz/**"
+      - ".github/workflows/acousticbrainz-25-audit.yml"
   workflow_dispatch:
     inputs:
       scope:
-        description: "Audit six pilot songs or all 25"
+        description: "Scope (automatic main-branch runs audit all 25)"
         required: true
         type: choice
         options:
-          - pilot_6
           - all_25
-        default: pilot_6
+          - pilot_6
+        default: all_25
 permissions:
   contents: read
 jobs:
@@ -25,20 +31,25 @@ jobs:
           python-version: "3.11"
       - name: Validate 25-song registry
         run: python research/acousticbrainz/tools/test_registry.py
-      - name: Collect candidate evidence from MusicBrainz and AcousticBrainz
-        run: python research/acousticbrainz/tools/audit25.py --scope "${{ inputs.scope }}" --timeout 10 --output research/acousticbrainz/results/github_run
-      - name: Report summary
+      - name: Collect acoustic evidence once
+        env:
+          AUDIT_SCOPE: ${{ inputs.scope || 'all_25' }}
+        run: |
+          python research/acousticbrainz/tools/audit25.py --scope "$AUDIT_SCOPE" --timeout 10 --output research/acousticbrainz/results/github_run
+      - name: Report full and pilot summaries
         if: always()
         run: |
           python - <<'PY'
           import json, pathlib
-          p=pathlib.Path("research/acousticbrainz/results/github_run/coverage_report.json")
+          p = pathlib.Path("research/acousticbrainz/results/github_run/coverage_report.json")
           if p.exists():
-              print(json.dumps(json.loads(p.read_text())["summary"],indent=2))
+              data = json.loads(p.read_text(encoding="utf-8"))
+              print("Overall:", json.dumps(data.get("summary", {}), indent=2))
+              print("Pilot:", json.dumps(data.get("pilot_summary", {}), indent=2))
           else:
               print("No coverage_report.json produced; inspect logs.")
           PY
-      - name: Save coverage artifacts
+      - name: Save one combined evidence artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
