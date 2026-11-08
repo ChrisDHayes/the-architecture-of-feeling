@@ -27,6 +27,16 @@ To consider GitHub Pages, see [Publishing and access notes](docs/AUTOMATED_RESEA
 - [Automated publication guide](docs/AUTOMATED_RESEARCH_PUBLISHING.md)
 - [GitHub Actions acoustic audit](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/workflows/acousticbrainz-25-audit.yml)
 
+## Catalogue-wide acoustic evidence (167 entries)
+
+The separate five-batch MusicBrainz/AcousticBrainz acquisition has now completed. It identified **124 provisional source recordings among 130 additional eligible songs**, plus six unresolved and 12 post-archive tracks. The prior 25-song study remains separate (24 retrieved candidates in its latest verified run). **None of these observations is yet certified as an exact studio master or approved for sonic similarity claims.**
+
+- [Verified full-catalogue findings and six unresolved recordings](docs/CATALOGUE_EVIDENCE_FINDINGS_2026-11-08.md)
+- [Run the interactive Catalogue Evidence Atlas](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/workflows/catalogue-evidence-review.yml) — open the latest successful run and download the `depeche-167-catalogue-evidence-atlas` artifact, then open `atlas/Catalogue_Evidence_Atlas.html` in a browser.
+- [Catalogue evidence methods and scientific controls](docs/CATALOGUE_EVIDENCE_ATLAS.md)
+
+The catalogue atlas is a separate research-only study, not a replacement for locked V2.9 or a live GitHub Pages URL.
+
 ## Automatic publishing
 
 Changes to `research/acousticbrainz/**` on `main` run GitHub Actions. The workflow collects and validates 25-song AcousticBrainz source observations, generates one offline HTML workbench, and **automatically commits only that HTML and its small provenance manifest** to `docs/research/acousticbrainz/`, subject to fail-closed QA gates. Raw low/high-level JSON remains in the timed GitHub Actions artifact and is **not committed into the publishing folder**.
