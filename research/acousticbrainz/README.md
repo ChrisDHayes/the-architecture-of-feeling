@@ -54,3 +54,13 @@ The audit is now configured to **run automatically once upon merging a change to
 **Workflow success means retrieval completed, not all recordings passed identity/quality checks.** There is no automatic merging of raw measurements into the exhibition, and the 12-feature normalized V2.9 contract remains unfilled until separately validated. GitHub Actions runs are limited by permissions and service availability; a failing network response is reported as such rather than as a missing recording.
 
 Future research updates should be batched into one reviewed change instead of repeatedly asking for manual pull-request merging. The approved workflow change will itself be merged with the connected GitHub integration and trigger the first automatic all-25 run.
+
+## Candidate resolution batch — after the first complete audit
+
+The automatic 25-song audit run #2 retrieved 7/25 low- and high-level AcousticBrainz records, including 6/6 pilot candidates; the source data identified 14 songs with multiple album-linked MusicBrainz MBIDs and three searches with transient HTTP 503 responses. These are not demonstrated acoustic-archive absences. The earlier direct selection intentionally skipped ambiguous candidates.
+
+The current workflow extends the **same GitHub Actions run** with `tools/resolve_candidates.py`. It reads the first-pass report and candidate list, checks up to four alternative album-linked AcousticBrainz submissions per unresolved or flagged song, records *all attempted candidate statuses and submitted-file metadata* in `candidate_probes.json`, and updates the aggregate report and six-song pilot summary. Temporary MusicBrainz failures get a small, bounded re-query. It does not scrape entire dumps or bulk collections.
+
+Selection is **provisional**, not final identity confirmation. A song may get multiple candidate submissions, including wrong versions or lossy sources. Submitted-file title, album, MBID (when present), filename and basic codec quality are used to rank candidates; preference is given to matching lossless audio. Missing tags, explicit version qualifiers and incorrect albums are flagged rather than silently approved. Song-level descriptors and high-level predictions are retained only with source-identifying metadata and explicit unresolved methodological limitations.
+
+**Publication gate:** Neither the retrieved measurements nor any visualizations should be described as comparable studio-master fingerprints until version selection, extractor comparability and feature normalization pass independent QA. No copyright-protected audio enters the repository and the V2.9 experience remains unchanged.
