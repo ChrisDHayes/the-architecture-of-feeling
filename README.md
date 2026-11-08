@@ -1,61 +1,43 @@
 # The Architecture of Feeling
 ### Depeche Mode, Decoded · Christopher Hayes
 
-An interactive investigation into sonic identity, the patterns we can measure, and what music means to human listeners.
+An interactive investigation into Depeche Mode's sonic identity, the patterns we can measure, and what music means to human listeners.
 
-## Public interactive website — owner activation required
+## Open the interactive experiences
 
-The repository now includes a [GitHub Pages Actions deployment workflow](.github/workflows/publish-interactive-pages.yml) and a [one-time setup guide](docs/GITHUB_PAGES_SETUP.md). The landing page will link directly to V2.9, the V3.0 measured research beta, and the 25-song Evidence Lab when public hosting is enabled.
+**[Open V3.0 — measured research beta](https://chrisdhayes.github.io/the-architecture-of-feeling/previews/v3-measured-beta/)** — hosted interactive version. This link opens the experience directly when GitHub Pages is enabled and its deployment has completed. If it is not live yet, follow the [one-time Pages setup guide](docs/GITHUB_PAGES_SETUP.md) (Settings → Pages → set the source to **GitHub Actions**, then run the publish workflow).
 
-**The website is not yet confirmed live.** In **Settings → Pages**, select **GitHub Actions** as the deployment source, then run **Actions → Publish The Architecture of Feeling interactive research website** (if needed). The site URL must be verified after a successful deployment. The repository can remain private while Pages may be publicly visible, depending on GitHub plan/settings.
+[Open V2.9 — locked creative baseline](https://chrisdhayes.github.io/the-architecture-of-feeling/archive/v2-9/) · [Open the Measured Evidence Lab](https://chrisdhayes.github.io/the-architecture-of-feeling/research/acousticbrainz/Measured_Evidence_Lab.html)
 
-## Editions and research progress
+GitHub's file viewer displays HTML source rather than running the interactive page. If Pages is not available, download the [V3.0 HTML file](docs/previews/v3-measured-beta/index.html) and open it locally in a browser.
 
-**V2.9 — locked creative baseline.** An unchanged, SHA-256 verified copy lives at [V2.9 archived HTML](docs/archive/v2-9/index.html). Its sonic tree, fictional acoustic descriptors and emotional relationships are illustrative.
+## Editions and research status
 
-**V3.0 — measured research beta.** [Open V3.0 HTML source](docs/previews/v3-measured-beta/index.html) (download the raw HTML file and open it locally to run the interactive experience). This preserves the story and adds source-linked acoustic measurements for 148/167 catalogue entries, with missingness, codec/extractor filters and recording receipts. It **does not claim that the synthetic tree is measured**, nor that archived recordings are independently verified masters.
+**V2.9 — locked creative baseline.** The original interactive experience is preserved unchanged at [V2.9 HTML](docs/archive/v2-9/index.html). Its sonic tree, acoustic descriptors, and emotional relationships are illustrative.
 
-[Read V3 methods and publication gates](docs/V3_MEASURED_BETA_README.md). V3 is deliberately not promoted to the live homepage pending scientific and editorial QA. GitHub's file browser shows HTML *source*, not the running experience. A separate Pages deployment is required for a one-click website.
+**V3.0 — measured research beta.** The beta adds source-linked acoustic observations for 148 of 167 catalogue entries, with missingness, codec/extractor filters, and recording receipts. It does **not** claim that the synthetic tree is measured or that archived recordings are independently verified studio masters. V3.0 remains exploratory and is not approved for acoustic clustering, mood inference, or catalogue-wide claims.
 
+[Read V3 methods and publication gates](docs/V3_MEASURED_BETA_README.md) · [Evidence provenance manifest](docs/research/acousticbrainz/preview_manifest.json)
 
-**Research state:** Creative experience **V2.9 is locked and unchanged**. The acoustic workbench is an independent research preview. Real AcousticBrainz submitted-file descriptors are **not validated studio masters** and are **not approved for acoustic clustering, mood inference, or catalogue-wide claims**.
+**Research state:** V2.9 remains locked and unchanged. The acoustic workbench is a separate research preview. AcousticBrainz submitted-file descriptors are not validated studio-master measurements and are not approved for similarity or mood claims.
 
-## Open the interactive experience
+## Catalogue-wide acoustic evidence
 
-**The HTML is in GitHub, but it is not yet a hosted website.** Clicking a file link in GitHub's README opens the **source-code viewer**, not the JavaScript application.
+The separate catalogue acquisition identified 124 provisional source recordings among 130 additional eligible songs, plus six unresolved recordings and 12 post-archive tracks. These observations are not certified exact studio masters or approved for sonic-similarity claims.
 
-**Run it immediately (no hosting required):**
-1. Open the [Measured Evidence Lab HTML file](docs/research/acousticbrainz/Measured_Evidence_Lab.html).
-2. Use GitHub's **Download raw file** control in the file toolbar (you may need to open the `...` menu).
-3. Save `Measured_Evidence_Lab.html` locally and open it in Chrome, Edge, Firefox, or Safari. It is self-contained and runs offline.
-
-Alternatively, download the `acousticbrainz-25-song-coverage-...` artifact from the [latest successful audit run](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/workflows/acousticbrainz-25-audit.yml) and open `evidence_qa/Measured_Evidence_Lab.html` from the extracted archive.
-
-**A one-click live website requires a hosting deployment.** The [landing-page HTML](docs/index.html) and the generated [Evidence Lab HTML](docs/research/acousticbrainz/Measured_Evidence_Lab.html) are Pages-ready source files, **not confirmed live website URLs**. Do not mistake a GitHub `blob/main/` link for a hosted preview.
-
-To consider GitHub Pages, see [Publishing and access notes](docs/AUTOMATED_RESEARCH_PUBLISHING.md#viewing-and-optional-pages-publishing). Publishing may make the site publicly accessible, including if the repository itself remains private. It requires an explicit visibility decision.
-
-## Other research materials
-
-- [Evidence provenance manifest](docs/research/acousticbrainz/preview_manifest.json) — links the generated HTML to the verified run and evidence checksums.
-- [Methods and scientific limits](research/acousticbrainz/docs/MEASURED_EVIDENCE_LAB.md)
-- [Automated publication guide](docs/AUTOMATED_RESEARCH_PUBLISHING.md)
-- [GitHub Actions acoustic audit](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/workflows/acousticbrainz-25-audit.yml)
-
-## Catalogue-wide acoustic evidence (167 entries)
-
-The separate five-batch MusicBrainz/AcousticBrainz acquisition has now completed. It identified **124 provisional source recordings among 130 additional eligible songs**, plus six unresolved and 12 post-archive tracks. The prior 25-song study remains separate (24 retrieved candidates in its latest verified run). **None of these observations is yet certified as an exact studio master or approved for sonic similarity claims.**
-
-- [Verified full-catalogue findings and six unresolved recordings](docs/CATALOGUE_EVIDENCE_FINDINGS_2026-11-08.md)
-- [Run the interactive Catalogue Evidence Atlas](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/workflows/catalogue-evidence-review.yml) — open the latest successful run and download the `depeche-167-catalogue-evidence-atlas` artifact, then open `atlas/Catalogue_Evidence_Atlas.html` in a browser.
+- [Verified catalogue findings and unresolved recordings](docs/CATALOGUE_EVIDENCE_FINDINGS_2026-11-08.md)
+- [Catalogue Evidence Atlas workflow](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/workflows/catalogue-evidence-review.yml) — open a successful run and download its atlas artifact.
 - [Catalogue evidence methods and scientific controls](docs/CATALOGUE_EVIDENCE_ATLAS.md)
 
-The catalogue atlas is a separate research-only study, not a replacement for locked V2.9 or a live GitHub Pages URL.
+## Research tools and methods
 
-## Automatic publishing
+- [Measured Evidence Lab](docs/research/acousticbrainz/Measured_Evidence_Lab.html) — GitHub shows the HTML source; use the hosted link above or download and open locally.
+- [Methods and scientific limits](research/acousticbrainz/docs/MEASURED_EVIDENCE_LAB.md)
+- [Automated research publishing guide](docs/AUTOMATED_RESEARCH_PUBLISHING.md)
+- [AcousticBrainz 25-song audit workflow](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/workflows/acousticbrainz-25-audit.yml)
 
-Changes to `research/acousticbrainz/**` on `main` run GitHub Actions. The workflow collects and validates 25-song AcousticBrainz source observations, generates one offline HTML workbench, and **automatically commits only that HTML and its small provenance manifest** to `docs/research/acousticbrainz/`, subject to fail-closed QA gates. Raw low/high-level JSON remains in the timed GitHub Actions artifact and is **not committed into the publishing folder**.
+Changes to `research/acousticbrainz/**` on `main` run the research workflow, which validates source observations and generates an offline HTML workbench. Workflow artifacts and generated files in the repository are not, by themselves, a hosted website. The separate [GitHub Pages workflow](.github/workflows/publish-interactive-pages.yml) deploys an allowlisted static site when Pages has been enabled by the repository owner.
 
-The GitHub automation **stores the HTML in the repository**; that alone does not host it as a website. GitHub Pages (if enabled by the owner) may expose content publicly even from a private repository. **Important:** the bot commit created using the workflow's default `GITHUB_TOKEN` does not trigger a GitHub Pages build; a separate Pages deployment workflow or other approved publishing trigger is required for reliable live-site updates.
+**Publishing note:** GitHub Pages may make the site publicly accessible, even if the repository is private. Confirm the repository's visibility and the deployment URL before enabling publication. A successful deployment does not constitute scientific publication clearance.
 
-The collector's 25-song research registry is distinct from the locked V2.9 editorial collection. No audio or protected lyrics are hosted. Exact versions, master identity and cross-extractor comparability require additional verification.
+No copyrighted audio or protected lyrics are hosted. The project is independent and is not affiliated with Depeche Mode, the band, or its rights holders.
