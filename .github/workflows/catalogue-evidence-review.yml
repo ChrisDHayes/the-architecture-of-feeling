@@ -1,0 +1,111 @@
+name: Build full-catalogue evidence atlas from completed acquisition
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/catalogue-evidence-review.yml"
+      - "research/catalogue/tools/build_catalogue_evidence_atlas.py"
+      - "research/catalogue/tools/test_catalogue_evidence_atlas.py"
+      - "research/catalogue/templates/catalogue_evidence_atlas.html"
+  workflow_run:
+    workflows:
+      - Depeche Mode full-catalogue acoustic evidence discovery
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: "Completed five-batch catalogue acquisition run ID to analyze"
+        required: false
+        type: number
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: catalogue-evidence-atlas-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  catalogue-evidence-review:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == 'main')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout source (no publication or source modifications)
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test fail-closed evidence-atlas logic
+        run: python research/catalogue/tools/test_catalogue_evidence_atlas.py
+      - name: Select a successful existing catalogue acquisition run
+        id: acquisition
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          EVENT_RUN_ID: ${{ github.event.workflow_run.id }}
+          REQUESTED_RUN_ID: ${{ inputs.source_run_id }}
+        run: |
+          if [[ -n "$EVENT_RUN_ID" ]]; then
+            run_id="$EVENT_RUN_ID"
+          elif [[ -n "$REQUESTED_RUN_ID" ]]; then
+            run_id="$REQUESTED_RUN_ID"
+          else
+            run_id="$(gh api -X GET "repos/$GH_REPO/actions/workflows/full-catalogue-acoustic-evidence.yml/runs?status=success&branch=main&per_page=1" --jq '.workflow_runs[0].id')"
+          fi
+          [[ "$run_id" =~ ^[0-9]+$ ]] || { echo "No valid completed catalogue run found" >&2; exit 1; }
+          echo "id=$run_id" >> "$GITHUB_OUTPUT"
+          echo "Reusing existing acquisition run $run_id (no archive requery)"
+      - name: Retrieve existing five-batch artifacts (NO new AcousticBrainz queries)
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ steps.acquisition.outputs.id }}
+          pattern: catalogue-expansion-batch-*
+          path: _incoming
+          merge-multiple: false
+      - name: Reconcile 142 new and 25 baseline registry entries
+        run: |
+          python research/catalogue/tools/merge_catalogue_coverage.py \
+            --artifacts-dir _incoming \
+            --output research/catalogue/results/combined
+      - name: Verify source features and build offline exploratory catalogue atlas
+        run: |
+          python research/catalogue/tools/build_catalogue_evidence_atlas.py \
+            --index research/catalogue/results/combined/catalogue_coverage_index.json \
+            --batches _incoming \
+            --output research/catalogue/results/atlas
+      - name: Inspect source-quality findings
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          file=Path('research/catalogue/results/atlas/catalogue_evidence_atlas.json')
+          doc=json.loads(file.read_text(encoding='utf-8'))
+          s=doc['summary']
+          assert s['population']==167 and s['approved_for_similarity']==0
+          print(json.dumps(s,indent=2))
+          PY
+      - name: Downloadable catalogue review (no raw audio or source JSON)
+        uses: actions/upload-artifact@v4
+        with:
+          name: depeche-167-catalogue-evidence-atlas
+          path: |
+            research/catalogue/results/atlas/Catalogue_Evidence_Atlas.html
+            research/catalogue/results/atlas/catalogue_evidence_atlas.json
+            research/catalogue/results/atlas/catalogue_source_review.csv
+            research/catalogue/results/atlas/README.md
+            research/catalogue/results/combined/catalogue_coverage_index.csv
+            research/catalogue/results/combined/catalogue_summary.json
+          retention-days: 90
+          if-no-files-found: error
