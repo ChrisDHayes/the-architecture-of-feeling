@@ -9,6 +9,7 @@ on:
       - "docs/archive/v2-9/**"
       - "docs/previews/v3-measured-beta/**"
       - "docs/previews/v3-1-measured-dna/**"
+      - "docs/previews/v3-2-listener-reach/**"
       - "docs/research/acousticbrainz/**"
       - ".github/workflows/publish-interactive-pages.yml"
   workflow_run:
@@ -54,9 +55,10 @@ jobs:
           v29=root/'archive/v2-9/index.html'
           v3=root/'previews/v3-measured-beta/index.html'
           v31=root/'previews/v3-1-measured-dna/index.html'
+          v32=root/'previews/v3-2-listener-reach/index.html'
           lab=root/'research/acousticbrainz/Measured_Evidence_Lab.html'
           receipt=root/'research/acousticbrainz/preview_manifest.json'
-          expected=[idx,v29,v3,v31,lab,receipt]
+          expected=[idx,v29,v3,v31,v32,lab,receipt]
           if not all(p.is_file() and p.stat().st_size for p in expected):
               raise SystemExit('Missing a required public exhibit')
           if hashlib.sha256(v29.read_bytes()).hexdigest()!='3ba59e0030951051bcc4842fb2471b08a306dcb1aa838cdf1a9d06a8166eac21':
@@ -80,13 +82,34 @@ jobs:
               raise SystemExit('V3.1 evidence payload differs from source-linked V3.0')
           if not all(marker in v31text for marker in ('id="home-finale"','v31TreeSvg','source.length!==147','cohortLossless.length!==103')):
               raise SystemExit('V3.1 Sonic DNA or Home finale integrity marker missing')
+          # V3.2: the acoustic evidence must match exactly, while the audience
+          # layer must retain 3 null source IDs plus 3 explicit alternate IDs.
+          v32text=v32.read_text(encoding='utf-8')
+          v32match=re.search(r'window\.AOF_V3_EVIDENCE\s*=\s*(\{.*?\});\s*const DATA\s*=',v32text,re.S)
+          if not v32match or v32match.group(1)!=match.group(1):
+              raise SystemExit('V3.2 acoustic evidence differs from V3.0')
+          if not all(marker in v32text for marker in ('id="home-finale"','v31TreeSvg','const REACH32 = ','const ALBUM_PROXY32 = ')):
+              raise SystemExit('V3.2 interactive audience-layer or Home markers missing')
+          def read_block(prefix):
+              return json.JSONDecoder().raw_decode(v32text.split(prefix,1)[1].lstrip())[0]
+          reach=read_block('const REACH32 = ')
+          bridge=read_block('const ALBUM_PROXY32 = ')
+          if not (reach['population']==147 and reach['reported']==144 and reach['not_reported']==3 and len(reach['rows'])==147):
+              raise SystemExit('V3.2 source count coverage mismatch')
+          missing={r[0]:r for r in reach['rows'] if r[2] is None and r[3] is None}
+          if len(missing)!=3 or len(bridge['proxy_rows'])!=3:
+              raise SystemExit('Expected exactly three missing MBIDs with explicit album proxies')
+          for r in bridge['proxy_rows']:
+              id=r['track_id']
+              if id not in missing or missing[id][1]!=r['acoustic_recording_mbid'] or r['listening_recording_mbid']==r['acoustic_recording_mbid']:
+                  raise SystemExit('Unverified V3.2 alternate-recording join')
           manifest=json.loads(receipt.read_text(encoding='utf-8'))
           if manifest.get('status')!='EXPLORATORY_UNAPPROVED':
               raise SystemExit('Measured lab must remain labelled unapproved')
           if manifest.get('html_sha256')!=hashlib.sha256(lab.read_bytes()).hexdigest():
               raise SystemExit('Measured lab source hash mismatch')
           home=idx.read_text(encoding='utf-8')
-          if not all(href in home for href in ('archive/v2-9/index.html','previews/v3-measured-beta/index.html','previews/v3-1-measured-dna/index.html','research/acousticbrainz/Measured_Evidence_Lab.html')):
+          if not all(href in home for href in ('archive/v2-9/index.html','previews/v3-measured-beta/index.html','previews/v3-1-measured-dna/index.html','previews/v3-2-listener-reach/index.html','research/acousticbrainz/Measured_Evidence_Lab.html')):
               raise SystemExit('Public homepage missing core exhibit navigation')
 
           # Explicit allowlist: no collector scripts, raw JSON archive, audio, lyrics, or private repo files.
@@ -99,7 +122,7 @@ jobs:
           created={p.relative_to(site).as_posix() for p in site.rglob('*') if p.is_file()}
           allowed={'.nojekyll'} | {p.relative_to(root).as_posix() for p in expected}
           if created!=allowed:raise SystemExit('Unexpected public asset')
-          print('Prepared six allowlisted static files plus .nojekyll, including V3.1')
+          print('Prepared seven allowlisted static files plus .nojekyll, including V3.2')
           PY
 
       - name: Configure Pages
