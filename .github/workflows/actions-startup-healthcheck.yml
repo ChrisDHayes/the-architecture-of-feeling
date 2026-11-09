@@ -1,0 +1,25 @@
+name: Actions startup health check
+
+# Zero dependencies: tests runner startup before any checkout, network, Python,
+# secrets, third-party actions, GitHub Pages configuration or API calls.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/actions-startup-healthcheck.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  startup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Confirm GitHub Actions can create a job
+        run: |
+          echo "GitHub Actions job started successfully"
+          echo "Runner: ${RUNNER_OS}"
+          echo "Event: ${GITHUB_EVENT_NAME}"
+          echo "SHA: ${GITHUB_SHA}"
