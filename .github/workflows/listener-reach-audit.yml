@@ -16,46 +16,50 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - name: Clone public research repository without blocked reusable actions
-        shell: bash
-        run: |
-          set -euo pipefail
-          git clone --depth 1 --branch main "https://github.com/${GITHUB_REPOSITORY}.git" "${GITHUB_WORKSPACE}/source"
-          cd "${GITHUB_WORKSPACE}/source"
-          python3 --version
-          echo "Auditing commit $(git rev-parse HEAD)"
+      - name: Checkout source repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
       - name: Offline source identity, missingness and rights-gate tests
-        shell: bash
-        run: |
-          set -euo pipefail
-          cd "${GITHUB_WORKSPACE}/source"
-          python3 research/popularity/tools/test_popularity.py
+        run: python research/popularity/tools/test_popularity.py
       - name: Audit ListenBrainz unique listeners and total listens
-        shell: bash
         run: |
-          set -euo pipefail
-          cd "${GITHUB_WORKSPACE}/source"
-          python3 research/popularity/tools/audit_listenbrainz.py \
+          python research/popularity/tools/audit_listenbrainz.py \
             --crosswalk research/popularity/data/sonic_dna_147_crosswalk.csv \
             --output research/popularity/results/latest \
             --batch-size 40
-      - name: Report source coverage, without auto-publishing counts
-        if: always()
-        shell: bash
+      - name: Validate coverage report before archiving
         run: |
-          set -euo pipefail
-          cd "${GITHUB_WORKSPACE}/source"
-          echo "## V3.2 ListenBrainz coverage check" >> "${GITHUB_STEP_SUMMARY}"
-          if test -s research/popularity/results/latest/coverage_summary.json; then
-            python3 - <<'PY' >> "${GITHUB_STEP_SUMMARY}"
-          import json
+          python - <<'PY'
+          import csv,json
           from pathlib import Path
-          d=json.loads(Path("research/popularity/results/latest/coverage_summary.json").read_text())
-          for k in ["recordings_checked","reported","null_not_reported","coverage_percent"]:
-              print(f"- **{k.replace('_',' ')}:** {d.get(k)}")
-          print("- Public dendrogram publication: **not approved by this audit**")
+          root=Path("research/popularity/results/latest")
+          p=root/"recording_popularity.csv"
+          summary=json.loads((root/"coverage_summary.json").read_text())
+          with p.open(newline="",encoding="utf-8") as f:
+              rows=list(csv.DictReader(f))
+          assert len(rows)==147 and summary["recordings_checked"]==147
+          assert sum(r["listenbrainz_status"]=="REPORTED" for r in rows)==summary["reported"]
+          assert sum(r["listenbrainz_status"]=="NOT_REPORTED" for r in rows)==summary["null_not_reported"]
+          assert summary["promotion_to_public_site"] is False
+          assert summary["setlist_live_performances"]=="BLOCKED_PENDING_AUTHORIZATION_FOR_PUBLIC_STATIC_COUNTS"
+          with open(__import__("os").environ["GITHUB_STEP_SUMMARY"],"a") as out:
+              out.write("## ListenBrainz recording coverage\n\n")
+              out.write(f"- Reported: **{summary['reported']} / 147**\n")
+              out.write(f"- Not reported: **{summary['null_not_reported']}**\n")
+              out.write("- Recording-level counts only; public publication not approved.\n")
+          print("Validated recording-level evidence and null handling")
           PY
-            echo "Source-level CSV is not published from the public repository. To retain it, enable GitHub's official upload-artifact action in repository Actions settings, then restore the artifact step after review." >> "${GITHUB_STEP_SUMMARY}"
-          else
-            echo "The audit produced no coverage summary. Check job logs for the failing step." >> "${GITHUB_STEP_SUMMARY}"
-          fi
+      - name: Archive source-level audit as GitHub Actions artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: listenbrainz-147-recording-popularity-${{ github.run_number }}
+          path: |
+            research/popularity/results/latest/recording_popularity.csv
+            research/popularity/results/latest/coverage_summary.json
+          retention-days: 60
+          if-no-files-found: error
