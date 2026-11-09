@@ -6,6 +6,7 @@ on:
       - "docs/previews/v3-measured-beta/**"
       - "docs/archive/v2-9/**"
       - "research/catalogue/tools/test_v3_measured_beta.py"
+      - "research/catalogue/tools/test_v3_home_finale.py"
       - ".github/workflows/validate-v3-research-beta.yml"
   pull_request:
     paths:
@@ -26,3 +27,5 @@ jobs:
           python-version: "3.11"
       - name: Fail-closed V2.9 / V3.0 integrity and synthetic-boundary checks
         run: python research/catalogue/tools/test_v3_measured_beta.py
+      - name: Validate Home finale, exact source values, and official video link
+        run: python research/catalogue/tools/test_v3_home_finale.py
