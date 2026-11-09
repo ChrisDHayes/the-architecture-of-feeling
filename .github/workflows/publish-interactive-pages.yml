@@ -8,6 +8,7 @@ on:
       - "docs/index.html"
       - "docs/archive/v2-9/**"
       - "docs/previews/v3-measured-beta/**"
+      - "docs/previews/v3-1-measured-dna/**"
       - "docs/research/acousticbrainz/**"
       - ".github/workflows/publish-interactive-pages.yml"
   workflow_run:
@@ -52,9 +53,10 @@ jobs:
           idx=root/'index.html'
           v29=root/'archive/v2-9/index.html'
           v3=root/'previews/v3-measured-beta/index.html'
+          v31=root/'previews/v3-1-measured-dna/index.html'
           lab=root/'research/acousticbrainz/Measured_Evidence_Lab.html'
           receipt=root/'research/acousticbrainz/preview_manifest.json'
-          expected=[idx,v29,v3,lab,receipt]
+          expected=[idx,v29,v3,v31,lab,receipt]
           if not all(p.is_file() and p.stat().st_size for p in expected):
               raise SystemExit('Missing a required public exhibit')
           if hashlib.sha256(v29.read_bytes()).hexdigest()!='3ba59e0030951051bcc4842fb2471b08a306dcb1aa838cdf1a9d06a8166eac21':
@@ -72,13 +74,19 @@ jobs:
               raise SystemExit('Unverified masters cannot be promoted')
           if 'STILL SYNTHETIC' not in v3text:
               raise SystemExit('Synthetic boundary missing in V3')
+          v31text=v31.read_text(encoding='utf-8')
+          v31_match=re.search(r'window\.AOF_V3_EVIDENCE\s*=\s*(\{.*?\});\s*const DATA\s*=',v31text,re.S)
+          if not v31_match or v31_match.group(1)!=match.group(1):
+              raise SystemExit('V3.1 evidence payload differs from source-linked V3.0')
+          if not all(marker in v31text for marker in ('id="home-finale"','v31TreeSvg','source.length!==147','cohortLossless.length!==103')):
+              raise SystemExit('V3.1 Sonic DNA or Home finale integrity marker missing')
           manifest=json.loads(receipt.read_text(encoding='utf-8'))
           if manifest.get('status')!='EXPLORATORY_UNAPPROVED':
               raise SystemExit('Measured lab must remain labelled unapproved')
           if manifest.get('html_sha256')!=hashlib.sha256(lab.read_bytes()).hexdigest():
               raise SystemExit('Measured lab source hash mismatch')
           home=idx.read_text(encoding='utf-8')
-          if not all(href in home for href in ('archive/v2-9/index.html','previews/v3-measured-beta/index.html','research/acousticbrainz/Measured_Evidence_Lab.html')):
+          if not all(href in home for href in ('archive/v2-9/index.html','previews/v3-measured-beta/index.html','previews/v3-1-measured-dna/index.html','research/acousticbrainz/Measured_Evidence_Lab.html')):
               raise SystemExit('Public homepage missing core exhibit navigation')
 
           # Explicit allowlist: no collector scripts, raw JSON archive, audio, lyrics, or private repo files.
@@ -91,7 +99,7 @@ jobs:
           created={p.relative_to(site).as_posix() for p in site.rglob('*') if p.is_file()}
           allowed={'.nojekyll'} | {p.relative_to(root).as_posix() for p in expected}
           if created!=allowed:raise SystemExit('Unexpected public asset')
-          print('Prepared only five allowed static exhibits/manifest plus .nojekyll')
+          print('Prepared six allowlisted static files plus .nojekyll, including V3.1')
           PY
 
       - name: Configure Pages
