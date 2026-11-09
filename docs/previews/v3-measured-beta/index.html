@@ -394,22 +394,93 @@ body.ux-explore #uxModeSwitch{background:transparent;color:var(--ink);border-col
 @media(max-width:640px){.prologue-reflection{margin-top:32px}.prologue-reflection blockquote{font-size:clamp(23px,6vw,31px)}}
 
 /* V3.0 editorial coda — user-authored personal reflection, not measured evidence. */
-.lastword{position:relative;isolation:isolate;overflow:hidden;margin:clamp(40px,8vw,110px) auto 60px;padding:clamp(54px,10vw,148px) clamp(22px,6vw,88px);border-block:1px solid var(--border);background:linear-gradient(128deg,var(--bg2),var(--bg) 75%);color:var(--ink);scroll-margin-top:24px}
-.lastword:before{content:"";pointer-events:none;position:absolute;inset:auto -12% -65% auto;width:min(76vw,780px);aspect-ratio:1;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent) 26%,transparent);box-shadow:0 0 0 57px color-mix(in srgb,var(--accent) 2%,transparent),0 0 0 130px color-mix(in srgb,var(--accent) 1%,transparent)}
-.lastword-inner{position:relative;z-index:1;max-width:865px;margin:0 auto}
-.lastword-eyebrow{color:var(--accent);font:650 11px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.18em;text-transform:uppercase;margin-bottom:28px}
-.lastword h2{font-size:clamp(54px,8.1vw,116px);font-weight:500;line-height:.99;letter-spacing:-.07em;max-width:850px;margin:0 0 clamp(32px,6vw,74px);text-wrap:balance}
-.lastword h2 em{font-weight:480;color:var(--warm)}
-.lastword-copy{max-width:680px}
-.lastword-copy p{margin:0 0 23px;font-size:clamp(17px,1.85vw,21px);line-height:1.75;color:var(--muted);text-wrap:pretty}
-.lastword-copy p.turn{font-size:clamp(24px,3.2vw,37px);letter-spacing:-.035em;line-height:1.35;color:var(--ink);font-weight:560;margin:42px 0 24px}
-.lastword-copy p.to-band{margin:44px 0 18px;padding:24px 0 0;border-top:1px solid var(--border);color:var(--ink);font-size:clamp(19px,2.15vw,25px);line-height:1.5;letter-spacing:-.012em}
-.lastword-byline{font:12px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.03em;color:var(--muted)}
-.lastword-source{margin:40px 0 0;max-width:680px;font-size:12px;line-height:1.6;color:var(--muted)}
-.lastword-source a{text-underline-offset:4px;text-decoration-thickness:1px}
-.lastword + .site-footer{margin-top:0}
-@media(max-width:680px){.lastword{padding:66px 22px 90px;margin:32px auto 35px}.lastword h2{font-size:clamp(51px,12vw,76px)}.lastword:before{inset:auto -60% -27% auto;width:120vw}.lastword-copy p{font-size:17px;line-height:1.68}}
-@media(prefers-reduced-motion:reduce){.lastword *{transition:none!important}}
+
+/* V3 HOME FINALE · Cartography of Home · original interpretive memory diagram, NOT acoustic data */
+.home-finale{position:relative;overflow:hidden;isolation:isolate;max-width:none;margin:clamp(40px,8vw,110px) auto 0;padding:clamp(48px,7vw,98px) clamp(20px,4vw,70px) 74px;background:#090d12;color:#f6f2ee;border-top:1px solid #363b43;scroll-margin-top:65px}
+.home-finale::before{content:"";pointer-events:none;position:absolute;inset:0;background:radial-gradient(ellipse 52% 48% at 54% 44%,rgba(168,31,47,.13),transparent 78%),radial-gradient(ellipse 38% 44% at 22% 76%,rgba(82,105,132,.08),transparent 85%);opacity:.9}
+.home-finale :is(h2,h3,p,div,button,a){position:relative}
+.home-wrap{max-width:1480px;margin:auto;position:relative}
+.home-topline{display:flex;align-items:center;gap:17px;color:#b6b9c1;letter-spacing:.18em;text-transform:uppercase;font:11px/1.5 Consolas,monospace}
+.home-topline::before{content:"";display:block;width:33px;height:2px;background:#e15a6c}
+.home-intro{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.52fr);gap:clamp(25px,6vw,96px);align-items:end;margin-top:26px}
+.home-intro h2{font-size:clamp(86px,12vw,178px);font-weight:470;line-height:.8;letter-spacing:-.10em;margin:10px 0 28px;color:#f3f1ed}
+.home-tagline{font-family:Georgia,'Times New Roman',serif;font-size:clamp(23px,2.8vw,37px);font-weight:400;font-style:italic;color:#e06b78;margin:0 0 18px}
+.home-lead{max-width:610px;font-size:clamp(15px,1.45vw,19px);line-height:1.7;color:#c5c4c7}
+.home-countermark{padding:20px 0 16px 26px;border-left:1px solid #4d3740;color:#c2bac0;max-width:375px}
+.home-countermark .kicker{color:#f17888;font:11px/1.8 Consolas,monospace;letter-spacing:.15em;text-transform:uppercase}
+.home-countermark p{color:#c2bac0;font-size:clamp(15px,1.35vw,17px);line-height:1.68;margin:10px 0 0}
+.home-stage{position:relative;margin:clamp(24px,4vw,57px) auto 0;border:1px solid #373c47;border-radius:3px;background:radial-gradient(ellipse 30% 35% at 50% 62%,rgba(225,54,75,.17),transparent 95%),#0b1017;overflow:hidden;box-shadow:0 26px 120px #0007;}
+.home-stage::before{content:"";pointer-events:none;z-index:1;position:absolute;inset:0;opacity:.33;background-image:linear-gradient(to bottom,transparent 96%,#313643 97%),linear-gradient(to right,transparent 96%,#303642 97%);background-size:45px 45px;mask-image:radial-gradient(ellipse at 50% 50%,black,transparent 78%)}
+.home-stage-toolbar{position:absolute;inset:23px 24px auto 24px;z-index:6;display:flex;gap:20px;align-items:start;justify-content:space-between;pointer-events:none}
+.home-stage-toolbar span{font:10px/1.6 Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;color:#bcb6b9}
+.home-stage-toolbar span:nth-child(2){text-align:right;color:#c3919b}
+#homeMap{display:block;width:100%;height:auto;min-height:375px;aspect-ratio:1160/630;position:relative;z-index:2;overflow:hidden}
+#homeMap .home-topography{fill:none;stroke:#9baabd;stroke-width:.6;opacity:.12;stroke-dasharray:2 9}
+#homeMap .home-thread{fill:none;stroke-width:1.8;opacity:.42;stroke-linecap:round;transition:opacity .6s,stroke-width .6s,filter .6s}
+#homeMap .home-thread-trace{fill:none;stroke-width:.75;opacity:.35;stroke-dasharray:2 9;stroke-linecap:round}
+#homeMap .home-node{cursor:pointer;outline:none}
+#homeMap .home-node .halo{fill:none;stroke:currentColor;stroke-width:1;opacity:.45;transition:r .3s,opacity .3s}
+#homeMap .home-node .node-core{fill:currentColor;filter:url(#homeSoftGlow)}
+#homeMap .home-node text{font:500 13px/1.2 Arial,sans-serif;letter-spacing:.17em;fill:#eee9e6;text-transform:uppercase;pointer-events:none}
+#homeMap .home-node .sub{fill:#9fa8b7;font:italic 13px Georgia,serif;letter-spacing:.005em;text-transform:none}
+#homeMap .home-node .node-tick{stroke:currentColor;stroke-width:1.3;opacity:.55}
+#homeMap .home-node:is(:focus-visible,.is-selected) .halo{opacity:1;stroke-width:2}
+#homeMap .home-node:focus-visible .node-core{stroke:white;stroke-width:3}
+#homeMap .home-node.is-selected text{fill:#fff;font-weight:750}
+#homeMap .home-core-orbit{fill:none;stroke:#e26776;stroke-width:1;opacity:.75;filter:url(#homeSoftGlow);transform-origin:580px 355px;transition:transform 1.8s,opacity 1.8s}
+#homeMap .home-core-glow{fill:url(#homeWarmBloom);opacity:.92;transition:opacity 1.4s}
+#homeMap .home-core-caption{fill:#f9eff0;font:600 25px Consolas,monospace;letter-spacing:.48em;text-anchor:middle}
+#homeMap .home-sub-caption{fill:#d6a7ae;font:10px Consolas,monospace;letter-spacing:.18em;text-anchor:middle}
+#homeMap .home-stream-dot{fill:#fff2f1;pointer-events:none;filter:url(#homeSoftGlow)}
+#homeMap .home-stream-dot.is-red{fill:#f27889}
+.home-stage.is-gathered #homeMap .home-core-orbit{transform:scale(1.28);opacity:.98}
+.home-stage.is-gathered #homeMap .home-thread{opacity:.93;stroke-width:2.5;filter:url(#homeSoftGlow)}
+.home-stage.is-gathered #homeMap .home-core-glow{opacity:1}
+.home-stage.is-gathered #homeMap .home-node .halo{opacity:.85}
+.home-stage[data-focus="0"] #homeMap .home-thread:not([data-memory="0"]),
+.home-stage[data-focus="1"] #homeMap .home-thread:not([data-memory="1"]),
+.home-stage[data-focus="2"] #homeMap .home-thread:not([data-memory="2"]),
+.home-stage[data-focus="3"] #homeMap .home-thread:not([data-memory="3"]),
+.home-stage[data-focus="4"] #homeMap .home-thread:not([data-memory="4"]),
+.home-stage[data-focus="5"] #homeMap .home-thread:not([data-memory="5"]){opacity:.14}
+.home-stage-bottom{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:17px 24px;border-top:1px solid #393c44;background:#11161e}
+.home-stage-bottom p{font:11px/1.5 Consolas,monospace;color:#a8a9b1;margin:0;letter-spacing:.02em;max-width:650px}
+.home-stage button,.home-chip{cursor:pointer}
+.home-gather{border:1px solid #b75a68;background:#772e3d;color:#fff;padding:11px 17px;border-radius:3px;font:700 11px/1.2 Arial,sans-serif;letter-spacing:.07em;transition:background .2s}
+.home-gather:hover{background:#a43f50}.home-gather:focus-visible,.home-chip:focus-visible,.home-video:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.home-interaction{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.68fr);gap:clamp(24px,4vw,80px);padding:27px 0 22px;border-bottom:1px solid #3c3e44}
+.home-chip-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.home-chip{padding:14px 13px;text-align:left;border:1px solid #3b3e48;background:#151922;color:#d0cdd1;border-radius:3px;font:12px/1.4 Arial,sans-serif;display:flex;gap:11px;align-items:center;transition:border-color .2s,background .2s}
+.home-chip .home-chip-no{font:10px Consolas,monospace;color:#de808d}
+.home-chip:hover,.home-chip[aria-pressed="true"]{background:#29212b;border-color:#c45769;color:#fff}
+.home-selected{border-left:2px solid #d66b7c;padding:4px 0 5px 22px;min-height:132px}
+.home-selected .eyebrow{font:10px Consolas,monospace;letter-spacing:.17em;color:#e28998}
+.home-selected h3{font-size:clamp(20px,2.2vw,30px);font-weight:550;letter-spacing:-.04em;color:#f3ebeb;margin:12px 0 7px}
+.home-selected p{font-size:14px;line-height:1.65;color:#c5c0c6;margin:0}
+.home-evidence{display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin:28px 0 0;padding:18px 0;border-bottom:1px solid #343841}
+.home-evidence .home-measure-heading{font:11px/1.5 Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;color:#e6a6ac;flex:1 1 280px}
+.home-evidence .home-metric{padding:0 19px 0 0;border-right:1px solid #343c46;flex:0 0 auto}
+.home-evidence .home-metric strong{font:500 clamp(20px,2.3vw,29px) Arial,sans-serif;display:block;color:#eee8e6;font-variant-numeric:tabular-nums;letter-spacing:-.04em}
+.home-evidence .home-metric span{color:#aaaab1;font:10px/1.5 Consolas,monospace;letter-spacing:.02em}
+.home-evidence .home-evidence-note{flex:1 1 290px;font:11px/1.7 Arial,sans-serif;color:#b3acb1;margin:0}
+.home-evidence a,.home-video a{color:#f1a7b0;text-underline-offset:4px}
+.home-conclusion{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(250px,.65fr);gap:clamp(28px,5vw,88px);align-items:start;margin-top:clamp(39px,6vw,74px)}
+.home-closing p{color:#ccc4c8;font-size:clamp(17px,1.7vw,22px);line-height:1.75;margin:0 0 23px;max-width:710px}
+.home-closing .home-turn{font:italic clamp(25px,3.2vw,43px)/1.32 Georgia,serif;letter-spacing:-.025em;color:#f2e9e9;margin:31px 0}
+.home-closing .home-dedication{color:#fff0ef;font-size:clamp(18px,2vw,26px);font-weight:500;border-top:1px solid #63434b;padding-top:28px;margin-top:37px}
+.home-byline{font:10px Consolas,monospace;letter-spacing:.15em;color:#b3a1a7;margin-top:26px}
+.home-video{background:linear-gradient(145deg,#2d2027,#111924 70%);border:1px solid #60414b;min-height:312px;padding:25px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;position:relative;isolation:isolate;overflow:hidden;transition:transform .25s,border-color .25s}
+.home-video::before{content:"";position:absolute;z-index:-1;width:230px;height:230px;right:-30px;top:15px;background:repeating-radial-gradient(circle,#c4687636 0px,#c4687636 2px,transparent 2px,transparent 15px);border-radius:100%;opacity:.7}
+.home-video:hover{transform:translateY(-4px);border-color:#e78998}
+.home-video-label{font:10px Consolas,monospace;letter-spacing:.2em;color:#efb2b9;text-transform:uppercase}
+.home-video-play{display:grid;place-items:center;width:80px;height:80px;border:1px solid #eec2c5;border-radius:50%;color:#fff;box-shadow:0 0 0 16px #d15d7514,0 0 0 33px #d15d750c;font:28px Arial,sans-serif;margin:26px auto}
+.home-video strong{display:block;font:500 32px Arial,sans-serif;color:#fff4f3;letter-spacing:-.05em}
+.home-video span:last-child{display:block;color:#d5acb2;font:11px/1.6 Consolas,monospace;margin-top:10px}
+.home-finale + .site-footer{margin-top:0}
+body.aof-home-visible #uxDiscoveryDock{opacity:0!important;pointer-events:none!important;visibility:hidden!important}
+@media(max-width:1050px){.home-intro{grid-template-columns:1fr}.home-countermark{max-width:740px}.home-conclusion{grid-template-columns:minmax(0,1.1fr) minmax(245px,.8fr)}}
+@media(max-width:760px){.home-finale{padding:55px 18px 64px}.home-intro h2{font-size:clamp(90px,19vw,142px)}.home-intro{gap:7px}.home-stage-toolbar{inset:13px 14px auto}.home-stage-toolbar span{font-size:8px}.home-stage-toolbar span:nth-child(2){max-width:165px}.home-stage{margin-top:29px}#homeMap{height:430px;min-height:0;aspect-ratio:auto;width:100%;object-fit:cover}.home-stage-bottom{padding:13px 15px}.home-interaction{grid-template-columns:1fr}.home-chip-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-chip{font-size:12px}.home-conclusion{grid-template-columns:1fr}.home-video{min-height:220px}.home-evidence .home-metric{flex:1 1 100px}.home-intro .home-countermark{padding-top:8px}.home-closing .home-turn{font-size:33px}}
+@media(prefers-reduced-motion:reduce){.home-finale *{transition:none!important;animation:none!important}}
 </style></head>
 <body class="ux-guided"><a class="ux-skip" href="#opening">Skip to the story</a><button id="uxNavScrim" type="button" aria-label="Close navigation"></button>
 <aside id="side" aria-label="Main navigation">
@@ -426,7 +497,7 @@ body.ux-explore #uxModeSwitch{background:transparent;color:var(--ink);border-col
  <nav aria-label="Exhibition navigation" id="uxNav">
 <details class="ux-nav-group" id="uxNavStory" open><summary><span class="ux-nav-symbol">01</span>The Story <span class="ux-nav-chevron" aria-hidden="true">⌄</span></summary>
 <div class="ux-nav-links">
-<a href="#opening"><span>00</span> The invitation</a><a href="#prologue"><span>01</span> Why I built this</a><a href="#evolution"><span>02</span> The evolution</a><a href="#album-atlas"><span>02·</span> Album fingerprints</a><a href="#contradiction"><span>03</span> The contradiction</a><a href="#anatomy"><span>04</span> Anatomy of sound</a><a href="#family"><span>05</span> Sonic family tree</a><a href="#silence"><span>06</span> The space between</a><a href="#endure"><span>07</span> What endures</a><a href="#but-not-tonight"><span>08</span> But Not Tonight</a>
+<a href="#opening"><span>00</span> The invitation</a><a href="#prologue"><span>01</span> Why I built this</a><a href="#evolution"><span>02</span> The evolution</a><a href="#album-atlas"><span>02·</span> Album fingerprints</a><a href="#contradiction"><span>03</span> The contradiction</a><a href="#anatomy"><span>04</span> Anatomy of sound</a><a href="#family"><span>05</span> Sonic family tree</a><a href="#silence"><span>06</span> The space between</a><a href="#endure"><span>07</span> What endures</a><a href="#home-finale"><span>08</span> Home · Final chapter</a>
 </div></details>
 <details class="ux-nav-group" id="uxNavExplore"><summary><span class="ux-nav-symbol">02</span>Explore the Music <span class="ux-nav-chevron" aria-hidden="true">⌄</span></summary>
 <div class="ux-nav-links"><a href="#family" data-ux-explore="true"><span>↗</span> Choose a song / Sonic tree</a><a href="#album-atlas" data-ux-explore="true"><span>↗</span> Explore 15 albums</a><a href="#contradiction" data-ux-explore="true"><span>↗</span> Compare emotion and sound</a><a href="#anatomy" data-ux-explore="true"><span>↗</span> Inspect the Signal Plate</a><a href="#silence" data-ux-explore="true"><span>↗</span> Study musical restraint</a></div></details>
@@ -820,21 +891,99 @@ body.ux-explore #uxModeSwitch{background:transparent;color:var(--ink);border-col
 </div><!-- /research appendix -->
 
 <!-- V3.0 editorial afterword: independent personal voice, not audio-source evidence -->
-<section id="but-not-tonight" class="lastword" aria-labelledby="lastword-heading">
-  <div class="lastword-inner">
-    <div class="lastword-eyebrow">THE LAST WORD / TO DEPECHE MODE</div>
-    <h2 id="lastword-heading">But Not <em>Tonight.</em></h2>
-    <div class="lastword-copy">
-      <p>The more I explored the music, the more I understood the limits of what I could measure.</p>
-      <p>I can trace a rhythm. I can find patterns in sound. But I cannot measure the teenager trying to find his place, the broken hearts these songs accompanied, or the feeling of standing beside my wife at another concert, still moved to tears. Nor can I measure what it means to share this music with my son.</p>
-      <p>For much of my life, I've wondered why these songs have stayed with me.</p>
-      <p class="turn">But not tonight.</p>
-      <p>Tonight, I don't need an explanation. I just want to listen, remember, and be grateful.</p>
-      <p class="to-band">To Depeche Mode: thank you for the soundtrack to my life.</p>
-    </div>
-    <div class="lastword-byline">CHRISTOPHER HAYES &nbsp; / &nbsp; A LIFELONG LISTENER</div>
-    <p class="lastword-source">The title is a personal nod to <a href="https://archives.depechemode.com/discography/albums/08_blackcelebration.html" target="_blank" rel="noopener noreferrer"><cite>But Not Tonight</cite> (1986)</a>. This reflection is original writing, not a quotation from the song.</p>
-  </div>
+<section class="home-finale" id="home-finale" aria-labelledby="home-heading">
+<div class="home-wrap">
+<div class="home-topline">08 / THE FINAL CHAPTER &nbsp; · &nbsp; ULTRA, 1997</div>
+<div class="home-intro"><div>
+<h2 id="home-heading">Home.</h2><p class="home-tagline">A pattern of return.</p>
+<p class="home-lead">I began this project looking for the architecture of a sound. I am ending it with something the data cannot explain: how a band became part of the architecture of my life.</p></div>
+<div class="home-countermark"><div class="kicker">THE CARTOGRAPHY OF HOME</div><p>Six chapters. Different people, places and versions of myself. Follow the threads—not as musical measurements, but as a map of what this music has meant to me.</p></div></div>
+<div class="home-stage" id="homeStage" data-focus="0">
+<div class="home-stage-toolbar"><span>PERSONAL MEMORY MAP / 1980s → NOW</span><span>PERSONAL INTERPRETATION · NOT AUDIO DATA</span></div>
+<svg id="homeMap" viewBox="0 0 1160 630" preserveAspectRatio="xMidYMid slice" role="group" aria-label="Six personal memory pathways converge on the word Home. Select any memory to read its reflection.">
+<defs><radialGradient id="homeWarmBloom"><stop offset="0" stop-color="#e64c66" stop-opacity=".4"/><stop offset=".5" stop-color="#a52638" stop-opacity=".16"/><stop offset="1" stop-color="#a52638" stop-opacity="0"/></radialGradient>
+<filter id="homeSoftGlow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<linearGradient id="homeHorizon" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#d53a57" stop-opacity=".9"/><stop offset="1" stop-color="#d53a57" stop-opacity="0"/></linearGradient></defs>
+<g aria-hidden="true"><circle class="home-topography" cx="580" cy="355" r="118"/><circle class="home-topography" cx="580" cy="355" r="160"/><circle class="home-topography" cx="580" cy="355" r="210"/><circle class="home-topography" cx="580" cy="355" r="260"/><circle class="home-topography" cx="580" cy="355" r="310"/><circle class="home-topography" cx="580" cy="355" r="370"/><circle class="home-topography" cx="580" cy="355" r="425"/>
+<path class="home-topography" d="M0 355 H1160"/><path class="home-topography" d="M580 0 V630"/>
+<g opacity=".14"><line x1="80" y1="0" x2="80" y2="630" stroke="#7e8ba2" stroke-width=".5"/><line x1="160" y1="0" x2="160" y2="630" stroke="#7e8ba2" stroke-width=".5"/><line x1="240" y1="0" x2="240" y2="630" stroke="#7e8ba2" stroke-width=".5"/><line x1="320" y1="0" x2="320" y2="630" stroke="#7e8ba2" stroke-width=".5"/><line x1="400" y1="0" x2="400" y2="630" stroke="#7e8ba2" stroke-width=".5"/><line x1="480" y1="0" x2="480" y2="630" stroke="#7e8ba2" stroke-width=".5"/><line x1="560" y1="0" x2="560" y2="630" stroke="#7e8ba2" stroke-width=".5"/><line x1="640" y1="0" x2="640" y2="630" stroke="#7e8ba2" stroke-width=".5"/><line x1="720" y1="0" x2="720" y2="630" stroke="#7e8ba2" stroke-width=".5"/><line x1="800" y1="0" x2="800" y2="630" stroke="#7e8ba2" stroke-width=".5"/><line x1="880" y1="0" x2="880" y2="630" stroke="#7e8ba2" stroke-width=".5"/><line x1="960" y1="0" x2="960" y2="630" stroke="#7e8ba2" stroke-width=".5"/><line x1="1040" y1="0" x2="1040" y2="630" stroke="#7e8ba2" stroke-width=".5"/><line x1="1120" y1="0" x2="1120" y2="630" stroke="#7e8ba2" stroke-width=".5"/></g></g>
+<circle class="home-core-glow" cx="580" cy="355" r="240"/>
+<g id="homeThreads" aria-hidden="true"><path id="homePath0" class="home-thread" data-memory="0" d="M 379 122 C 342 228, 478 291, 580 355" stroke="#d9dfe9"/><path class="home-thread-trace" d="M 379 122 C 342 228, 478 291, 580 355" stroke="#d9dfe9"/>
+<path id="homePath1" class="home-thread" data-memory="1" d="M 788 128 C 762 238, 676 285, 580 355" stroke="#9db8cf"/><path class="home-thread-trace" d="M 788 128 C 762 238, 676 285, 580 355" stroke="#9db8cf"/>
+<path id="homePath2" class="home-thread" data-memory="2" d="M 998 310 C 848 281, 733 340, 580 355" stroke="#e58b97"/><path class="home-thread-trace" d="M 998 310 C 848 281, 733 340, 580 355" stroke="#e58b97"/>
+<path id="homePath3" class="home-thread" data-memory="3" d="M 159 282 C 346 269, 432 340, 580 355" stroke="#f07183"/><path class="home-thread-trace" d="M 159 282 C 346 269, 432 340, 580 355" stroke="#f07183"/>
+<path id="homePath4" class="home-thread" data-memory="4" d="M 271 542 C 389 449, 488 409, 580 355" stroke="#c9d4e4"/><path class="home-thread-trace" d="M 271 542 C 389 449, 488 409, 580 355" stroke="#c9d4e4"/>
+<path id="homePath5" class="home-thread" data-memory="5" d="M 930 540 C 775 448, 666 411, 580 355" stroke="#f3bcc5"/><path class="home-thread-trace" d="M 930 540 C 775 448, 666 411, 580 355" stroke="#f3bcc5"/></g>
+<g id="homeParticles" aria-hidden="true"></g>
+<g aria-hidden="true"><circle class="home-core-orbit" cx="580" cy="355" r="74"/><circle class="home-core-orbit" cx="580" cy="355" r="94" stroke-dasharray="3 10"/>
+<circle cx="580" cy="355" r="56" fill="#220e17" fill-opacity=".89" stroke="#e46877" stroke-opacity=".6"/>
+<text class="home-core-caption" x="593" y="362">HOME</text><text class="home-sub-caption" x="580" y="387">WHERE THE THREADS RETURN</text>
+</g>
+<g id="homeNodes"><g class="home-node" data-memory="0" role="button" tabindex="0" aria-label="Show memory: Adolescence" style="color:#d9dfe9">
+<circle class="halo" cx="379" cy="122" r="15"/><circle class="node-core" cx="379" cy="122" r="5"/>
+<path class="node-tick" d="M 389 113 l 9 -9"/>
+<text x="399" y="98" text-anchor="start">ADOLESCENCE</text>
+<text class="sub" x="399" y="117" text-anchor="start">Trying to belong</text>
+</g>
+<g class="home-node" data-memory="1" role="button" tabindex="0" aria-label="Show memory: Changing schools" style="color:#9db8cf">
+<circle class="halo" cx="788" cy="128" r="15"/><circle class="node-core" cx="788" cy="128" r="5"/>
+<path class="node-tick" d="M 798 119 l 9 -9"/>
+<text x="808" y="104" text-anchor="start">CHANGING SCHOOLS</text>
+<text class="sub" x="808" y="123" text-anchor="start">New beginnings</text>
+</g>
+<g class="home-node" data-memory="2" role="button" tabindex="0" aria-label="Show memory: Broken hearts" style="color:#e58b97">
+<circle class="halo" cx="998" cy="310" r="15"/><circle class="node-core" cx="998" cy="310" r="5"/>
+<path class="node-tick" d="M 1008 301 l 9 -9"/>
+<text x="974" y="286" text-anchor="end">BROKEN HEARTS</text>
+<text class="sub" x="974" y="305" text-anchor="end">Learning to let go</text>
+</g>
+<g class="home-node" data-memory="3" role="button" tabindex="0" aria-label="Show memory: Concerts" style="color:#f07183">
+<circle class="halo" cx="159" cy="282" r="15"/><circle class="node-core" cx="159" cy="282" r="5"/>
+<path class="node-tick" d="M 169 273 l 9 -9"/>
+<text x="181" y="258" text-anchor="start">CONCERTS</text>
+<text class="sub" x="181" y="277" text-anchor="start">The shared heartbeat</text>
+</g>
+<g class="home-node" data-memory="4" role="button" tabindex="0" aria-label="Show memory: My wife" style="color:#c9d4e4">
+<circle class="halo" cx="271" cy="542" r="15"/><circle class="node-core" cx="271" cy="542" r="5"/>
+<path class="node-tick" d="M 281 533 l 9 -9"/>
+<text x="293" y="572" text-anchor="start">MY WIFE</text>
+<text class="sub" x="293" y="591" text-anchor="start">A life beside me</text>
+</g>
+<g class="home-node" data-memory="5" role="button" tabindex="0" aria-label="Show memory: My son" style="color:#f3bcc5">
+<circle class="halo" cx="930" cy="540" r="15"/><circle class="node-core" cx="930" cy="540" r="5"/>
+<path class="node-tick" d="M 940 531 l 9 -9"/>
+<text x="906" y="570" text-anchor="end">MY SON</text>
+<text class="sub" x="906" y="589" text-anchor="end">Passing it forward</text>
+</g></g>
+</svg>
+<div class="home-stage-bottom"><p>SELECT A MEMORY TO FOLLOW ITS THREAD. GATHER THEM TO SEE THE PATTERN OF RETURN.</p>
+<button id="homeGather" class="home-gather" type="button" aria-pressed="false">GATHER THE THREADS ↗</button></div>
+</div>
+<div class="home-interaction">
+<div class="home-chip-grid" role="group" aria-label="Choose a personal memory"><button class="home-chip" data-memory="0" aria-pressed="true" type="button"><span class="home-chip-no">01</span><span>Adolescence</span></button>
+<button class="home-chip" data-memory="1" aria-pressed="false" type="button"><span class="home-chip-no">02</span><span>Changing schools</span></button>
+<button class="home-chip" data-memory="2" aria-pressed="false" type="button"><span class="home-chip-no">03</span><span>Broken hearts</span></button>
+<button class="home-chip" data-memory="3" aria-pressed="false" type="button"><span class="home-chip-no">04</span><span>Concerts</span></button>
+<button class="home-chip" data-memory="4" aria-pressed="false" type="button"><span class="home-chip-no">05</span><span>My wife</span></button>
+<button class="home-chip" data-memory="5" aria-pressed="false" type="button"><span class="home-chip-no">06</span><span>My son</span></button></div>
+<div class="home-selected" aria-live="polite" aria-atomic="true"><div class="eyebrow" id="homeMemoryCounter">01 / 06 · PERSONAL MEMORY</div><h3 id="homeMemoryTitle">Adolescence</h3><p id="homeMemoryText">Before I had words for the uncertainty of being fourteen, the music made room for it.</p></div>
+</div>
+<div class="home-evidence" aria-label="Source-linked preliminary audio descriptors for Depeche Mode's song Home">
+<div class="home-measure-heading">ONE SONG. THREE MEASURED TRACES.<br><span style="color:#aeb1b8;font-size:10px;letter-spacing:0;text-transform:none">AcousticBrainz candidate / no verified studio master</span></div>
+<div class="home-metric"><strong>151.1</strong><span>Estimated tempo · BPM*</span></div>
+<div class="home-metric"><strong>1,017</strong><span>Spectral centroid · Hz</span></div>
+<div class="home-metric"><strong>4.23</strong><span>Onset rate · per second</span></div>
+<p class="home-evidence-note">Measured from a submitted 320 kbps MP3, Essentia 2.1-beta2. This is <em>not</em> the band's certified album master, nor a musical similarity or emotional measure. *Automated tempo estimates can reflect half/double-time choices. <a href="https://acousticbrainz.org/42f01cf7-2fdc-4f22-bf08-58e791ffdb22" rel="noopener noreferrer" target="_blank">Source recording ↗</a> · <a href="#v3-measured" id="homeInspect">Inspect full evidence ↗</a></p>
+</div>
+<div class="home-conclusion"><div class="home-closing">
+<p>I can describe aspects of a sound now. Its rhythm, brightness, and movement leave traces in the data. But there is no feature for the teenager changing schools, the relationships and heartbreaks that followed, or the tears that still come when the lights go down.</p>
+<p>There is no number for standing beside my wife at another concert. Or for hearing my son discover the songs that helped me understand myself.</p>
+<p class="home-turn">Maybe home was never one place. Maybe it was something I carried with me all along.</p>
+<p class="home-dedication">To Depeche Mode — thank you for making music that has felt like home for a lifetime.</p>
+<div class="home-byline">CHRISTOPHER HAYES &nbsp; / &nbsp; A LIFELONG LISTENER</div></div>
+<a class="home-video" href="https://www.youtube.com/watch?v=DZHs-SRJbzU" target="_blank" rel="noopener noreferrer" aria-label="Watch Depeche Mode Home official music video on YouTube in a new tab">
+<span class="home-video-label">THE FINAL LISTEN / OFFICIAL VIDEO</span><span class="home-video-play" aria-hidden="true">▶</span><div><strong>Watch “Home”</strong><span>DEPECHE MODE · 1997 · OPEN ON YOUTUBE ↗</span></div></a></div>
+</div>
 </section>
 
 <footer class="site-footer"><strong>THE ARCHITECTURE OF FEELING — V3.0 MEASURED RESEARCH BETA</strong><p>Research and editorial experience by Christopher Hayes. The catalogue contains provisional AcousticBrainz feature observations for 148 source candidates; none is an independently verified studio master. The sonic-family tree, emotional axes, generated waveforms and simulated musical comparisons remain illustrative. Personal recollections are distinct from measured evidence. No protected recordings or song lyrics are bundled.</p></footer>
@@ -1977,6 +2126,95 @@ function plotIt(){
 for(const el of [fsel,album,quality,extractor])el.addEventListener('change',plotIt);
 window.AOF_V3_FOCUS=function(track_id){if(byId.has(track_id)){focus=track_id;renderInspector();plotIt();}};
 v3Fill();plotIt();
+})();
+</script>
+
+<script>
+/* Home Cartography: original personal-memory visualization, never a measured-data chart. */
+(()=>{
+  const root=document.getElementById('home-finale');
+  if(!root)return;
+  const memory=[
+   ['Adolescence','Before I had words for the uncertainty of being fourteen, the music made room for it.'],
+   ['Changing schools','A different hallway, unfamiliar faces. The songs were something I could take with me.'],
+   ['Broken hearts',"Some songs heard the feelings I wasn't ready to say aloud."],
+   ['Concerts','The lights go down and, all these years later, I am still moved to tears.'],
+   ['My wife','We have stood together at so many shows. The music has witnessed our life as it unfolded.'],
+   ['My son','Sharing these songs is also sharing part of the person I was before he knew me.']
+  ];
+  const stage=document.getElementById('homeStage'),svg=document.getElementById('homeMap');
+  const gather=document.getElementById('homeGather');
+  const pointNodes=[...svg.querySelectorAll('.home-node')],chips=[...root.querySelectorAll('.home-chip')];
+  const paths=[...svg.querySelectorAll('.home-thread')];
+  let selected=0,gathered=false,visible=false,raf=0,last=0;
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+  const parGroup=document.getElementById('homeParticles'),ns='http://www.w3.org/2000/svg';
+  const particles=[];
+  for(let i=0;i<paths.length;i++){
+    for(let j=0;j<7;j++){
+      const c=document.createElementNS(ns,'circle');
+      c.setAttribute('r',j%3===0?'2.4':'1.25');
+      c.setAttribute('class','home-stream-dot'+((i+j)%3===0?' is-red':''));
+      c.setAttribute('opacity',j%3===0?'.9':'.6');
+      parGroup.appendChild(c);
+      particles.push({c,path:paths[i],len:paths[i].getTotalLength(),i,j});
+    }
+  }
+  function draw(t){
+    if(document.hidden || !visible || reduce.matches)return;
+    for(const d of particles){
+      const p=(t*(.000037+d.i*.000004)+d.j/7+d.i*.099)%1;
+      const at=d.path.getPointAtLength(d.len*p);
+      d.c.setAttribute('cx',at.x.toFixed(2));d.c.setAttribute('cy',at.y.toFixed(2));
+      const dim= !gathered && d.i!==selected;
+      d.c.setAttribute('opacity',dim?'.08':gathered?'.88':'.68');
+    }
+    raf=requestAnimationFrame(draw);
+  }
+  function toggleMotion(){
+    if(raf){cancelAnimationFrame(raf);raf=0;}
+    if(visible&&!reduce.matches&&!document.hidden)raf=requestAnimationFrame(draw);
+  }
+  function select(i){
+    if(!Number.isInteger(i)||i<0||i>5)return;
+    selected=i;
+    stage.dataset.focus=gathered?'all':String(i);
+    chips.forEach((b,j)=>b.setAttribute('aria-pressed',String(j===i)));
+    pointNodes.forEach((el,j)=>el.classList.toggle('is-selected',j===i));
+    document.getElementById('homeMemoryCounter').textContent=String(i+1).padStart(2,'0')+' / 06 · PERSONAL MEMORY';
+    document.getElementById('homeMemoryTitle').textContent=memory[i][0];
+    document.getElementById('homeMemoryText').textContent=memory[i][1];
+  }
+  pointNodes.forEach((el,i)=>{
+    el.addEventListener('click',()=>select(i));
+    el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select(i);}});
+  });
+  chips.forEach((el,i)=>el.addEventListener('click',()=>select(i)));
+  gather.addEventListener('click',()=>{
+    gathered=!gathered;
+    stage.classList.toggle('is-gathered',gathered);
+    stage.dataset.focus=gathered?'all':String(selected);
+    gather.setAttribute('aria-pressed',String(gathered));
+    gather.textContent=gathered?'FOLLOW ONE THREAD ↗':'GATHER THE THREADS ↗';
+    if(gathered){
+      document.getElementById('homeMemoryCounter').textContent='06 / 06 · A PATTERN OF RETURN';
+      document.getElementById('homeMemoryTitle').textContent='What brought me here';
+      document.getElementById('homeMemoryText').textContent='Not one moment or one person. A lifetime of returning to the same music, carrying a little more of myself each time.';
+    }else select(selected);
+  });
+  const inspector=document.getElementById('homeInspect');
+  inspector?.addEventListener('click',()=>{if(typeof window.AOF_V3_FOCUS==='function')window.AOF_V3_FOCUS('a09_t03')});
+  if('IntersectionObserver' in window){
+   const chromeIO=new IntersectionObserver(entries=>{document.body.classList.toggle('aof-home-visible',entries.some(e=>e.isIntersecting));},{threshold:0});
+   chromeIO.observe(root);
+   const io=new IntersectionObserver(entries=>{visible=entries.some(e=>e.isIntersecting);toggleMotion();},{threshold:.06});io.observe(stage);
+  } else {visible=true;toggleMotion();}
+  document.addEventListener('visibilitychange',toggleMotion);
+  reduce.addEventListener?.('change',toggleMotion);
+  select(0);
+  if(reduce.matches){
+    particles.forEach(d=>{const p=d.path.getPointAtLength(d.len*(.15+.7*d.j/7));d.c.setAttribute('cx',p.x);d.c.setAttribute('cy',p.y);});
+  }
 })();
 </script>
 </body></html>
