@@ -21,11 +21,20 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+      - name: Clone exact GitHub event revision using Git (no reusable Actions)
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone --quiet --depth 1 --branch main "https://github.com/${GITHUB_REPOSITORY}.git" "${GITHUB_WORKSPACE}/source"
+          cd "${GITHUB_WORKSPACE}/source"
+          if [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
+            git fetch --quiet --depth 1 origin "${GITHUB_REF}"
+          else
+            git fetch --quiet --depth 1 origin "${GITHUB_SHA}"
+          fi
+          git checkout --quiet --detach FETCH_HEAD
+          echo "Validating commit $(git rev-parse HEAD) with $(python3 --version)"
       - name: Fail-closed V2.9 / V3.0 integrity and synthetic-boundary checks
-        run: python research/catalogue/tools/test_v3_measured_beta.py
+        run: cd "${GITHUB_WORKSPACE}/source" && python3 research/catalogue/tools/test_v3_measured_beta.py
       - name: Validate Home finale, exact source values, and official video link
-        run: python research/catalogue/tools/test_v3_home_finale.py
+        run: cd "${GITHUB_WORKSPACE}/source" && python3 research/catalogue/tools/test_v3_home_finale.py
