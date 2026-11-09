@@ -85,7 +85,7 @@ jobs:
           # V3.2: the acoustic evidence must match exactly, while the audience
           # layer must retain 3 null source IDs plus 3 explicit alternate IDs.
           v32text=v32.read_text(encoding='utf-8')
-          v32match=re.search(r'window\\.AOF_V3_EVIDENCE\\s*=\\s*(\\{.*?\\});\\s*const DATA\\s*=',v32text,re.S)
+          v32match=re.search(r'window\.AOF_V3_EVIDENCE\s*=\s*(\{.*?\});\s*const DATA\s*=',v32text,re.S)
           if not v32match or v32match.group(1)!=match.group(1):
               raise SystemExit('V3.2 acoustic evidence differs from V3.0')
           if not all(marker in v32text for marker in ('id="home-finale"','v31TreeSvg','const REACH32 = ','const ALBUM_PROXY32 = ')):
