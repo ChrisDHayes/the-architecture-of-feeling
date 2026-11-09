@@ -386,6 +386,12 @@ body.ux-explore #uxModeSwitch{background:transparent;color:var(--ink);border-col
 @media(max-width:950px){.v3-layout{grid-template-columns:1fr}.v3-controls{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.v3-stats{grid-template-columns:repeat(2,1fr)}.v3-controls{grid-template-columns:1fr}.v3-evidence{padding:28px 17px 45px}}
 
+
+/* V3 — Personal prologue: an editorial voice, not an evidence claim. */
+.prologue-reflection{border-left:2px solid var(--accent);padding:4px 0 4px clamp(20px,2.6vw,33px);margin:44px 0 0;max-width:820px}
+.prologue-reflection .eyebrow{display:block;margin-bottom:14px;color:var(--accent)}
+.prologue-reflection blockquote{margin:0;color:var(--ink);font-size:clamp(23px,2.75vw,38px);font-weight:550;letter-spacing:-.04em;line-height:1.28;text-wrap:pretty}
+@media(max-width:640px){.prologue-reflection{margin-top:32px}.prologue-reflection blockquote{font-size:clamp(23px,6vw,31px)}}
 </style></head>
 <body class="ux-guided"><a class="ux-skip" href="#opening">Skip to the story</a><button id="uxNavScrim" type="button" aria-label="Close navigation"></button>
 <aside id="side" aria-label="Main navigation">
@@ -424,10 +430,10 @@ body.ux-explore #uxModeSwitch{background:transparent;color:var(--ink);border-col
 </a><span class="demo-flag"><i class="beacon"></i> <span class="demo-long">V3.0 RESEARCH PREVIEW · MIXED MEASURED / SYNTHETIC</span><span class="demo-short">V3.0 · MIXED</span></span></div><div class="top-actions"><button id="themeBtn" class="btn tiny" aria-label="Change light or dark theme">◐ <span class="maybe">Theme</span></button><button class="btn tiny primary" id="uxModeSwitch" type="button" aria-label="Enter free exploration">Explore music ↗</button></div><div class="read-progress" aria-hidden="true"><span id="readProgress"></span></div></div>
 <section id="opening"><div class="v3-banner"><strong>V3.0 · measured research preview:</strong> 148 archived source measurements across 167 catalogue entries. Original-unit descriptors and receipts have been added. The sonic tree, mood axes and generated waveforms are still <strong>synthetic demonstrations</strong>. No studio master has been independently verified. <a href="#v3-measured">Examine the evidence and its limitations</a>.</div>
  <svg class="hero-deco" viewBox="0 0 800 640" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g fill="none" stroke-width="1"> <circle cx="530" cy="315" r="220" stroke="#6e343e" opacity=".35"/><circle cx="530" cy="315" r="245" stroke="#666" opacity=".17"/><circle cx="530" cy="315" r="275" stroke="#666" opacity=".12"/><g id="heroLines"></g></g></svg>
- <div class="hero-copy"><div class="eyebrow red">A PERSONAL INVESTIGATION BY CHRISTOPHER HAYES · 1988—NOW</div><h1>THE<br>ARCHITECTURE<br>OF <em>FEELING.</em></h1><p class="lead">A lifelong fascination. Fifteen studio albums. One question I have never stopped asking: what is it about this music that feels so unmistakably human?</p>
+ <div class="hero-copy"><div class="eyebrow red">A PERSONAL INVESTIGATION BY CHRISTOPHER HAYES · 1988—NOW</div><h1>THE<br>ARCHITECTURE<br>OF <em>FEELING.</em></h1><p class="lead">The music that carried me from adolescence into adulthood—and still moves me to tears. An investigation into what sound can reveal, and what it can never fully explain.</p>
  <div class="row" style="justify-content:flex-start;flex-wrap:wrap;margin-top:23px"><a class="btn primary" href="#prologue">Begin the story ↓</a><a href="#family" class="btn">Jump to radial tree ↗</a></div>
- <div class="warn"><strong>Demonstration—not musical evidence.</strong> Every acoustic value, point, waveform and clustering result in this preview is computer-generated fictional data. Real song titles, album metadata and your chosen 25-song selection are used for navigation only.</div>
- <div class="hero-meta"><div><strong>15</strong><span>Studio albums</span></div><div><strong>25</strong><span>Selected songs</span></div><div><strong>0</strong><span>Measured recordings</span></div></div></div>
+ <div class="warn"><strong>Measured sources and illustrative models are different.</strong> V3.0 includes provisional acoustic descriptors for 148 catalogue entries. The sonic-family tree, mood axes and generated waveforms remain synthetic demonstrations. None of the source recordings has been independently approved as an exact studio master. <a href="#v3-measured">Inspect the evidence ↗</a></div>
+ <div class="hero-meta"><div><strong>15</strong><span>Studio albums</span></div><div><strong>167</strong><span>Catalogue entries</span></div><div><strong>148</strong><span>Provisional acoustic sources</span></div></div></div>
 </section>
 <div class="section-divider"></div>
 
@@ -435,8 +441,10 @@ body.ux-explore #uxModeSwitch{background:transparent;color:var(--ink);border-col
   <header class="prologue-heading">
     <div class="eyebrow red">PROLOGUE / WHY THIS EXISTS</div>
     <h2 id="prologueTitle">Before the data,<br>there was <em>a feeling.</em></h2>
-    <p>I was fourteen when I saw Depeche Mode for the first time, at the Canadian National Exhibition Stadium in Toronto in 1988. I saw them again in 1990. I've attended every Toronto concert since.</p>
-    <p>Those shows were not just concerts. They became part of how I understand music—and how music can become part of a life.</p>
+    <p>Depeche Mode became the soundtrack to my adolescence before I had words for everything I was going through. Changing schools. New relationships. Broken hearts. Those strange years of trying to find where I belonged. The songs didn't give me answers, but they made room for what I was feeling.</p>
+    <p>I was fourteen when I first saw them in Toronto in 1988. Decades later, I've stood beside my wife at more Depeche Mode shows than I can count, and every time I'm moved to tears. Now I share this music with my son. I think part of what I'm sharing is the person I was before he knew me.</p>
+    <p>Some music reminds you of a particular moment. Depeche Mode holds entire chapters of my life. This project began as a curiosity about what makes their sound so distinctive. Beneath that is a more personal question: how can sound stay with us, change with us, and mean something new each time we return to it?</p>
+    <div class="prologue-reflection" role="note" aria-label="Personal reflection"><span class="eyebrow">A LIFE, SCORED IN SONGS</span><blockquote>I didn't leave this music behind as I grew up. I carried it with me.</blockquote></div>
   </header>
   <div class="scroll-essay" id="memoryEssay">
     <div class="scroll-visual-wrap">
@@ -449,8 +457,8 @@ body.ux-explore #uxModeSwitch{background:transparent;color:var(--ink);border-col
     <div class="scroll-steps" aria-label="Scroll to unfold the personal story">
       <article class="memory-step is-current" data-moment="0" tabindex="-1"><span class="step-index">01 — THE FIRST ENCOUNTER</span><h3>Fourteen. Toronto. 1988.</h3><p>My first Depeche Mode show at CNE Stadium. I couldn't have described the sound mathematically. I only knew that it felt different from anything else I'd heard.</p><p class="step-cue">Scroll to follow the memory ↓</p></article>
       <article class="memory-step" data-moment="1" tabindex="-1"><span class="step-index">02 — THE RETURN</span><h3>1990. Back again.</h3><p>Another Toronto concert, another chapter. The songs changed, the production evolved, and the connection kept growing.</p><p class="step-cue">What changes—and what remains?</p></article>
-      <article class="memory-step" data-moment="2" tabindex="-1"><span class="step-index">03 — THE CONTINUITY</span><h3>Every Toronto show since.</h3><p>Decades of songs, albums and live performances. Certain sounds still register in an instant. Others reveal themselves only after years of listening.</p><p class="step-cue">Memory is evidence of experience, not a musical measurement.</p></article>
-      <article class="memory-step" data-moment="3" tabindex="-1"><span class="step-index">04 — THE QUESTION</span><h3>What have I been hearing?</h3><p>As someone drawn to data science and visual explanation, I began wondering whether the architecture behind that feeling could be seen. Which patterns endure? What changes? And where does measurement stop?</p><p class="step-cue">Not to reduce music to numbers. To discover what they reveal—and what they cannot.</p><a class="btn primary" href="#evolution">Enter the investigation ↓</a></article>
+      <article class="memory-step" data-moment="2" tabindex="-1"><span class="step-index">03 — THE CONTINUITY</span><h3>The songs came with me.</h3><p>From adolescence into marriage and fatherhood, these concerts became markers in my life. I've shared so many with my wife; now I share the music with my son. The feeling has never faded.</p><p class="step-cue">Memory is evidence of experience, not a musical measurement.</p></article>
+      <article class="memory-step" data-moment="3" tabindex="-1"><span class="step-index">04 — THE QUESTION</span><h3>What can sound tell us?</h3><p>Data science gives me a way to look for patterns in music I've lived with for decades. But no model can recreate the feeling of hearing these songs with people I love—or the younger versions of myself I hear in them.</p><p class="step-cue">Not to reduce music to numbers. To discover what they reveal—and what they cannot.</p><a class="btn primary" href="#evolution">Enter the investigation ↓</a></article>
     </div>
   </div>
   <div class="prologue-thesis"><span class="eyebrow">THE THROUGHLINE</span><p>What people <i>hear</i>. What models <i>measure</i>. What listeners <i>feel</i>. Why some music <i>endures</i>.</p><small>Four different questions. One evolving investigation.</small></div>
