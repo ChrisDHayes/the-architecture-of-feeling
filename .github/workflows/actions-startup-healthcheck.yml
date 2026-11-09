@@ -12,15 +12,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Verify runner, Python and public repository clone without reusable actions
+      - name: Checkout with GitHub-authored action
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify checkout and run research tests
         shell: bash
         run: |
           set -euo pipefail
-          echo "Runner: ${RUNNER_OS}"
           python3 --version
-          git --version
-          dir="${RUNNER_TEMP}/aof-smoke"
-          git clone --depth 1 --branch main "https://github.com/${GITHUB_REPOSITORY}.git" "${dir}"
-          test -s "${dir}/research/popularity/tools/test_popularity.py"
-          python3 "${dir}/research/popularity/tools/test_popularity.py"
-          echo "Runner, Git clone and Python tests completed successfully."
+          test -s research/popularity/tools/test_popularity.py
+          python3 research/popularity/tools/test_popularity.py
+          echo "GitHub-authored actions and repository checkout are operational."
