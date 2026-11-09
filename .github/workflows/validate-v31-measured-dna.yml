@@ -1,0 +1,29 @@
+name: Validate V3.1 measured Sonic DNA
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/previews/v3-1-measured-dna/**"
+      - "docs/previews/v3-measured-beta/**"
+      - "docs/archive/v2-9/**"
+      - "research/catalogue/tools/test_v31_measured_dna.py"
+      - ".github/workflows/validate-v31-measured-dna.yml"
+  pull_request:
+    paths:
+      - "docs/previews/v3-1-measured-dna/**"
+      - "docs/previews/v3-measured-beta/**"
+      - "research/catalogue/tools/test_v31_measured_dna.py"
+      - ".github/workflows/validate-v31-measured-dna.yml"
+permissions:
+  contents: read
+jobs:
+  measured-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify V2.9, V3.0 source evidence and measured V3.1 contracts
+        run: python research/catalogue/tools/test_v31_measured_dna.py
