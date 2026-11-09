@@ -31,6 +31,14 @@ Verified [run #42718066788](https://github.com/ChrisDHayes/the-architecture-of-f
 
 This is a validated **workaround**, not proof that the underlying GitHub Actions setting has been changed.
 
+## Additional integrity workflow recovery
+
+- [V3.1 measured Sonic DNA validation — run 42718550749](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/runs/42718550749): **success** with shell-native Git checkout, verified V2.9/V3.0 provenance and V3.1 data integrity.
+- [V3.0 and Home finale validation — run 42718557423](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/runs/42718557423): **success** with shell-native Git checkout, both regression suites.
+- Both validation workflows retain exact-event checkout semantics for push and pull requests, without reusable `uses:` actions.
+- Workflows that still rely on GitHub-authored reusable actions—including the **Pages deployer** and historical acquisition/atlas pipelines—remain at risk of startup failure until the repository Actions permission is corrected.
+
+
 ## Owner action: restore GitHub-authored reusable actions
 
 Our GitHub connector permits file/PR changes but does not expose the repository's Actions security policy or an administration-write endpoint. GitHub's [official configuration instructions](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository) explain the owner-only controls.
