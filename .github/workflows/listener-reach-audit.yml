@@ -1,0 +1,40 @@
+name: V3.2 listener reach coverage audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "research/popularity/**"
+      - ".github/workflows/listener-reach-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout research sources
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Offline source identity, missingness and rights-gate tests
+        run: python research/popularity/tools/test_popularity.py
+      - name: Audit ListenBrainz recording-level listeners and listens
+        run: |
+          python research/popularity/tools/audit_listenbrainz.py \
+            --crosswalk research/popularity/data/sonic_dna_147_crosswalk.csv \
+            --output research/popularity/results/latest \
+            --batch-size 40
+      - name: Archive coverage snapshot for review only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: listenbrainz-147-recording-popularity-${{ github.run_number }}
+          path: research/popularity/results/latest/
+          retention-days: 60
+          if-no-files-found: warn

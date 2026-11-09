@@ -1,0 +1,148 @@
+track_id,title,album,year,recording_mbid,source_category,codec,source_lossless,setlist_title_candidate,normalized_title,live_identity_review,live_performance_count_status,unique_listeners_status,total_listens_status
+a01_t02,I Sometimes Wish I Was Dead,Speak & Spell,1981,78b0dc6e-ecbc-4b59-bc37-c348f0fd77de,matched,flac,true,I Sometimes Wish I Was Dead,isometimeswishiwasdead,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a01_t03,Puppets,Speak & Spell,1981,dfce19c3-2b29-40d4-a665-72a62b2a28bb,matched,flac,true,Puppets,puppets,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a01_t04,Boys Say Go!,Speak & Spell,1981,16e2aa4b-c412-49ba-b635-1519ffc365b3,matched,flac,true,Boys Say Go!,boyssaygo,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a01_t05,Nodisco,Speak & Spell,1981,fb97e8a4-d581-485f-b2cc-353f34fe3d54,lossy,mp3,false,Nodisco,nodisco,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a01_t06,What's Your Name,Speak & Spell,1981,bffc1ecf-c7c3-4c58-a374-c872a03daf6f,matched,flac,true,What's Your Name,whatsyourname,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a01_t07,Photographic,Speak & Spell,1981,e4b1c110-e32b-4351-a066-41c7b2a6009a,matched,flac,true,Photographic,photographic,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a01_t08,Tora! Tora! Tora!,Speak & Spell,1981,d8b344da-e436-49da-8580-366b5cba3cae,lossy,mp3,false,Tora! Tora! Tora!,toratoratora,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a01_t09,Big Muff,Speak & Spell,1981,2747e37f-c18b-4c67-9118-7801e248233c,matched,flac,true,Big Muff,bigmuff,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a01_t10,Any Second Now (Voices),Speak & Spell,1981,25c665d6-95ee-4fb2-9e02-9c9f6bad0969,matched,flac,true,Any Second Now,anysecondnow,ALIAS_PROPOSAL_NEEDS_REVIEW,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a02_t01,Leave in Silence,A Broken Frame,1982,6a8bb282-9512-48b2-9046-4b3a81f4f358,matched,flac,true,Leave in Silence,leaveinsilence,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a02_t02,My Secret Garden,A Broken Frame,1982,507dbff5-e4a6-40a2-9c32-49b837ec513a,matched,flac,true,My Secret Garden,mysecretgarden,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a02_t03,Monument,A Broken Frame,1982,47d00fa6-5fc9-4501-9040-0c754bf4d218,matched,flac,true,Monument,monument,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a02_t04,Nothing to Fear,A Broken Frame,1982,97bf7cfd-0ef6-4117-a2e7-e86d06dc2bb0,matched,flac,true,Nothing to Fear,nothingtofear,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a02_t05,See You,A Broken Frame,1982,d776a230-6c9f-4c84-910f-a86b9ef25e30,matched,flac,true,See You,seeyou,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a02_t06,Satellite,A Broken Frame,1982,754338e9-e267-4129-a9e2-d424bc173f1a,matched,flac,true,Satellite,satellite,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a02_t08,A Photograph of You,A Broken Frame,1982,6352b250-94af-450d-8c7d-ef123f09647b,matched,flac,true,A Photograph of You,aphotographofyou,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a02_t09,Shouldn't Have Done That,A Broken Frame,1982,fd0a7ea1-df19-40ce-b807-941869a5c8cf,matched,flac,true,Shouldn't Have Done That,shouldnthavedonethat,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a02_t10,The Sun & the Rainfall,A Broken Frame,1982,7b186354-e993-418b-8e0e-59c50226cce2,matched,flac,true,The Sun & the Rainfall,thesuntherainfall,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a03_t01,"Love, in Itself",Construction Time Again,1983,b6a0f8a8-b4c1-4f9e-b3ca-364a41e78ab3,matched,flac,true,"Love, in Itself",loveinitself,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a03_t02,More Than a Party,Construction Time Again,1983,08bb4309-ec28-411a-b879-4c5e42a24236,matched,flac,true,More Than a Party,morethanaparty,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a03_t03,Pipeline,Construction Time Again,1983,dfb79386-4c95-47f6-a1bc-b6c268e55304,matched,flac,true,Pipeline,pipeline,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a03_t04,Everything Counts,Construction Time Again,1983,721c135d-b2d3-43d7-af2c-4f8c82016a9a,matched,flac,true,Everything Counts,everythingcounts,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a03_t05,Two Minute Warning,Construction Time Again,1983,381bec24-895c-43bd-9960-b72eb117d353,matched,flac,true,Two Minute Warning,twominutewarning,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a03_t06,Shame,Construction Time Again,1983,caee8e8d-34f1-4baf-a00c-2606f094d2d3,matched,flac,true,Shame,shame,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a03_t07,The Landscape Is Changing,Construction Time Again,1983,b49c0226-4c5c-4eaa-8dc6-3c888f8dc75f,matched,flac,true,The Landscape Is Changing,thelandscapeischanging,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a03_t08,Told You So,Construction Time Again,1983,7f144bbc-1958-4491-ad7a-aaca23063cb9,matched,flac,true,Told You So,toldyouso,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a03_t09,And Then...,Construction Time Again,1983,1695d66f-dcb6-4b50-a058-b339664ca722,matched,flac,true,And Then...,andthen,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a04_t01,Something to Do,Some Great Reward,1984,b96f0a8f-cc4b-4023-aff8-81e64679f78d,matched,flac,true,Something to Do,somethingtodo,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a04_t02,Lie to Me,Some Great Reward,1984,9d0cb6bd-dc62-4c6c-a675-14e4276f205b,lossy,mp3,false,Lie to Me,lietome,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a04_t03,People Are People,Some Great Reward,1984,faa06ef9-caa3-44c2-aadf-0029e3390a06,matched,flac,true,People Are People,peoplearepeople,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a04_t04,It Doesn't Matter,Some Great Reward,1984,2e3dd543-b67e-4b23-9b37-1a6119b5bfae,lossy,mp3,false,It Doesn't Matter,itdoesntmatter,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a04_t05,Stories of Old,Some Great Reward,1984,8ce9bf2f-162a-4735-8bcf-85f8f04ed41e,matched,flac,true,Stories of Old,storiesofold,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a04_t06,Somebody,Some Great Reward,1984,92f3b4de-7e0a-49cb-9e3c-4e2895b392a7,matched,flac,true,Somebody,somebody,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a04_t07,Master and Servant,Some Great Reward,1984,bdb79da5-f296-45e4-95d6-143e8125b7c4,matched,flac,true,Master and Servant,masterandservant,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a04_t08,If You Want,Some Great Reward,1984,c244209d-b988-4c17-8a46-253f3b5e699b,matched,flac,true,If You Want,ifyouwant,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a04_t09,Blasphemous Rumours,Some Great Reward,1984,3b51de17-0fb6-473d-adfe-a20e0abd7a68,matched,flac,true,Blasphemous Rumours,blasphemousrumours,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a05_t01,Black Celebration,Black Celebration,1986,81e5cda0-5ceb-4b40-bce1-e1473b5108a2,matched,flac,true,Black Celebration,blackcelebration,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a05_t02,Fly on the Windscreen (Final),Black Celebration,1986,d99735eb-b922-4752-8d1a-b31050e7b6cd,matched,flac,true,Fly on the Windscreen,flyonthewindscreen,ALIAS_PROPOSAL_NEEDS_REVIEW,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a05_t03,A Question of Lust,Black Celebration,1986,516de0a4-3a57-4a49-a47c-7e50c9021f17,matched,alac,true,A Question of Lust,aquestionoflust,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a05_t04,Sometimes,Black Celebration,1986,cd31f443-e76d-4038-adea-fa822bbb914b,matched,flac,true,Sometimes,sometimes,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a05_t05,It Doesn't Matter Two,Black Celebration,1986,2fe7c4cd-e7e2-4578-b895-4cb36dfbb014,matched,flac,true,It Doesn't Matter Two,itdoesntmattertwo,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a05_t06,A Question of Time,Black Celebration,1986,e16ed270-f5f1-4ee2-9c08-0d70a605f52e,matched,flac,true,A Question of Time,aquestionoftime,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a05_t07,Stripped,Black Celebration,1986,ca455085-5b01-426c-a507-b8076b16d9f0,matched,flac,true,Stripped,stripped,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a05_t08,Here Is the House,Black Celebration,1986,5487843e-1ec8-496d-997a-392ebd089437,matched,flac,true,Here Is the House,hereisthehouse,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a05_t09,World Full of Nothing,Black Celebration,1986,6e287974-6bf7-43e5-8b9a-9802a9160efe,matched,flac,true,World Full of Nothing,worldfullofnothing,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a05_t10,Dressed in Black,Black Celebration,1986,16d30ab2-550f-4bf5-aa02-ab2e6abccf95,matched,flac,true,Dressed in Black,dressedinblack,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a05_t11,New Dress,Black Celebration,1986,4e3589dd-f692-4687-b208-de99fb8438ac,matched,flac,true,New Dress,newdress,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a06_t01,Never Let Me Down Again,Music for the Masses,1987,ebc10daf-6e7b-4a89-b481-6834ed98b5ce,matched,flac,true,Never Let Me Down Again,neverletmedownagain,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a06_t02,The Things You Said,Music for the Masses,1987,22d37a4e-9e6c-40f7-ac48-383b29aead0a,matched,flac,true,The Things You Said,thethingsyousaid,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a06_t03,Strangelove,Music for the Masses,1987,dfac3d5d-a114-4bbb-a8fd-0ebf08ac5741,matched,flac,true,Strangelove,strangelove,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a06_t04,Sacred,Music for the Masses,1987,00f86791-490e-4fd6-a5aa-b8e2ebc5a5bc,matched,flac,true,Sacred,sacred,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a06_t05,Little 15,Music for the Masses,1987,74f2ccbc-9dcb-4ffc-9fa7-4e999f24885b,matched,flac,true,Little 15,little15,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a06_t06,Behind the Wheel,Music for the Masses,1987,a395d484-58db-4014-a194-9cf5ebdcd3ba,matched,flac,true,Behind the Wheel,behindthewheel,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a06_t07,I Want You Now,Music for the Masses,1987,bf8185c2-2a67-45cd-9b07-3711474b47dc,matched,flac,true,I Want You Now,iwantyounow,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a06_t08,To Have and to Hold,Music for the Masses,1987,ed59a1c7-0a39-4487-ad92-de7b7bc7c872,matched,flac,true,To Have and to Hold,tohaveandtohold,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a06_t09,Nothing,Music for the Masses,1987,debd6061-0b84-471f-aa60-74b84a280429,matched,flac,true,Nothing,nothing,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a06_t10,Pimpf,Music for the Masses,1987,be3809e3-19a1-43fe-b1a2-887df7906a57,matched,alac,true,Pimpf,pimpf,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a07_t01,World in My Eyes,Violator,1990,26f7bb0d-133d-4811-a8bf-0ff930c5a11a,lossy,mp3,false,World in My Eyes,worldinmyeyes,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a07_t02,Sweetest Perfection,Violator,1990,8a211e51-b5c8-4fcb-982b-6315b6edcac6,matched,flac,true,Sweetest Perfection,sweetestperfection,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a07_t03,Personal Jesus,Violator,1990,bbbc7e9e-0bd8-4a12-a7a5-9a1c9bb6f52d,matched,flac,true,Personal Jesus,personaljesus,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a07_t04,Halo,Violator,1990,e10f942b-6dfe-4e29-bd3a-b98bbe591af0,lossy,mp3,false,Halo,halo,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a07_t05,Waiting for the Night,Violator,1990,b00db402-51d2-4125-912b-c0eab9c6edd1,matched,flac,true,Waiting for the Night,waitingforthenight,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a07_t07,Policy of Truth,Violator,1990,8897f48f-7e5e-44ad-b814-325dc32edd4a,matched,flac,true,Policy of Truth,policyoftruth,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a07_t08,Blue Dress,Violator,1990,e2ea97c5-816e-4379-adb3-60564aeda22c,matched,flac,true,Blue Dress,bluedress,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a07_t09,Clean,Violator,1990,5da12e8c-3203-4f68-94ee-56e26e4457e0,matched,flac,true,Clean,clean,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a08_t02,Walking in My Shoes,Songs of Faith and Devotion,1993,bf65a603-a248-4bc7-a2ea-ed491ee2adc1,matched,alac,true,Walking in My Shoes,walkinginmyshoes,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a08_t03,Condemnation,Songs of Faith and Devotion,1993,948e93c8-6123-4598-8142-da6552f8801b,matched,alac,true,Condemnation,condemnation,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a08_t04,Mercy in You,Songs of Faith and Devotion,1993,8c80b4c4-b9ff-4c82-be1b-5379b20eb794,matched,alac,true,Mercy in You,mercyinyou,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a08_t05,Judas,Songs of Faith and Devotion,1993,2912d5ab-5786-44e4-ae94-cbf32a8a8214,matched,alac,true,Judas,judas,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a08_t06,In Your Room,Songs of Faith and Devotion,1993,733ff0ef-c578-410f-905b-c729f6a7fd90,matched,alac,true,In Your Room,inyourroom,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a08_t07,Get Right with Me,Songs of Faith and Devotion,1993,18a6c9fd-328c-4256-a9fb-9e4dc11f255e,matched,alac,true,Get Right with Me,getrightwithme,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a08_t08,Rush,Songs of Faith and Devotion,1993,a0175ead-5a8b-4d27-89d2-43fff2e21954,lossy,mp3,false,Rush,rush,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a08_t09,One Caress,Songs of Faith and Devotion,1993,a156006f-b018-4252-89e6-f8e5cf22b6b6,matched,alac,true,One Caress,onecaress,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a08_t10,Higher Love,Songs of Faith and Devotion,1993,76629656-f815-47b0-bcb4-c88bb42af85c,matched,alac,true,Higher Love,higherlove,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a09_t01,Barrel of a Gun,Ultra,1997,6c73ecac-4fbe-4947-ad5b-6b65bcddcc3e,lossy,mp3,false,Barrel of a Gun,barrelofagun,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a09_t02,The Love Thieves,Ultra,1997,a244a2cc-f387-4969-9eb8-0fd72053886e,lossy,mp3,false,The Love Thieves,thelovethieves,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a09_t03,Home,Ultra,1997,42f01cf7-2fdc-4f22-bf08-58e791ffdb22,lossy,mp3,false,Home,home,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a09_t04,It's No Good,Ultra,1997,6b2a7ad3-7bee-43ca-9c5c-689c3c43dea1,lossy,mp3,false,It's No Good,itsnogood,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a09_t05,Uselink,Ultra,1997,cf307c4b-ac4d-4df1-88a0-6685472481b6,lossy,mp3,false,Uselink,uselink,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a09_t06,Useless,Ultra,1997,483985a0-7d13-49f4-bee6-4165df21703a,lossy,mp3,false,Useless,useless,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a09_t07,Sister of Night,Ultra,1997,fbd7f940-073b-4d93-9e94-56dd3847a809,lossy,mp3,false,Sister of Night,sisterofnight,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a09_t08,Jazz Thieves,Ultra,1997,d810d4bc-8f2b-400d-9ea8-6d25f1a4bedf,lossy,mp3,false,Jazz Thieves,jazzthieves,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a09_t09,Freestate,Ultra,1997,62ca1d62-9624-4457-bd23-67ba2506dbc2,lossy,mp3,false,Freestate,freestate,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a09_t10,The Bottom Line,Ultra,1997,2f42e6c7-beb9-4983-9dc9-25180e8e3e36,lossy,mp3,false,The Bottom Line,thebottomline,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a09_t11,Insight,Ultra,1997,eaba7ee4-74d9-41ee-aa39-85b0b7f0fdfb,lossy,mp3,false,Insight,insight,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a09_t12,Junior Painkiller,Ultra,1997,57c9a2c4-0375-4ac2-9c21-98ac3ee87430,lossy,mp3,false,Junior Painkiller,juniorpainkiller,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a10_t01,Dream On,Exciter,2001,4a049b5a-97e9-41a1-b21e-f4bd5293712f,lossy,mp3,false,Dream On,dreamon,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a10_t02,Shine,Exciter,2001,f9b8704f-9f75-43be-b0f3-32ffffd57ecc,lossy,mp3,false,Shine,shine,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a10_t03,The Sweetest Condition,Exciter,2001,2ca9d0ff-5ab4-431c-a520-5ebd215eee8a,lossy,mp3,false,The Sweetest Condition,thesweetestcondition,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a10_t04,When the Body Speaks,Exciter,2001,68e80dca-083e-4971-aa15-1f7808e4cb41,lossy,mp3,false,When the Body Speaks,whenthebodyspeaks,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a10_t05,The Dead of Night,Exciter,2001,4524fdd8-99dd-4d49-9d98-a88f6fd49395,lossy,mp3,false,The Dead of Night,thedeadofnight,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a10_t06,Lovetheme,Exciter,2001,4458495e-6a86-4b03-9083-96d91124b503,lossy,mp3,false,Lovetheme,lovetheme,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a10_t08,Comatose,Exciter,2001,2d94d1ef-b743-4454-964b-0730b45a557c,lossy,mp3,false,Comatose,comatose,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a10_t09,I Feel Loved,Exciter,2001,bc58a734-0ee8-4327-9266-f8155e7d618e,lossy,mp3,false,I Feel Loved,ifeelloved,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a10_t10,Breathe,Exciter,2001,c41d3d2e-9ef6-4c55-9d3b-2e1d7ed26f28,lossy,mp3,false,Breathe,breathe,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a10_t11,Easy Tiger,Exciter,2001,61fe08b8-4977-4920-923c-2f199345cf4f,lossy,mp3,false,Easy Tiger,easytiger,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a10_t12,I Am You,Exciter,2001,2864bf6a-cbca-4c87-b73b-9590498f31c2,lossy,mp3,false,I Am You,iamyou,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a10_t13,Goodnight Lovers,Exciter,2001,ba49a665-1356-4153-92a5-219cccac380a,lossy,mp3,false,Goodnight Lovers,goodnightlovers,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a11_t01,A Pain That I'm Used To,Playing the Angel,2005,38fed022-e2e8-42a7-a5e9-ae9b3931579c,lossy,mp3,false,A Pain That I'm Used To,apainthatimusedto,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a11_t02,John the Revelator,Playing the Angel,2005,c993b8ea-153e-46da-985b-eba2624a7c3e,lossy,mp3,false,John the Revelator,johntherevelator,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a11_t03,Suffer Well,Playing the Angel,2005,c7bbebfa-8712-4e78-9f20-4872c8872cb2,matched,flac,true,Suffer Well,sufferwell,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a11_t04,The Sinner in Me,Playing the Angel,2005,db35b772-21e5-4490-82ab-fef7c5acf733,lossy,mp3,false,The Sinner in Me,thesinnerinme,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a11_t05,Precious,Playing the Angel,2005,06ff8b7e-a9a1-4804-8cc1-49b731bce172,lossy,mp3,false,Precious,precious,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a11_t06,Macro,Playing the Angel,2005,3afef6fc-fc18-48e7-aa6b-8659ccb59165,lossy,mp3,false,Macro,macro,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a11_t07,I Want It All,Playing the Angel,2005,6046da9a-9b94-472b-bcc6-530fddeefd11,lossy,mp3,false,I Want It All,iwantitall,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a11_t08,Nothing's Impossible,Playing the Angel,2005,ddf9f2d3-6754-4694-8b82-6adcc4b194ea,lossy,mp3,false,Nothing's Impossible,nothingsimpossible,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a11_t09,Introspectre,Playing the Angel,2005,0eef4570-55d8-409d-bb4a-514000e3bbef,lossy,mp3,false,Introspectre,introspectre,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a11_t10,Damaged People,Playing the Angel,2005,b5ac1597-11ff-47e6-8a8e-4ff85336a34b,lossy,mp3,false,Damaged People,damagedpeople,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a11_t11,Lilian,Playing the Angel,2005,6ded3868-9e43-4ae0-be62-89e31a107150,lossy,mp3,false,Lilian,lilian,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a11_t12,The Darkest Star,Playing the Angel,2005,419685a7-9244-4bdf-a8ee-74918239956e,lossy,mp3,false,The Darkest Star,thedarkeststar,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a12_t01,In Chains,Sounds of the Universe,2009,34d2c005-c989-4c88-b567-0f92f8e99a81,matched,flac,true,In Chains,inchains,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a12_t02,Hole to Feed,Sounds of the Universe,2009,5e1782f7-0baa-461a-8e2f-81795390f6de,matched,flac,true,Hole to Feed,holetofeed,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a12_t04,Fragile Tension,Sounds of the Universe,2009,24056381-3beb-42b2-a28e-05b291842182,matched,flac,true,Fragile Tension,fragiletension,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a12_t05,Little Soul,Sounds of the Universe,2009,000dbffe-59b2-42ba-9458-c8989dccaeb9,matched,flac,true,Little Soul,littlesoul,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a12_t06,In Sympathy,Sounds of the Universe,2009,9543cab3-13d1-4df9-9775-1053c7eff439,matched,flac,true,In Sympathy,insympathy,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a12_t07,Peace,Sounds of the Universe,2009,760c745a-835d-4530-a4b2-6324e8e721ff,matched,flac,true,Peace,peace,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a12_t08,Come Back,Sounds of the Universe,2009,285f50fb-4d74-4ec2-b8ad-e51dafcad120,matched,flac,true,Come Back,comeback,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a12_t09,Spacewalker,Sounds of the Universe,2009,f22086e8-60d7-4333-94ba-2e2c4d10e669,matched,flac,true,Spacewalker,spacewalker,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a12_t10,Perfect,Sounds of the Universe,2009,78db238a-3f03-4a9e-bcdb-0cd8eb760430,matched,flac,true,Perfect,perfect,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a12_t12,Jezebel,Sounds of the Universe,2009,36bd6333-0ad9-419b-817c-48bb6fb874ef,matched,flac,true,Jezebel,jezebel,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a12_t13,Corrupt,Sounds of the Universe,2009,f27e5421-ef59-419b-b31c-3b42a86f252c,lossy,mp3,false,Corrupt,corrupt,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a13_t01,Welcome to My World,Delta Machine,2013,95acc06b-851c-4eae-9882-e5f8322a5969,matched,flac,true,Welcome to My World,welcometomyworld,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a13_t02,Angel,Delta Machine,2013,20284cd4-5910-4e12-bc19-9129e18dfb1d,matched,flac,true,Angel,angel,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a13_t03,Heaven,Delta Machine,2013,455533b2-668c-42fc-9682-a1ddbbd2f16a,lossy,aac,false,Heaven,heaven,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a13_t04,Secret to the End,Delta Machine,2013,102b7291-d75a-4323-8dde-03157024dc3d,matched,flac,true,Secret to the End,secrettotheend,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a13_t05,My Little Universe,Delta Machine,2013,b0cb43ea-c517-4740-9d3c-0d132c14b960,matched,flac,true,My Little Universe,mylittleuniverse,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a13_t06,Slow,Delta Machine,2013,3fddcd6a-c43c-4a4a-8879-6656876aa420,matched,flac,true,Slow,slow,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a13_t07,Broken,Delta Machine,2013,00bf93f4-0d97-4188-8b77-6cfcd529f65e,matched,flac,true,Broken,broken,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a13_t08,The Child Inside,Delta Machine,2013,67c1c691-23bc-44d6-a8e1-ea749eb680c7,matched,flac,true,The Child Inside,thechildinside,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a13_t09,Soft Touch / Raw Nerve,Delta Machine,2013,887e3a60-86d2-4a93-9f5e-f2c2f8425ad0,matched,flac,true,Soft Touch / Raw Nerve,softtouchrawnerve,VERSION_OR_MEDLEY_NEEDS_REVIEW,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a13_t10,Should Be Higher,Delta Machine,2013,7a0a1758-2ee7-4328-b75e-1c000e7e4a1b,matched,flac,true,Should Be Higher,shouldbehigher,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a13_t11,Alone,Delta Machine,2013,51ebcaa3-b6c6-4a4a-8b60-277fa1a5d393,matched,flac,true,Alone,alone,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a13_t12,Soothe My Soul,Delta Machine,2013,0a124119-355c-4e81-86df-d6e2a83ce382,matched,flac,true,Soothe My Soul,soothemysoul,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a13_t13,Goodbye,Delta Machine,2013,0159462b-9456-4118-af4a-c6e4372ab134,matched,flac,true,Goodbye,goodbye,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a14_t01,Going Backwards,Spirit,2017,40c1ef2b-910d-48b9-8f99-607450e1b9a7,matched,flac,true,Going Backwards,goingbackwards,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a14_t02,Where's the Revolution,Spirit,2017,e8bcf3a3-0a7e-4683-ae68-babdc5645a7f,matched,flac,true,Where's the Revolution,wherestherevolution,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a14_t03,The Worst Crime,Spirit,2017,9f88b7cf-eb7b-4d71-a4a5-88fc3d45893c,matched,flac,true,The Worst Crime,theworstcrime,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a14_t04,Scum,Spirit,2017,47a73fec-ee41-4df1-8980-d155e6da8e97,matched,flac,true,Scum,scum,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a14_t05,You Move,Spirit,2017,171d7354-52ff-4f72-8c82-8f6f570e318d,matched,flac,true,You Move,youmove,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a14_t06,Cover Me,Spirit,2017,9f803d56-e762-4633-8663-522b5f19ade3,matched,flac,true,Cover Me,coverme,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a14_t07,Eternal,Spirit,2017,9b73da1d-15aa-4429-89e9-067199943665,matched,flac,true,Eternal,eternal,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a14_t08,Poison Heart,Spirit,2017,6f0b6632-6438-442e-b863-f61d54bdd026,matched,flac,true,Poison Heart,poisonheart,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a14_t09,So Much Love,Spirit,2017,0e1008f0-3781-46f4-8dbe-af5b8dc9880a,matched,flac,true,So Much Love,somuchlove,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a14_t10,Poorman,Spirit,2017,537a2298-0fdb-4558-97dd-ae630a49efd8,matched,flac,true,Poorman,poorman,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a14_t11,No More (This Is the Last Time),Spirit,2017,54f90844-1b63-4c6a-82c4-c79d5fb8f68a,matched,flac,true,No More (This Is the Last Time),nomorethisisthelasttime,VERSION_OR_MEDLEY_NEEDS_REVIEW,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a14_t12,Fail,Spirit,2017,f0e0bef9-5daa-426c-873a-716c3fd67c89,matched,flac,true,Fail,fail,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
+a05_us_extension_01,But Not Tonight,Black Celebration,1986,d53c5384-7f7b-4e36-8cff-1b332cf73b51,matched,flac,true,But Not Tonight,butnottonight,TITLE_CANDIDATE_UNVERIFIED,NOT_QUERIED_RIGHTS_GATE,NOT_QUERIED,NOT_QUERIED
