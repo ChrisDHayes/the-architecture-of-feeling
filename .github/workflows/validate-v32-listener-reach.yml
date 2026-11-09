@@ -1,0 +1,30 @@
+name: Validate V3.2 Listening Reach and Album-Version Proxies
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/previews/v3-2-listener-reach/**"
+      - "research/popularity/data/v32_listener_reach_147_provenance.csv"
+      - "research/popularity/tools/test_v32_listener_reach.py"
+      - ".github/workflows/validate-v32-listener-reach.yml"
+  pull_request:
+    paths:
+      - "docs/previews/v3-2-listener-reach/**"
+      - "research/popularity/data/v32_listener_reach_147_provenance.csv"
+      - "research/popularity/tools/test_v32_listener_reach.py"
+      - ".github/workflows/validate-v32-listener-reach.yml"
+permissions:
+  contents: read
+jobs:
+  source-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify 147-source audience join and original 3 missing observations
+        run: python research/popularity/tools/test_v32_listener_reach.py
+      - name: Preserve V3.1 measured DNA and V2.9 archive
+        run: python research/catalogue/tools/test_v31_measured_dna.py
