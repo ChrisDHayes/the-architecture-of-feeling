@@ -1,0 +1,148 @@
+track_id,title,album,acoustic_recording_mbid,source_recording_unique_listeners,source_recording_total_listens,display_recording_mbid,display_unique_listeners,display_total_listens,display_status,data_reuse_note
+a01_t02,I Sometimes Wish I Was Dead,Speak & Spell,78b0dc6e-ecbc-4b59-bc37-c348f0fd77de,18468,81851,78b0dc6e-ecbc-4b59-bc37-c348f0fd77de,18468,81851,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a01_t03,Puppets,Speak & Spell,dfce19c3-2b29-40d4-a665-72a62b2a28bb,22039,94709,dfce19c3-2b29-40d4-a665-72a62b2a28bb,22039,94709,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a01_t04,Boys Say Go!,Speak & Spell,16e2aa4b-c412-49ba-b635-1519ffc365b3,20889,84682,16e2aa4b-c412-49ba-b635-1519ffc365b3,20889,84682,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a01_t05,Nodisco,Speak & Spell,fb97e8a4-d581-485f-b2cc-353f34fe3d54,18800,76826,fb97e8a4-d581-485f-b2cc-353f34fe3d54,18800,76826,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a01_t06,What's Your Name,Speak & Spell,bffc1ecf-c7c3-4c58-a374-c872a03daf6f,18558,71190,bffc1ecf-c7c3-4c58-a374-c872a03daf6f,18558,71190,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a01_t07,Photographic,Speak & Spell,e4b1c110-e32b-4351-a066-41c7b2a6009a,24742,144499,e4b1c110-e32b-4351-a066-41c7b2a6009a,24742,144499,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a01_t08,Tora! Tora! Tora!,Speak & Spell,d8b344da-e436-49da-8580-366b5cba3cae,19654,85760,d8b344da-e436-49da-8580-366b5cba3cae,19654,85760,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a01_t09,Big Muff,Speak & Spell,2747e37f-c18b-4c67-9118-7801e248233c,18960,70558,2747e37f-c18b-4c67-9118-7801e248233c,18960,70558,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a01_t10,Any Second Now (Voices),Speak & Spell,25c665d6-95ee-4fb2-9e02-9c9f6bad0969,16799,63935,25c665d6-95ee-4fb2-9e02-9c9f6bad0969,16799,63935,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a02_t01,Leave in Silence,A Broken Frame,6a8bb282-9512-48b2-9046-4b3a81f4f358,32934,198689,6a8bb282-9512-48b2-9046-4b3a81f4f358,32934,198689,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a02_t02,My Secret Garden,A Broken Frame,507dbff5-e4a6-40a2-9c32-49b837ec513a,18413,82953,507dbff5-e4a6-40a2-9c32-49b837ec513a,18413,82953,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a02_t03,Monument,A Broken Frame,47d00fa6-5fc9-4501-9040-0c754bf4d218,16794,66076,47d00fa6-5fc9-4501-9040-0c754bf4d218,16794,66076,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a02_t04,Nothing to Fear,A Broken Frame,97bf7cfd-0ef6-4117-a2e7-e86d06dc2bb0,18179,77224,97bf7cfd-0ef6-4117-a2e7-e86d06dc2bb0,18179,77224,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a02_t05,See You,A Broken Frame,d776a230-6c9f-4c84-910f-a86b9ef25e30,48982,282024,d776a230-6c9f-4c84-910f-a86b9ef25e30,48982,282024,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a02_t06,Satellite,A Broken Frame,754338e9-e267-4129-a9e2-d424bc173f1a,16389,64863,754338e9-e267-4129-a9e2-d424bc173f1a,16389,64863,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a02_t08,A Photograph of You,A Broken Frame,6352b250-94af-450d-8c7d-ef123f09647b,15656,61629,6352b250-94af-450d-8c7d-ef123f09647b,15656,61629,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a02_t09,Shouldn't Have Done That,A Broken Frame,fd0a7ea1-df19-40ce-b807-941869a5c8cf,12955,49579,fd0a7ea1-df19-40ce-b807-941869a5c8cf,12955,49579,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a02_t10,The Sun & the Rainfall,A Broken Frame,7b186354-e993-418b-8e0e-59c50226cce2,1887,7960,7b186354-e993-418b-8e0e-59c50226cce2,1887,7960,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a03_t01,"Love, in Itself",Construction Time Again,b6a0f8a8-b4c1-4f9e-b3ca-364a41e78ab3,31335,178020,b6a0f8a8-b4c1-4f9e-b3ca-364a41e78ab3,31335,178020,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a03_t02,More Than a Party,Construction Time Again,08bb4309-ec28-411a-b879-4c5e42a24236,17903,76794,08bb4309-ec28-411a-b879-4c5e42a24236,17903,76794,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a03_t03,Pipeline,Construction Time Again,dfb79386-4c95-47f6-a1bc-b6c268e55304,18510,81217,dfb79386-4c95-47f6-a1bc-b6c268e55304,18510,81217,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a03_t04,Everything Counts,Construction Time Again,721c135d-b2d3-43d7-af2c-4f8c82016a9a,74152,616686,721c135d-b2d3-43d7-af2c-4f8c82016a9a,74152,616686,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a03_t05,Two Minute Warning,Construction Time Again,381bec24-895c-43bd-9960-b72eb117d353,17255,74445,381bec24-895c-43bd-9960-b72eb117d353,17255,74445,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a03_t06,Shame,Construction Time Again,caee8e8d-34f1-4baf-a00c-2606f094d2d3,16899,69253,caee8e8d-34f1-4baf-a00c-2606f094d2d3,16899,69253,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a03_t07,The Landscape Is Changing,Construction Time Again,b49c0226-4c5c-4eaa-8dc6-3c888f8dc75f,16237,68118,b49c0226-4c5c-4eaa-8dc6-3c888f8dc75f,16237,68118,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a03_t08,Told You So,Construction Time Again,7f144bbc-1958-4491-ad7a-aaca23063cb9,19134,101858,7f144bbc-1958-4491-ad7a-aaca23063cb9,19134,101858,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a03_t09,And Then...,Construction Time Again,1695d66f-dcb6-4b50-a058-b339664ca722,15041,62809,1695d66f-dcb6-4b50-a058-b339664ca722,15041,62809,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a04_t01,Something to Do,Some Great Reward,b96f0a8f-cc4b-4023-aff8-81e64679f78d,3890,16522,b96f0a8f-cc4b-4023-aff8-81e64679f78d,3890,16522,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a04_t02,Lie to Me,Some Great Reward,9d0cb6bd-dc62-4c6c-a675-14e4276f205b,22625,139615,9d0cb6bd-dc62-4c6c-a675-14e4276f205b,22625,139615,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a04_t03,People Are People,Some Great Reward,faa06ef9-caa3-44c2-aadf-0029e3390a06,79709,582547,faa06ef9-caa3-44c2-aadf-0029e3390a06,79709,582547,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a04_t04,It Doesn't Matter,Some Great Reward,2e3dd543-b67e-4b23-9b37-1a6119b5bfae,18831,83271,2e3dd543-b67e-4b23-9b37-1a6119b5bfae,18831,83271,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a04_t05,Stories of Old,Some Great Reward,8ce9bf2f-162a-4735-8bcf-85f8f04ed41e,19518,108667,8ce9bf2f-162a-4735-8bcf-85f8f04ed41e,19518,108667,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a04_t06,Somebody,Some Great Reward,92f3b4de-7e0a-49cb-9e3c-4e2895b392a7,40518,287869,92f3b4de-7e0a-49cb-9e3c-4e2895b392a7,40518,287869,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a04_t07,Master and Servant,Some Great Reward,bdb79da5-f296-45e4-95d6-143e8125b7c4,61858,435089,bdb79da5-f296-45e4-95d6-143e8125b7c4,61858,435089,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a04_t08,If You Want,Some Great Reward,c244209d-b988-4c17-8a46-253f3b5e699b,18593,87629,c244209d-b988-4c17-8a46-253f3b5e699b,18593,87629,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a04_t09,Blasphemous Rumours,Some Great Reward,3b51de17-0fb6-473d-adfe-a20e0abd7a68,42319,322977,3b51de17-0fb6-473d-adfe-a20e0abd7a68,42319,322977,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a05_t01,Black Celebration,Black Celebration,81e5cda0-5ceb-4b40-bce1-e1473b5108a2,43409,328395,81e5cda0-5ceb-4b40-bce1-e1473b5108a2,43409,328395,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a05_t02,Fly on the Windscreen (Final),Black Celebration,d99735eb-b922-4752-8d1a-b31050e7b6cd,14123,68315,d99735eb-b922-4752-8d1a-b31050e7b6cd,14123,68315,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a05_t03,A Question of Lust,Black Celebration,516de0a4-3a57-4a49-a47c-7e50c9021f17,50852,374586,516de0a4-3a57-4a49-a47c-7e50c9021f17,50852,374586,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a05_t04,Sometimes,Black Celebration,cd31f443-e76d-4038-adea-fa822bbb914b,26029,126327,cd31f443-e76d-4038-adea-fa822bbb914b,26029,126327,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a05_t05,It Doesn't Matter Two,Black Celebration,2fe7c4cd-e7e2-4578-b895-4cb36dfbb014,25368,137495,2fe7c4cd-e7e2-4578-b895-4cb36dfbb014,25368,137495,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a05_t06,A Question of Time,Black Celebration,e16ed270-f5f1-4ee2-9c08-0d70a605f52e,55576,442848,e16ed270-f5f1-4ee2-9c08-0d70a605f52e,55576,442848,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a05_t07,Stripped,Black Celebration,ca455085-5b01-426c-a507-b8076b16d9f0,64599,592625,ca455085-5b01-426c-a507-b8076b16d9f0,64599,592625,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a05_t08,Here Is the House,Black Celebration,5487843e-1ec8-496d-997a-392ebd089437,27462,170980,5487843e-1ec8-496d-997a-392ebd089437,27462,170980,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a05_t09,World Full of Nothing,Black Celebration,6e287974-6bf7-43e5-8b9a-9802a9160efe,25447,134011,6e287974-6bf7-43e5-8b9a-9802a9160efe,25447,134011,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a05_t10,Dressed in Black,Black Celebration,16d30ab2-550f-4bf5-aa02-ab2e6abccf95,26498,145812,16d30ab2-550f-4bf5-aa02-ab2e6abccf95,26498,145812,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a05_t11,New Dress,Black Celebration,4e3589dd-f692-4687-b208-de99fb8438ac,1526,8193,4e3589dd-f692-4687-b208-de99fb8438ac,1526,8193,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a06_t01,Never Let Me Down Again,Music for the Masses,ebc10daf-6e7b-4a89-b481-6834ed98b5ce,85315,845928,ebc10daf-6e7b-4a89-b481-6834ed98b5ce,85315,845928,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a06_t02,The Things You Said,Music for the Masses,22d37a4e-9e6c-40f7-ac48-383b29aead0a,35451,221593,22d37a4e-9e6c-40f7-ac48-383b29aead0a,35451,221593,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a06_t03,Strangelove,Music for the Masses,dfac3d5d-a114-4bbb-a8fd-0ebf08ac5741,88646,810959,dfac3d5d-a114-4bbb-a8fd-0ebf08ac5741,88646,810959,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a06_t04,Sacred,Music for the Masses,00f86791-490e-4fd6-a5aa-b8e2ebc5a5bc,34883,214009,00f86791-490e-4fd6-a5aa-b8e2ebc5a5bc,34883,214009,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a06_t05,Little 15,Music for the Masses,74f2ccbc-9dcb-4ffc-9fa7-4e999f24885b,49045,304242,74f2ccbc-9dcb-4ffc-9fa7-4e999f24885b,49045,304242,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a06_t06,Behind the Wheel,Music for the Masses,a395d484-58db-4014-a194-9cf5ebdcd3ba,61098,492133,a395d484-58db-4014-a194-9cf5ebdcd3ba,61098,492133,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a06_t07,I Want You Now,Music for the Masses,bf8185c2-2a67-45cd-9b07-3711474b47dc,29123,157092,bf8185c2-2a67-45cd-9b07-3711474b47dc,29123,157092,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a06_t08,To Have and to Hold,Music for the Masses,ed59a1c7-0a39-4487-ad92-de7b7bc7c872,28462,144357,ed59a1c7-0a39-4487-ad92-de7b7bc7c872,28462,144357,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a06_t09,Nothing,Music for the Masses,debd6061-0b84-471f-aa60-74b84a280429,33790,217873,debd6061-0b84-471f-aa60-74b84a280429,33790,217873,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a06_t10,Pimpf,Music for the Masses,be3809e3-19a1-43fe-b1a2-887df7906a57,1101,5019,be3809e3-19a1-43fe-b1a2-887df7906a57,1101,5019,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a07_t01,World in My Eyes,Violator,26f7bb0d-133d-4811-a8bf-0ff930c5a11a,67694,544480,26f7bb0d-133d-4811-a8bf-0ff930c5a11a,67694,544480,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a07_t02,Sweetest Perfection,Violator,8a211e51-b5c8-4fcb-982b-6315b6edcac6,57212,350265,8a211e51-b5c8-4fcb-982b-6315b6edcac6,57212,350265,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a07_t03,Personal Jesus,Violator,bbbc7e9e-0bd8-4a12-a7a5-9a1c9bb6f52d,,,695d0c34-e5da-4f0a-b27c-67ae9ae0e8f4,133918,1232780,ALTERNATE_ALBUM_VERSION_PROXY,Alternative album-linked recording ID; exact acoustic MBID count not reported
+a07_t04,Halo,Violator,e10f942b-6dfe-4e29-bd3a-b98bbe591af0,61236,441266,e10f942b-6dfe-4e29-bd3a-b98bbe591af0,61236,441266,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a07_t05,Waiting for the Night,Violator,b00db402-51d2-4125-912b-c0eab9c6edd1,55649,353858,b00db402-51d2-4125-912b-c0eab9c6edd1,55649,353858,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a07_t07,Policy of Truth,Violator,8897f48f-7e5e-44ad-b814-325dc32edd4a,90678,791471,8897f48f-7e5e-44ad-b814-325dc32edd4a,90678,791471,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a07_t08,Blue Dress,Violator,e2ea97c5-816e-4379-adb3-60564aeda22c,387,1079,e2ea97c5-816e-4379-adb3-60564aeda22c,387,1079,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a07_t09,Clean,Violator,5da12e8c-3203-4f68-94ee-56e26e4457e0,49362,282316,5da12e8c-3203-4f68-94ee-56e26e4457e0,49362,282316,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a08_t02,Walking in My Shoes,Songs of Faith and Devotion,bf65a603-a248-4bc7-a2ea-ed491ee2adc1,72845,687153,bf65a603-a248-4bc7-a2ea-ed491ee2adc1,72845,687153,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a08_t03,Condemnation,Songs of Faith and Devotion,948e93c8-6123-4598-8142-da6552f8801b,17732,121067,948e93c8-6123-4598-8142-da6552f8801b,17732,121067,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a08_t04,Mercy in You,Songs of Faith and Devotion,8c80b4c4-b9ff-4c82-be1b-5379b20eb794,29174,203094,8c80b4c4-b9ff-4c82-be1b-5379b20eb794,29174,203094,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a08_t05,Judas,Songs of Faith and Devotion,2912d5ab-5786-44e4-ae94-cbf32a8a8214,28240,186322,2912d5ab-5786-44e4-ae94-cbf32a8a8214,28240,186322,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a08_t06,In Your Room,Songs of Faith and Devotion,733ff0ef-c578-410f-905b-c729f6a7fd90,35679,344988,733ff0ef-c578-410f-905b-c729f6a7fd90,35679,344988,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a08_t07,Get Right with Me,Songs of Faith and Devotion,18a6c9fd-328c-4256-a9fb-9e4dc11f255e,24743,144090,18a6c9fd-328c-4256-a9fb-9e4dc11f255e,24743,144090,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a08_t08,Rush,Songs of Faith and Devotion,a0175ead-5a8b-4d27-89d2-43fff2e21954,28327,206889,a0175ead-5a8b-4d27-89d2-43fff2e21954,28327,206889,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a08_t09,One Caress,Songs of Faith and Devotion,a156006f-b018-4252-89e6-f8e5cf22b6b6,28295,201516,a156006f-b018-4252-89e6-f8e5cf22b6b6,28295,201516,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a08_t10,Higher Love,Songs of Faith and Devotion,76629656-f815-47b0-bcb4-c88bb42af85c,27646,201264,76629656-f815-47b0-bcb4-c88bb42af85c,27646,201264,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a09_t01,Barrel of a Gun,Ultra,6c73ecac-4fbe-4947-ad5b-6b65bcddcc3e,53925,404538,6c73ecac-4fbe-4947-ad5b-6b65bcddcc3e,53925,404538,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a09_t02,The Love Thieves,Ultra,a244a2cc-f387-4969-9eb8-0fd72053886e,29123,184492,a244a2cc-f387-4969-9eb8-0fd72053886e,29123,184492,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a09_t03,Home,Ultra,42f01cf7-2fdc-4f22-bf08-58e791ffdb22,,,9dd8ea73-de16-449b-93a6-b6b775231bdb,47782,406949,ALTERNATE_ALBUM_VERSION_PROXY,Alternative album-linked recording ID; exact acoustic MBID count not reported
+a09_t04,It's No Good,Ultra,6b2a7ad3-7bee-43ca-9c5c-689c3c43dea1,83192,775778,6b2a7ad3-7bee-43ca-9c5c-689c3c43dea1,83192,775778,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a09_t05,Uselink,Ultra,cf307c4b-ac4d-4df1-88a0-6685472481b6,27013,145394,cf307c4b-ac4d-4df1-88a0-6685472481b6,27013,145394,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a09_t06,Useless,Ultra,483985a0-7d13-49f4-bee6-4165df21703a,51583,411189,483985a0-7d13-49f4-bee6-4165df21703a,51583,411189,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a09_t07,Sister of Night,Ultra,fbd7f940-073b-4d93-9e94-56dd3847a809,27649,177850,fbd7f940-073b-4d93-9e94-56dd3847a809,27649,177850,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a09_t08,Jazz Thieves,Ultra,d810d4bc-8f2b-400d-9ea8-6d25f1a4bedf,25128,121485,d810d4bc-8f2b-400d-9ea8-6d25f1a4bedf,25128,121485,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a09_t09,Freestate,Ultra,62ca1d62-9624-4457-bd23-67ba2506dbc2,25593,154970,62ca1d62-9624-4457-bd23-67ba2506dbc2,25593,154970,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a09_t10,The Bottom Line,Ultra,2f42e6c7-beb9-4983-9dc9-25180e8e3e36,,,d5fe2bd9-365d-46c2-b949-91bb51d30286,25049,146706,ALTERNATE_ALBUM_VERSION_PROXY,Alternative album-linked recording ID; exact acoustic MBID count not reported
+a09_t11,Insight,Ultra,eaba7ee4-74d9-41ee-aa39-85b0b7f0fdfb,25034,153614,eaba7ee4-74d9-41ee-aa39-85b0b7f0fdfb,25034,153614,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a09_t12,Junior Painkiller,Ultra,57c9a2c4-0375-4ac2-9c21-98ac3ee87430,15953,68509,57c9a2c4-0375-4ac2-9c21-98ac3ee87430,15953,68509,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a10_t01,Dream On,Exciter,4a049b5a-97e9-41a1-b21e-f4bd5293712f,77363,616344,4a049b5a-97e9-41a1-b21e-f4bd5293712f,77363,616344,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a10_t02,Shine,Exciter,f9b8704f-9f75-43be-b0f3-32ffffd57ecc,30768,178799,f9b8704f-9f75-43be-b0f3-32ffffd57ecc,30768,178799,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a10_t03,The Sweetest Condition,Exciter,2ca9d0ff-5ab4-431c-a520-5ebd215eee8a,29317,161737,2ca9d0ff-5ab4-431c-a520-5ebd215eee8a,29317,161737,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a10_t04,When the Body Speaks,Exciter,68e80dca-083e-4971-aa15-1f7808e4cb41,29904,172675,68e80dca-083e-4971-aa15-1f7808e4cb41,29904,172675,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a10_t05,The Dead of Night,Exciter,4524fdd8-99dd-4d49-9d98-a88f6fd49395,27807,153738,4524fdd8-99dd-4d49-9d98-a88f6fd49395,27807,153738,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a10_t06,Lovetheme,Exciter,4458495e-6a86-4b03-9083-96d91124b503,26039,121657,4458495e-6a86-4b03-9083-96d91124b503,26039,121657,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a10_t08,Comatose,Exciter,2d94d1ef-b743-4454-964b-0730b45a557c,26590,131875,2d94d1ef-b743-4454-964b-0730b45a557c,26590,131875,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a10_t09,I Feel Loved,Exciter,bc58a734-0ee8-4327-9266-f8155e7d618e,33421,216574,bc58a734-0ee8-4327-9266-f8155e7d618e,33421,216574,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a10_t10,Breathe,Exciter,c41d3d2e-9ef6-4c55-9d3b-2e1d7ed26f28,26289,139707,c41d3d2e-9ef6-4c55-9d3b-2e1d7ed26f28,26289,139707,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a10_t11,Easy Tiger,Exciter,61fe08b8-4977-4920-923c-2f199345cf4f,25524,117579,61fe08b8-4977-4920-923c-2f199345cf4f,25524,117579,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a10_t12,I Am You,Exciter,2864bf6a-cbca-4c87-b73b-9590498f31c2,25428,134571,2864bf6a-cbca-4c87-b73b-9590498f31c2,25428,134571,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a10_t13,Goodnight Lovers,Exciter,ba49a665-1356-4153-92a5-219cccac380a,28173,161043,ba49a665-1356-4153-92a5-219cccac380a,28173,161043,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a11_t01,A Pain That I'm Used To,Playing the Angel,38fed022-e2e8-42a7-a5e9-ae9b3931579c,44070,379870,38fed022-e2e8-42a7-a5e9-ae9b3931579c,44070,379870,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a11_t02,John the Revelator,Playing the Angel,c993b8ea-153e-46da-985b-eba2624a7c3e,54249,494498,c993b8ea-153e-46da-985b-eba2624a7c3e,54249,494498,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a11_t03,Suffer Well,Playing the Angel,c7bbebfa-8712-4e78-9f20-4872c8872cb2,68947,561970,c7bbebfa-8712-4e78-9f20-4872c8872cb2,68947,561970,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a11_t04,The Sinner in Me,Playing the Angel,db35b772-21e5-4490-82ab-fef7c5acf733,41759,285342,db35b772-21e5-4490-82ab-fef7c5acf733,41759,285342,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a11_t05,Precious,Playing the Angel,06ff8b7e-a9a1-4804-8cc1-49b731bce172,99287,1060238,06ff8b7e-a9a1-4804-8cc1-49b731bce172,99287,1060238,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a11_t06,Macro,Playing the Angel,3afef6fc-fc18-48e7-aa6b-8659ccb59165,35539,219879,3afef6fc-fc18-48e7-aa6b-8659ccb59165,35539,219879,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a11_t07,I Want It All,Playing the Angel,6046da9a-9b94-472b-bcc6-530fddeefd11,39567,253256,6046da9a-9b94-472b-bcc6-530fddeefd11,39567,253256,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a11_t08,Nothing's Impossible,Playing the Angel,ddf9f2d3-6754-4694-8b82-6adcc4b194ea,34417,244999,ddf9f2d3-6754-4694-8b82-6adcc4b194ea,34417,244999,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a11_t09,Introspectre,Playing the Angel,0eef4570-55d8-409d-bb4a-514000e3bbef,36549,195692,0eef4570-55d8-409d-bb4a-514000e3bbef,36549,195692,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a11_t10,Damaged People,Playing the Angel,b5ac1597-11ff-47e6-8a8e-4ff85336a34b,37503,245217,b5ac1597-11ff-47e6-8a8e-4ff85336a34b,37503,245217,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a11_t11,Lilian,Playing the Angel,6ded3868-9e43-4ae0-be62-89e31a107150,36710,269600,6ded3868-9e43-4ae0-be62-89e31a107150,36710,269600,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a11_t12,The Darkest Star,Playing the Angel,419685a7-9244-4bdf-a8ee-74918239956e,35376,204017,419685a7-9244-4bdf-a8ee-74918239956e,35376,204017,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a12_t01,In Chains,Sounds of the Universe,34d2c005-c989-4c88-b567-0f92f8e99a81,43604,293286,34d2c005-c989-4c88-b567-0f92f8e99a81,43604,293286,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a12_t02,Hole to Feed,Sounds of the Universe,5e1782f7-0baa-461a-8e2f-81795390f6de,1278,7591,5e1782f7-0baa-461a-8e2f-81795390f6de,1278,7591,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a12_t04,Fragile Tension,Sounds of the Universe,24056381-3beb-42b2-a28e-05b291842182,44905,323800,24056381-3beb-42b2-a28e-05b291842182,44905,323800,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a12_t05,Little Soul,Sounds of the Universe,000dbffe-59b2-42ba-9458-c8989dccaeb9,1111,6424,000dbffe-59b2-42ba-9458-c8989dccaeb9,1111,6424,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a12_t06,In Sympathy,Sounds of the Universe,9543cab3-13d1-4df9-9775-1053c7eff439,40722,267099,9543cab3-13d1-4df9-9775-1053c7eff439,40722,267099,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a12_t07,Peace,Sounds of the Universe,760c745a-835d-4530-a4b2-6324e8e721ff,42158,303979,760c745a-835d-4530-a4b2-6324e8e721ff,42158,303979,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a12_t08,Come Back,Sounds of the Universe,285f50fb-4d74-4ec2-b8ad-e51dafcad120,38485,254204,285f50fb-4d74-4ec2-b8ad-e51dafcad120,38485,254204,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a12_t09,Spacewalker,Sounds of the Universe,f22086e8-60d7-4333-94ba-2e2c4d10e669,35425,195944,f22086e8-60d7-4333-94ba-2e2c4d10e669,35425,195944,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a12_t10,Perfect,Sounds of the Universe,78db238a-3f03-4a9e-bcdb-0cd8eb760430,36033,221466,78db238a-3f03-4a9e-bcdb-0cd8eb760430,36033,221466,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a12_t12,Jezebel,Sounds of the Universe,36bd6333-0ad9-419b-817c-48bb6fb874ef,1009,5832,36bd6333-0ad9-419b-817c-48bb6fb874ef,1009,5832,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a12_t13,Corrupt,Sounds of the Universe,f27e5421-ef59-419b-b31c-3b42a86f252c,34128,213579,f27e5421-ef59-419b-b31c-3b42a86f252c,34128,213579,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a13_t01,Welcome to My World,Delta Machine,95acc06b-851c-4eae-9882-e5f8322a5969,20720,81705,95acc06b-851c-4eae-9882-e5f8322a5969,20720,81705,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a13_t02,Angel,Delta Machine,20284cd4-5910-4e12-bc19-9129e18dfb1d,19641,81017,20284cd4-5910-4e12-bc19-9129e18dfb1d,19641,81017,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a13_t03,Heaven,Delta Machine,455533b2-668c-42fc-9682-a1ddbbd2f16a,27427,164637,455533b2-668c-42fc-9682-a1ddbbd2f16a,27427,164637,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a13_t04,Secret to the End,Delta Machine,102b7291-d75a-4323-8dde-03157024dc3d,18060,70558,102b7291-d75a-4323-8dde-03157024dc3d,18060,70558,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a13_t05,My Little Universe,Delta Machine,b0cb43ea-c517-4740-9d3c-0d132c14b960,16988,61180,b0cb43ea-c517-4740-9d3c-0d132c14b960,16988,61180,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a13_t06,Slow,Delta Machine,3fddcd6a-c43c-4a4a-8879-6656876aa420,16810,63387,3fddcd6a-c43c-4a4a-8879-6656876aa420,16810,63387,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a13_t07,Broken,Delta Machine,00bf93f4-0d97-4188-8b77-6cfcd529f65e,16549,68717,00bf93f4-0d97-4188-8b77-6cfcd529f65e,16549,68717,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a13_t08,The Child Inside,Delta Machine,67c1c691-23bc-44d6-a8e1-ea749eb680c7,15403,54694,67c1c691-23bc-44d6-a8e1-ea749eb680c7,15403,54694,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a13_t09,Soft Touch / Raw Nerve,Delta Machine,887e3a60-86d2-4a93-9f5e-f2c2f8425ad0,1463,5927,887e3a60-86d2-4a93-9f5e-f2c2f8425ad0,1463,5927,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a13_t10,Should Be Higher,Delta Machine,7a0a1758-2ee7-4328-b75e-1c000e7e4a1b,15430,71730,7a0a1758-2ee7-4328-b75e-1c000e7e4a1b,15430,71730,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a13_t11,Alone,Delta Machine,51ebcaa3-b6c6-4a4a-8b60-277fa1a5d393,14385,59366,51ebcaa3-b6c6-4a4a-8b60-277fa1a5d393,14385,59366,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a13_t12,Soothe My Soul,Delta Machine,0a124119-355c-4e81-86df-d6e2a83ce382,17442,79836,0a124119-355c-4e81-86df-d6e2a83ce382,17442,79836,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a13_t13,Goodbye,Delta Machine,0159462b-9456-4118-af4a-c6e4372ab134,14169,51589,0159462b-9456-4118-af4a-c6e4372ab134,14169,51589,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a14_t01,Going Backwards,Spirit,40c1ef2b-910d-48b9-8f99-607450e1b9a7,1607,7957,40c1ef2b-910d-48b9-8f99-607450e1b9a7,1607,7957,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a14_t02,Where's the Revolution,Spirit,e8bcf3a3-0a7e-4683-ae68-babdc5645a7f,1928,11089,e8bcf3a3-0a7e-4683-ae68-babdc5645a7f,1928,11089,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a14_t03,The Worst Crime,Spirit,9f88b7cf-eb7b-4d71-a4a5-88fc3d45893c,1140,4471,9f88b7cf-eb7b-4d71-a4a5-88fc3d45893c,1140,4471,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a14_t04,Scum,Spirit,47a73fec-ee41-4df1-8980-d155e6da8e97,1071,4515,47a73fec-ee41-4df1-8980-d155e6da8e97,1071,4515,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a14_t05,You Move,Spirit,171d7354-52ff-4f72-8c82-8f6f570e318d,989,4215,171d7354-52ff-4f72-8c82-8f6f570e318d,989,4215,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a14_t06,Cover Me,Spirit,9f803d56-e762-4633-8663-522b5f19ade3,1164,5670,9f803d56-e762-4633-8663-522b5f19ade3,1164,5670,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a14_t07,Eternal,Spirit,9b73da1d-15aa-4429-89e9-067199943665,890,3624,9b73da1d-15aa-4429-89e9-067199943665,890,3624,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a14_t08,Poison Heart,Spirit,6f0b6632-6438-442e-b863-f61d54bdd026,993,4164,6f0b6632-6438-442e-b863-f61d54bdd026,993,4164,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a14_t09,So Much Love,Spirit,0e1008f0-3781-46f4-8dbe-af5b8dc9880a,1053,4723,0e1008f0-3781-46f4-8dbe-af5b8dc9880a,1053,4723,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a14_t10,Poorman,Spirit,537a2298-0fdb-4558-97dd-ae630a49efd8,863,3813,537a2298-0fdb-4558-97dd-ae630a49efd8,863,3813,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a14_t11,No More (This Is the Last Time),Spirit,54f90844-1b63-4c6a-82c4-c79d5fb8f68a,991,4223,54f90844-1b63-4c6a-82c4-c79d5fb8f68a,991,4223,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a14_t12,Fail,Spirit,f0e0bef9-5daa-426c-873a-716c3fd67c89,810,3110,f0e0bef9-5daa-426c-873a-716c3fd67c89,810,3110,OBSERVED_SAME_RECORDING,Exact selected recording ID
+a05_us_extension_01,But Not Tonight,Black Celebration,d53c5384-7f7b-4e36-8cff-1b332cf73b51,15634,105899,d53c5384-7f7b-4e36-8cff-1b332cf73b51,15634,105899,OBSERVED_SAME_RECORDING,Exact selected recording ID
