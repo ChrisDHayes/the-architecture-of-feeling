@@ -14,27 +14,48 @@ permissions:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 15
     steps:
-      - name: Checkout research sources
-        uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - name: Offline source identity, missingness and rights-gate tests
-        run: python research/popularity/tools/test_popularity.py
-      - name: Audit ListenBrainz recording-level listeners and listens
+      - name: Clone public research repository without blocked reusable actions
+        shell: bash
         run: |
-          python research/popularity/tools/audit_listenbrainz.py \
+          set -euo pipefail
+          git clone --depth 1 --branch main "https://github.com/${GITHUB_REPOSITORY}.git" "${GITHUB_WORKSPACE}/source"
+          cd "${GITHUB_WORKSPACE}/source"
+          python3 --version
+          echo "Auditing commit $(git rev-parse HEAD)"
+      - name: Offline source identity, missingness and rights-gate tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "${GITHUB_WORKSPACE}/source"
+          python3 research/popularity/tools/test_popularity.py
+      - name: Audit ListenBrainz unique listeners and total listens
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "${GITHUB_WORKSPACE}/source"
+          python3 research/popularity/tools/audit_listenbrainz.py \
             --crosswalk research/popularity/data/sonic_dna_147_crosswalk.csv \
             --output research/popularity/results/latest \
             --batch-size 40
-      - name: Archive coverage snapshot for review only
+      - name: Report source coverage, without auto-publishing counts
         if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: listenbrainz-147-recording-popularity-${{ github.run_number }}
-          path: research/popularity/results/latest/
-          retention-days: 60
-          if-no-files-found: warn
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "${GITHUB_WORKSPACE}/source"
+          echo "## V3.2 ListenBrainz coverage check" >> "${GITHUB_STEP_SUMMARY}"
+          if test -s research/popularity/results/latest/coverage_summary.json; then
+            python3 - <<'PY' >> "${GITHUB_STEP_SUMMARY}"
+          import json
+          from pathlib import Path
+          d=json.loads(Path("research/popularity/results/latest/coverage_summary.json").read_text())
+          for k in ["recordings_checked","reported","null_not_reported","coverage_percent"]:
+              print(f"- **{k.replace('_',' ')}:** {d.get(k)}")
+          print("- Public dendrogram publication: **not approved by this audit**")
+          PY
+            echo "Source-level CSV is not published from the public repository. To retain it, enable GitHub's official upload-artifact action in repository Actions settings, then restore the artifact step after review." >> "${GITHUB_STEP_SUMMARY}"
+          else
+            echo "The audit produced no coverage summary. Check job logs for the failing step." >> "${GITHUB_STEP_SUMMARY}"
+          fi
