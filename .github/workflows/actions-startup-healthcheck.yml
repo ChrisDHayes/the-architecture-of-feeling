@@ -18,7 +18,7 @@ jobs:
     timeout-minutes: 2
     steps:
       - name: Test first-party checkout action permitted by repository policy
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2; full SHA
       - name: Confirm GitHub Actions can create a job
         run: |
           echo "GitHub Actions job started successfully"
