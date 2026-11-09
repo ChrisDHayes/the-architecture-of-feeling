@@ -1,0 +1,31 @@
+name: Audit alternate recording IDs for missing popularity values
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "research/popularity/tools/audit_alternate_mbids.py"
+      - ".github/workflows/audit-alternate-recording-ids.yml"
+permissions:
+  contents: read
+jobs:
+  investigate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Query MusicBrainz candidates and verified alternate ListenBrainz counts
+        run: |
+          python research/popularity/tools/audit_alternate_mbids.py \
+            --crosswalk research/popularity/data/sonic_dna_147_crosswalk.csv \
+            --out research/popularity/results/alternate_recordings.json
+      - name: Save candidate evidence with selected MBIDs still missing
+        uses: actions/upload-artifact@v4
+        with:
+          name: alternative-recording-research-${{ github.run_number }}
+          path: research/popularity/results/alternate_recordings.json
+          retention-days: 60
+          if-no-files-found: error
