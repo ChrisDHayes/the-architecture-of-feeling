@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
+      - name: Test first-party checkout action permitted by repository policy
+        uses: actions/checkout@v4
       - name: Confirm GitHub Actions can create a job
         run: |
           echo "GitHub Actions job started successfully"
