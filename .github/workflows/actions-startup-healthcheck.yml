@@ -1,27 +1,26 @@
 name: Actions startup health check
-
-# Zero dependencies: tests runner startup before any checkout, network, Python,
-# secrets, third-party actions, GitHub Pages configuration or API calls.
 on:
   workflow_dispatch:
   push:
     branches: [main]
     paths:
       - ".github/workflows/actions-startup-healthcheck.yml"
-
 permissions:
   contents: read
-
 jobs:
   startup:
     runs-on: ubuntu-latest
-    timeout-minutes: 2
+    timeout-minutes: 5
     steps:
-      - name: Test first-party checkout action permitted by repository policy
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2; full SHA
-      - name: Confirm GitHub Actions can create a job
+      - name: Verify runner, Python and public repository clone without reusable actions
+        shell: bash
         run: |
-          echo "GitHub Actions job started successfully"
+          set -euo pipefail
           echo "Runner: ${RUNNER_OS}"
-          echo "Event: ${GITHUB_EVENT_NAME}"
-          echo "SHA: ${GITHUB_SHA}"
+          python3 --version
+          git --version
+          dir="${RUNNER_TEMP}/aof-smoke"
+          git clone --depth 1 --branch main "https://github.com/${GITHUB_REPOSITORY}.git" "${dir}"
+          test -s "${dir}/research/popularity/tools/test_popularity.py"
+          python3 "${dir}/research/popularity/tools/test_popularity.py"
+          echo "Runner, Git clone and Python tests completed successfully."
