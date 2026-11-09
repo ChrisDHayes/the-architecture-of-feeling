@@ -1,56 +1,50 @@
-# GitHub Actions startup restriction — isolated and mitigated
+# GitHub Actions & Pages recovery — 9 November 2026
 
-**Date:** 2026-11-09  
-**Repository:** [ChrisDHayes/the-architecture-of-feeling](https://github.com/ChrisDHayes/the-architecture-of-feeling)
+**Status: the GitHub-authored action restriction has been resolved.** The owner adjusted **Settings → Actions → General** to allow GitHub-authored actions. The successful checkout smoke test and subsequent full workflows verify that the setting takes effect.
 
-## Verified diagnosis
+## Diagnosis and definitive verification
 
-The repository experienced `startup_failure` on several workflows with **zero jobs created**, even before Python, API calls or action logs existed.
+Earlier in the day, multiple workflows failed with `startup_failure` **before creating any job**. Controlled tests isolated the source:
 
-The following controlled tests isolated the failure:
-
-| Run | Single change | GitHub conclusion |
+| Workflow run | Test | Result |
 |---|---|---|
-| [42716990006](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/runs/42716990006) | Runner and shell only, no `uses:` | **success** |
-| [42717417834](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/runs/42717417834) | Add `uses: actions/checkout@v4` | **startup_failure**, zero jobs |
-| [42717614281](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/runs/42717614281) | Pin checkout to a full commit SHA | **startup_failure**, zero jobs |
-| [42717878909](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/runs/42717878909) | Git clone + Python tests using ordinary shell steps, no `uses:` | **success** |
-| [42718066788](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/runs/42718066788) | Full 147-recording ListenBrainz audit without reusable actions | **success** |
+| [42716990006](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/runs/42716990006) | Bare Ubuntu shell, no `uses:` steps | Passed |
+| [42717417834](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/runs/42717417834) | Add `actions/checkout@v4` before owner setting change | Startup failure |
+| [42717614281](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/runs/42717614281) | Pin checkout to full SHA before setting change | Startup failure |
+| [42717878909](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/runs/42717878909) | Shell-native Git clone + Python regression tests | Passed |
+| [42719289682](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/runs/42719289682) | `actions/checkout@v4` **after** owner setting change | **Passed**, including post-checkout cleanup |
 
-### Research workflow recovery
+The underlying GitHub setting cannot be read from the connected app, so the exact radio selection isn't independently auditable; **effective permission is demonstrated by the actual action passing**.
 
-The current `.github/workflows/listener-reach-audit.yml` uses shell-native Git and Python rather than blocked reusable actions, and the validated audit completed successfully.
+## V3.2 listener-reach data pipeline restored
 
-Verified [run #42718066788](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/runs/42718066788):
-- 8 offline crosswalk/rights tests passed.
-- 147 recording MBIDs requested from ListenBrainz.
-- 144 returned listener/listen counts; 3 had no reported counts.
-- 97.96% recording-level coverage (not song-wide or world-wide popularity).
-- Counts are **not** automatically promoted to a public acoustic tree.
-- **Known limitation:** Source-level CSV is produced in the job workspace but not retained as a downloadable Actions artifact while the `actions/upload-artifact` reusable action is blocked. The run summary/logs preserve audit coverage results.
+**[Run 42719376842](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/runs/42719376842) — success.** Uses GitHub-authored `actions/checkout@v4`, `actions/setup-python@v5` and `actions/upload-artifact@v4` again.
 
-This is a validated **workaround**, not proof that the underlying GitHub Actions setting has been changed.
+- All 8 source identity, missingness and rights tests passed.
+- The live ListenBrainz audit checked **147** selected recording MusicBrainz IDs, with **144** reporting both unique listener and total listen counts and **3** missing (97.96% recording-level coverage).
+- A dated GitHub Actions artifact is available: **`listenbrainz-147-recording-popularity-4`**, artifact ID **13718044402**, containing `recording_popularity.csv` and `coverage_summary.json` (60-day retention).
+- Recording-level user counts do not measure worldwide song popularity; no cross-edition aggregation or public dashboard promotion was approved.
+- Live-performance counts from setlist.fm remain behind the separate authorization gate; setting changes did **not** grant data redistribution rights.
 
-## Additional integrity workflow recovery
+## Other successful validations
 
-- [V3.1 measured Sonic DNA validation — run 42718550749](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/runs/42718550749): **success** with shell-native Git checkout, verified V2.9/V3.0 provenance and V3.1 data integrity.
-- [V3.0 and Home finale validation — run 42718557423](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/runs/42718557423): **success** with shell-native Git checkout, both regression suites.
-- Both validation workflows retain exact-event checkout semantics for push and pull requests, without reusable `uses:` actions.
-- Workflows that still rely on GitHub-authored reusable actions—including the **Pages deployer** and historical acquisition/atlas pipelines—remain at risk of startup failure until the repository Actions permission is corrected.
+- [V3.1 measured Sonic DNA validation, run 42718550749](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/runs/42718550749): **passed**.
+- [V3.0 and Home finale validation, run 42718557423](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/runs/42718557423): **passed**.
+- These validators currently use the previously established shell-native checkout workaround, which is functioning. They do not need urgent modifications just because the first-party actions restriction has been removed.
 
+## GitHub Pages publication
 
-## Owner action: restore GitHub-authored reusable actions
+**[V3.1 publication run 42719641582](https://github.com/ChrisDHayes/the-architecture-of-feeling/actions/runs/42719641582) — success.** The workflow's checks, Pages configuration, artifact upload and deployment steps all passed.
 
-Our GitHub connector permits file/PR changes but does not expose the repository's Actions security policy or an administration-write endpoint. GitHub's [official configuration instructions](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository) explain the owner-only controls.
+The publishing workflow now stages the repository's **V3.1 source-derived Sonic DNA experience**, its **Home finale**, the preserved V3.0 and V2.9 experiences, and the research evidence-lab documents using an **explicit six-file allowlist**. The V3.1 source's embedded measurements must match the V3.0 research payload, and an unverified-master label remains required.
 
-1. Open [Settings → Actions → General](https://github.com/ChrisDHayes/the-architecture-of-feeling/settings/actions).
-2. In **Actions permissions**, verify GitHub-authored actions are allowed. A narrowly scoped choice is **Allow ChrisDHayes, and select non-ChrisDHayes, actions and reusable workflows** with **Allow actions created by GitHub** selected. Alternatively select **Allow all actions and reusable workflows** only if that broad policy is acceptable.
-3. Click **Save**. Requiring full-length SHA alone did not fix this restriction.
-4. Re-run an existing validator that uses `actions/checkout` or a small checkout-only smoke test. Confirm that a job is created and the action runs successfully.
-5. After validation, restore the artifact-upload step to the listener audit. Before making GitHub Pages live, also check [Settings → Pages](https://github.com/ChrisDHayes/the-architecture-of-feeling/settings/pages) and set its build source to **GitHub Actions**.
+GitHub's deployment step reports:
+- Landing page: **https://chrisdhayes.github.io/the-architecture-of-feeling/**
+- V3.1: **https://chrisdhayes.github.io/the-architecture-of-feeling/previews/v3-1-measured-dna/index.html**
+- Home finale: append `#home-finale` to the V3.1 URL
 
-**Unconfirmed:** The repository's exact `Actions permissions` value is not readable through the connected GitHub app. A GitHub-side action-resolution incident or a more specific account restriction could also produce a similar symptom. If the policy already allows GitHub-authored actions, collect the failed run URLs and contact GitHub Support rather than broadening permissions blindly.
+The deployment was verified using GitHub's completed Actions job and its reported environment URL; **independent unauthenticated HTTP retrieval was not available from this runtime**.
 
-## Security
+## Security and scope
 
-Do not place a personal access token in workflow YAML or logs, and do not weaken branch controls to fix a reusable-action startup failure. The acoustic source records, locked V2.9 and V3.1 public exhibit were unchanged by the workaround.
+Owner-level repository Actions permissions were adjusted in the GitHub UI; no personal access tokens, secrets, broad default write permissions or branch protection changes were required. Popularity counts are **not** embedded in the public exhibit; live performance reuse remains separately gated. All existing measured catalogue values and the original V2.9 archive remain preserved.
