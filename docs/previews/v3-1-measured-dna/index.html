@@ -503,6 +503,10 @@ body.aof-home-visible #uxDiscoveryDock{opacity:0!important;pointer-events:none!i
 #evolution > .chapter-coda,#evolution > .section-head,#evolution > .panel{display:none!important}
 #method > :not(.v31-stage):not(.v31-coverage-note){display:none!important}
 #uxDiscoveryDock{display:none!important}
+/* Keep missing-source details in the endnote, not as a hero statistic. */
+#v3-measured .v3-stats .v3-stat:nth-child(3){display:none!important}
+#v3-measured .v3-stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:650px){#v3-measured .v3-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 </style></head>
 <body class="ux-guided"><a class="ux-skip" href="#opening">Skip to the story</a><button id="uxNavScrim" type="button" aria-label="Close navigation"></button>
