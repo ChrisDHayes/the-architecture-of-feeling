@@ -1,34 +1,28 @@
-# Publish the interactive research experience with GitHub Pages
+# Publishing The Architecture of Feeling on GitHub Pages
 
-The repository keeps the approved **V2.9 creative original** and the **V3.0 measured research beta** separate. A dedicated Actions deployment publishes only an allowlisted static site (landing page, V2.9 HTML, V3 beta HTML, 25-song Evidence Lab HTML, and lab provenance manifest). It does **not** publish raw AcousticBrainz JSON archives, commercial audio, private project files, or research collection scripts.
+The public **main URL** is https://chrisdhayes.github.io/the-architecture-of-feeling/ . It serves the **V3.2 interactive experience directly**, with the approved preview kept at `/previews/v3-2-listener-reach/`.
 
-## One-time owner-side GitHub setting
+## Deployment configuration
 
-In the connected repository, go to **Settings → Pages → Build and deployment**.
+This repository uses the GitHub Actions workflow [`publish-interactive-pages.yml`](../.github/workflows/publish-interactive-pages.yml), not GitHub Pages' branch-folder publisher. In **Settings → Pages → Build and deployment**, set **Source = GitHub Actions**. Publication is complete only after the Pages deployment succeeds and the main URL loads the updated page.
 
-1. Verify that your GitHub plan/repository settings permit Pages for a private repository. GitHub Pages content can be **publicly accessible even when repository contents remain private**.
-2. Set **Source = GitHub Actions**. **Do not** choose *Deploy from a branch*: this repository uses the dedicated upload/deploy Pages workflow.
-3. Open **Actions → Publish The Architecture of Feeling interactive research website → Run workflow** if the deployment did not begin automatically. Review the first run's result and the URL GitHub displays under **Settings → Pages** or under the deployment job.
-4. Verify the public landing page and all three exhibits in a private/incognito browser (not signed in to GitHub). Confirm navigation, interactive controls, and explicit source-evidence/synthetic disclaimers.
+The publishing workflow checks:
+- The main `docs/index.html` is byte-for-byte equivalent to the approved V3.2 preview, except for one corrected relative hyperlink to the evidence lab.
+- V3.2 acoustic evidence is unchanged from V3.0, and the selected-recording audience layer preserves the 144 exact-MBID observations plus three clearly labelled alternate-album-version proxies.
+- The original V2.9 creative exhibit matches its locked SHA-256 hash; V3.0 and V3.1 remain present; research status, source manifests and evidence lab have their required integrity markers.
+- Only seven explicitly approved static files and `.nojekyll` are staged publicly. Raw collectors, commercial audio, unlicensed lyrics, and internal research archives are excluded.
 
-These settings cannot be switched by the current ChatGPT GitHub connector, so publication is **not confirmed until the Pages deployment completes and its site URL can be opened**.
+## Public locations
 
-## Layout and audience
+- **Main exhibit:** `/` → `docs/index.html` (V3.2 interactive experience)
+- **V3.2 preserved preview:** `/previews/v3-2-listener-reach/`
+- **V3.1:** `/previews/v3-1-measured-dna/`
+- **V3.0:** `/previews/v3-measured-beta/`
+- **V2.9:** `/archive/v2-9/`
+- **Evidence Lab:** `/research/acousticbrainz/Measured_Evidence_Lab.html`
 
-- Landing page: `docs/index.html` — entry links to both interactive editions and the 25-song Evidence Lab.
-- **V2.9**: `docs/archive/v2-9/index.html` — unchanged creative baseline (SHA-256 `3ba59e0030951051bcc4842fb2471b08a306dcb1aa838cdf1a9d06a8166eac21`).
-- **V3.0 beta**: `docs/previews/v3-measured-beta/index.html` — 148 provisional source-linked observations / 167 entries; source quality and missingness visible; musical similarity and emotional tree **still synthetic**.
-- Source Evidence Lab: `docs/research/acousticbrainz/Measured_Evidence_Lab.html` and corresponding provenance manifest.
+## Publication verification
 
-## How automatic updates work
+Open the [main experience](https://chrisdhayes.github.io/the-architecture-of-feeling/) in an incognito browser, jump to the acoustic scatterplot (`#contradiction`) and dendrogram (`#family`), check hover/tap receipts and the three audience modes, and verify the source link and `#home-finale`. In the GitHub Actions deployment log, confirm the allowlist/integrity step and Pages deployment have both passed.
 
-The Pages workflow `.github/workflows/publish-interactive-pages.yml` runs for:
-- site-related edits to `main`;
-- manual `workflow_dispatch`;
-- completion of the **AcousticBrainz 25-song coverage audit** on `main`, but only when the audit succeeds.
-
-The third trigger accounts for GitHub's rule that commits created with the default `GITHUB_TOKEN` do not trigger another Pages build. We use a workflow completion event instead of expecting the audit bot's file commit to trigger a normal push event.
-
-The deployment checks the V2.9 SHA-256, V3 catalogue count/status and lack of scientific approvals, and the Evidence Lab's SHA-256 provenance match. Any violation fails closed. The public upload includes **only five explicitly allowed files plus a no-Jekyll marker**.
-
-**A successful static deployment is not scientific publication clearance.** The sources remain unapproved studio masters, and the V3 beta must remain labelled provisional. Revising the sonic-family tree requires a separate measured-similarity methodology and sensitivity review.
+**Scientific and legal caveat:** Publishing an exploratory exhibit does not validate recordings as studio masters, convert listening counts into global popularity, or license audio. The original measured/synthetic and human-interpretation distinctions remain in place.
