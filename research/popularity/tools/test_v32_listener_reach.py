@@ -57,6 +57,23 @@ class Integration(unittest.TestCase):
   self.assertNotIn('What is measured, and what remains personal?',self.html)
   self.assertIn('THE<br>ARCHITECTURE<br>OF',hero)
   self.assertIn('class="hero-meta"',hero)
+ def test_album_median_reference_is_source_based_and_common_scale(self):
+  from statistics import median
+  evidence=decoded_block(self.html,"window.AOF_V3_EVIDENCE = ")
+  records=[r for r in evidence["records"] if r["category"] in ("matched","lossy") and r["feature_parity"]]
+  by_album={}
+  for r in records:
+   by_album.setdefault(r["album"],[]).append(r["values"]["rhythm.onset_density"])
+  medians=[median(values) for values in by_album.values()]
+  self.assertEqual(len(medians),14)
+  self.assertAlmostEqual(median(medians),3.5363948941225,places=7)
+  self.assertEqual(max(medians).__ceil__(),5)
+  self.assertIn('id="v31AlbumReference"',self.html)
+  self.assertIn('class="v31-album-median-tick"',self.html)
+  self.assertIn('const reference=median(albumMedians);',self.html)
+  self.assertIn('const scaleMax=Math.ceil(Math.max(...albumMedians));',self.html)
+  self.assertIn('g.med.toFixed(2)',self.html)
+  self.assertIn('No archival measurement available',self.html)
  def test_crosswalk_and_visual_disclosure(self):
   self.assertEqual(len(self.rows),147)
   self.assertEqual(len({r["track_id"] for r in self.rows}),147)
