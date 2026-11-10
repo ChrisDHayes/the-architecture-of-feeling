@@ -526,6 +526,38 @@ body.aof-home-visible #uxDiscoveryDock{opacity:0!important;pointer-events:none!i
 @media(max-width:650px){#v3-measured .v3-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 
+
+/* PERSONAL LANDMARKS / the listener's selections are editorial, not acoustic features. */
+:root{--v32-fav:#e0c492}
+body.light{--v32-fav:#89612d}
+.v32-fav-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:8px 7px 12px;border-bottom:1px solid var(--border)}
+.v32-fav-head-copy{min-width:0;flex:1}
+.v32-fav-overline{display:block;color:var(--v32-fav);font:700 10px/1.5 ui-monospace,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase}
+.v32-fav-subtitle{margin:5px 0 0;color:var(--muted);font-size:12px;line-height:1.5;max-width:850px}
+.v32-fav-toggle{color:var(--ink);background:none;border:1px solid var(--border);padding:8px 12px;min-height:36px;flex:0 0 auto;font:600 11px system-ui;cursor:pointer;transition:background .15s,border-color .15s}
+.v32-fav-toggle:hover,.v32-fav-toggle:focus-visible{border-color:var(--v32-fav);background:var(--raised)}
+.v32-fav-toggle:focus-visible,.v32-fav-chip:focus-visible{outline:2px solid var(--v32-fav);outline-offset:3px}
+.v32-fav-rail{padding:11px 7px 6px;border-top:1px solid var(--border)}
+.v32-fav-rail[hidden]{display:none!important}
+.v32-fav-legend{display:flex;align-items:center;gap:8px 18px;flex-wrap:wrap;color:var(--muted);font-size:11px;margin-bottom:11px}
+.v32-fav-legend span{display:inline-flex;gap:6px;align-items:center}
+.v32-fav-dot{width:9px;height:9px;display:inline-block;border:2px solid var(--v32-fav);border-radius:50%}
+.v32-fav-dot.home{width:11px;height:11px;border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 25%,transparent)}
+.v32-fav-dot.unplotted{border-color:var(--muted);border-style:dotted;opacity:.6}
+.v32-fav-chips{display:flex;gap:7px;flex-wrap:wrap}
+.v32-fav-chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--border);background:transparent;color:var(--ink);padding:6px 9px;min-height:31px;font:500 11px/1.3 system-ui;max-width:100%;text-align:left}
+button.v32-fav-chip{cursor:pointer}
+button.v32-fav-chip::before{content:'';flex:0 0 auto;width:5px;height:5px;border-radius:50%;background:var(--v32-fav)}
+button.v32-fav-chip:hover,button.v32-fav-chip[aria-pressed="true"]{border-color:var(--v32-fav);background:var(--raised)}
+.v32-fav-chip.v32-fav-unplotted{color:var(--muted);border-style:dashed;opacity:.75}
+.v32-fav-unplotted small{font-size:9px;color:var(--muted);font-style:italic}
+.v32-fav-note{margin:9px 0 0;color:var(--muted);font-size:10px;line-height:1.55}
+.v32-fav-halo{stroke:var(--v32-fav);fill:none;pointer-events:none;stroke-width:1.75;opacity:.93}
+.v32-fav-halo.home{stroke:var(--accent);stroke-width:2.25}
+.v32-home-label{fill:var(--accent);font:700 10px ui-monospace,Consolas,monospace;letter-spacing:.09em;pointer-events:none}
+.v31-field circle[data-id][data-landmark="favourite"]:hover,.v31-field circle[data-id][data-landmark="favourite"]:focus-visible{stroke:var(--v32-fav);stroke-width:3}
+@media(max-width:650px){.v32-fav-head{padding:11px 9px}.v32-fav-rail{padding:10px 9px 5px}.v32-fav-subtitle{font-size:11px}.v32-fav-chips{gap:5px}.v32-fav-chip{font-size:10px;padding:6px 8px}}
+
 /* V3.2 — archival recording-level listening reach; independent of acoustic clustering. */
 .v32-eyebrow{font:600 10px/1.6 ui-monospace,Consolas,monospace;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
 .v32-toolbar{display:flex;align-items:center;justify-content:space-between;gap:11px;flex-wrap:wrap;margin:14px 0 12px;padding:12px 12px;background:color-mix(in srgb,var(--accent) 5%,var(--bg));border:1px solid var(--border);border-radius:5px}
@@ -2311,6 +2343,27 @@ const ALBUM_PROXY32 = {"schema":"aof.v3.2.display-reach-bridge.v1","musicbrainz_
 const cohortAll=source, cohortLossless=source.filter(r=>r.category==='matched');
 if(cohortLossless.length!==103)throw Error('Lossless cohort integrity failure');
 const byId=new Map(source.map(r=>[r.track_id,r]));
+// Curated personal favourites, a declared interpretive overlay NOT used in acoustic clustering.
+// Never Let Me Down is the user's shorthand for the album title Never Let Me Down Again.
+// Three requested songs lack an aligned acoustic coordinate in this exact study.
+const personalFavorites32=[
+ {title:'The Sun and the Rainfall',id:null,reason:'Outside the present 167-entry measured-source catalogue'},
+ {title:'Pleasure, Little Treasure',id:null,reason:'Outside the present 167-entry measured-source catalogue'},
+ {title:'But Not Tonight',id:'a05_us_extension_01'},
+ {title:'Never Let Me Down Again',id:'a06_t01'},
+ {title:'Halo',id:'a07_t04'},
+ {title:'Higher Love',id:'a08_t10'},
+ {title:'Personal Jesus',id:'a07_t03'},
+ {title:'Barrel of a Gun',id:'a09_t01'},
+ {title:'I Feel You',id:null,reason:'Present in the catalogue, but no usable archived acoustic descriptor for its selected recording'},
+ {title:'In Your Room',id:'a08_t06'},
+ {title:'Stripped',id:'a05_t07'}
+];
+const personalFavoriteIds32=new Set(personalFavorites32.filter(f=>f.id).map(f=>f.id));
+if(personalFavoriteIds32.size!==8||personalFavorites32.length!==11)throw Error('Personal listening landmarks integrity failure');
+for(const f of personalFavorites32.filter(f=>f.id))if(byId.get(f.id)?.title!==f.title)throw Error('Incorrect acoustic source identity for favourite '+f.title);
+let showPersonalFavorites32=true;
+
 const byKey=new Map(feature.map(f=>[f.key,f]));
 const $=id=>document.getElementById(id);
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -2372,6 +2425,7 @@ function showCurrent(r,redraw=true){current=r;
  if(near.length){const part=distanceBreakdown(r,near[0].r),sum=part.reduce((a,b)=>a+b,0)||1;
  $('v31Ledger').innerHTML=families.map((f,i)=>`<div class="v31-ledger-row"><span>${f.name}</span><div class="v31-track"><i style="width:${(part[i]/sum*100).toFixed(1)}%;background:${f.tint}"></i></div><b>${(part[i]/sum*100).toFixed(0)}%</b></div>`).join('');}
  if(redraw){drawTree(false);drawScatter();drawSignature();}
+ renderPersonalFavorites32();
 }
 
 // V3.2 audience encoding is independent of the V3.1 acoustic distance/cluster engine.
@@ -2479,6 +2533,26 @@ function drawTree(recompute=true){const records=domain();if(!records.includes(cu
  $('v31TreeSvg').querySelectorAll('.v31-leaf[data-id]').forEach(el=>{const handler=()=>showCurrent(byId.get(el.dataset.id));el.addEventListener('click',handler);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();handler()}})});
  bindReachRing();
 }
+
+function renderPersonalFavorites32(){
+ const rail=$('v32FavRail');if(!rail)return;
+ rail.hidden=!showPersonalFavorites32;
+ if(!showPersonalFavorites32)return;
+ const inView=new Set(domain().map(r=>r.track_id));
+ rail.innerHTML=`<div class="v32-fav-legend"><span><i class="v32-fav-dot home" aria-hidden="true"></i>Home · anchor</span><span><i class="v32-fav-dot" aria-hidden="true"></i>8 favourites with acoustic coordinates</span><span><i class="v32-fav-dot unplotted" aria-hidden="true"></i>3 unplotted</span></div><div class="v32-fav-chips">${personalFavorites32.map(f=>{
+ if(!f.id)return `<span class="v32-fav-chip v32-fav-unplotted" title="${esc(f.reason)}">${esc(f.title)} <small>unplotted</small></span>`;
+ const r=byId.get(f.id),selected=current.track_id===f.id;
+ return `<button type="button" class="v32-fav-chip" data-personal-fav="${esc(f.id)}" aria-pressed="${selected}" title="${esc(r.title)} · ${esc(r.album)}${inView.has(f.id)?'':' · outside current 103-source filter; selection will restore full cohort'}">${esc(f.title)}</button>`;
+ }).join('')}</div><p class="v32-fav-note">The Sun and the Rainfall and Pleasure, Little Treasure are outside this study's catalogue; I Feel You has no usable acoustic observation. These remain personal favourites, not invented plot positions.</p>`;
+ rail.querySelectorAll('[data-personal-fav]').forEach(btn=>btn.addEventListener('click',()=>{
+  const r=byId.get(btn.dataset.personalFav);if(!r)return;
+  if(cohort==='lossless'&&!cohortLossless.includes(r)){
+   cohort='all';$('v31Cohort').value='all';drawTree();
+  }
+  showCurrent(r);
+ }));
+}
+
 function axisScale(key,range){const st=allStats[key],lo=st.lo,hi=st.hi;return v=>range[0]+clamp((v-lo)/(hi-lo||1),0,1)*(range[1]-range[0])}
 function drawScatter(){const items=domain(),x=axisScale(selectedX,[90,900]),y=axisScale(selectedY,[522,88]);
  const fx=byKey.get(selectedX),fy=byKey.get(selectedY),xst=allStats[selectedX],yst=allStats[selectedY];
@@ -2489,10 +2563,22 @@ function drawScatter(){const items=domain(),x=axisScale(selectedX,[90,900]),y=ax
  s+=`<text x="76" y="${yy+4}" text-anchor="end" class="v31-axis-n">${format(yst.lo+t*(yst.hi-yst.lo),fy.unit)}</text>`}
  s+=`<text x="495" y="598" text-anchor="middle" class="v31-axis-title">${esc(fx.label)} · ${esc(fx.unit)}</text>`;
  s+=`<text x="18" y="310" text-anchor="middle" transform="rotate(-90 18 310)" class="v31-axis-title">${esc(fy.label)} · ${esc(fy.unit)}</text>`;
- for(const r of items){const selected=r.track_id===current.track_id;s+=`<circle data-id="${esc(r.track_id)}" role="button" tabindex="0" aria-label="Inspect ${esc(r.title)}" cx="${x(r.values[selectedX]).toFixed(1)}" cy="${y(r.values[selectedY]).toFixed(1)}" r="${selected?11:5.1}" fill="${selected?'var(--accent)':r.category==='matched'?'#b1c5cc':'#c69e94'}" opacity="${selected?1:.73}" stroke="${selected?'var(--ink)':'transparent'}" stroke-width="1.8"><title>${esc(r.title)} · ${format(r.values[selectedX],fx.unit)} ${esc(fx.unit)} / ${format(r.values[selectedY],fy.unit)} ${esc(fy.unit)}</title></circle>`}
+ for(const r of items){const selected=r.track_id===current.track_id,home=r.title==='Home',favourite=personalFavoriteIds32.has(r.track_id);
+ const landmark=home?'home':favourite?'favourite':'other';
+ s+=`<circle data-id="${esc(r.track_id)}" data-landmark="${landmark}" role="button" tabindex="0" aria-label="Inspect ${esc(r.title)}${home?' · personal anchor':favourite?' · personal favourite':''}" cx="${x(r.values[selectedX]).toFixed(1)}" cy="${y(r.values[selectedY]).toFixed(1)}" r="${selected?11:home?8:5.1}" fill="${selected||home?'var(--accent)':r.category==='matched'?'#b1c5cc':'#c69e94'}" opacity="${selected||home?1:.73}" stroke="${selected?'var(--ink)':'transparent'}" stroke-width="1.8"><title>${esc(r.title)} · ${format(r.values[selectedX],fx.unit)} ${esc(fx.unit)} / ${format(r.values[selectedY],fy.unit)} ${esc(fy.unit)}${home?' · personal anchor':favourite?' · personal favourite':''}</title></circle>`;
+ }
+ if(showPersonalFavorites32){
+  // The home anchor is deliberately larger; other favourites use a restrained outline.
+  for(const r of items){const home=r.title==='Home',favourite=personalFavoriteIds32.has(r.track_id);
+   if(!home&&!favourite)continue;
+   const xx=x(r.values[selectedX]),yy=y(r.values[selectedY]);
+   s+=`<circle class="v32-fav-halo${home?' home':''}" data-favorite-halo="${esc(r.track_id)}" cx="${xx.toFixed(1)}" cy="${yy.toFixed(1)}" r="${home?16:9}" aria-hidden="true"/>`;
+   if(home){const right=xx<720;s+=`<text class="v32-home-label" x="${(xx+(right?22:-22)).toFixed(1)}" y="${(yy-14).toFixed(1)}" text-anchor="${right?'start':'end'}" aria-hidden="true">HOME</text>`;}
+  }
+ }
  $('v31ScatterSvg').innerHTML=s;
  $('v31ScatterSvg').querySelectorAll('[data-id]').forEach(el=>{const handler=()=>showCurrent(byId.get(el.dataset.id));el.addEventListener('click',handler);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();handler()}})});
- $('v31FieldCaption').textContent=`${items.length} provisional source files. Coordinates are actual ${fx.label.toLowerCase()} and ${fy.label.toLowerCase()} observations; both axes clipped at the 5th–95th source percentiles for display. Not mood measurements.`;
+ $('v31FieldCaption').textContent=`${items.length} provisional source files. Coordinates are actual ${fx.label.toLowerCase()} and ${fy.label.toLowerCase()} observations; both axes clipped at the 5th–95th source percentiles for display. Not mood measurements. Gold outlines are personal favourites where acoustic observations exist; no coordinates were added or estimated for missing songs.`;
 }
 function drawSignature(){let s='';for(let i=0;i<families.length;i++){const f=families[i];s+=`<div class="v31-sign-group"><h4><i style="background:${f.tint}"></i>${f.name}</h4>`;
  for(const key of f.keys){const v=current.values[key],st=allStats[key],fmeta=byKey.get(key),pct=clamp((v-st.lo)/(st.hi-st.lo||1)*100,0,100);
@@ -2533,7 +2619,7 @@ function fillContainers(){
 <div class="v32-focus" id="v32Focus" aria-live="polite" aria-atomic="true"><b>Explore the outer ring</b><span>Select a song, or hover over a radial bar. Reach and acoustic resemblance are independent measurements.</span></div><div class="v31-key"><span><i style="background:var(--ink)"></i>lossless-tagged</span><span><i style="background:#a78a83"></i>lossy-tagged</span><span><i style="background:var(--accent)"></i>selected</span><span class="v32-color-key">listening reach</span><span><i style="background:#8dbbd8"></i>alternate album-version ID (3)</span></div>
 <p class="v32-explain">Bar lengths use a logarithmic presentation scale. Values are observed ListenBrainz counts: 144 from our selected recording IDs, and three from <strong>distinct, album-linked versions</strong> where the original ID is unreported. Blue dashed bars show those three proxies; they are <strong>not estimated counts for the original IDs</strong>. Listening reach never affects acoustic clustering.</p></div><aside class="v31-side"><label>Compare sources<select id="v31Cohort"><option value="all">Expanded · 147 candidates</option><option value="lossless">Lossless-tagged · 103</option></select></label><label>Find a song<select id="v31Song"></select></label><p class="v31-small">Each descriptor is robustly standardized (median/MAD, capped at ±3); average-linkage merges the closest groups. Family weights are normalized.</p><div class="v31-weights" id="v31Weights"></div><div class="v31-side-rule"></div><div class="v31-kicker">Selected source</div><h3 id="v31Selected">Home</h3><p id="v31SelectedMeta"></p><a id="v31SelectedSource" href="https://musicbrainz.org" target="_blank" rel="noopener noreferrer">Source recording</a>
 <div class="v32-selected" aria-label="Selected recording listening reach"><div class="v32-eyebrow">Audience layer · ListenBrainz</div><div id="v32SelectedMetrics"></div><p>Each number belongs to the indicated recording ID, not all editions of a song. Three are clearly labelled alternate album-version proxies. This is not a concert metric.</p><a href="https://listenbrainz.readthedocs.io/en/latest/users/api/popularity.html" target="_blank" rel="noopener noreferrer">Data definition ↗</a></div><div class="v31-side-rule"></div><div class="v31-kicker">Closest under these rules</div><div id="v31Nearest"></div><div class="v31-kicker v31-ledger-title">Distance contribution / nearest</div><div id="v31Ledger"></div></aside></div><p class="v31-fine">The inner tree remains exploratory acoustic clustering, independent of the outer audience ring. Of 147 displayed counts, 144 match their acoustic source MBIDs; for <em>Home</em>, <em>Personal Jesus</em> and <em>The Bottom Line</em> only, counts come from separately identified album versions because the selected acoustic MBIDs have no reported data. No count has been imputed or invented. These are ListenBrainz audiences, not worldwide streams, concert attendance or measures of personal meaning. One unmatched acoustic source remains excluded.</p></div>`;
- const field=`<div class="v31-shell"><div class="v31-kicker">Act II / from mood to measurement</div><div class="v31-intro"><h2>Movement and brightness. <em>Not mood.</em></h2><p>Instead of invented darkness and energy ratings, every point now has two observable source values. Change the axes and investigate the patterns yourself. These are acoustic descriptions, not measurements of the feelings a song creates.</p></div><div class="v31-pick-grid"><label>Horizontal descriptor<select id="v31X"></select></label><label>Vertical descriptor<select id="v31Y"></select></label></div><div class="v31-viz v31-field"><svg id="v31ScatterSvg" viewBox="0 0 960 630" role="group" aria-label="Measured acoustic scatterplot with selectable feature axes"></svg><p class="v31-fine" id="v31FieldCaption"></p></div></div>`;
+ const field=`<div class="v31-shell"><div class="v31-kicker">Act II / from mood to measurement</div><div class="v31-intro"><h2>Movement and brightness. <em>Not mood.</em></h2><p>Instead of invented darkness and energy ratings, every point now has two observable source values. Change the axes and investigate the patterns yourself. These are acoustic descriptions, not measurements of the feelings a song creates.</p></div><div class="v31-pick-grid"><label>Horizontal descriptor<select id="v31X"></select></label><label>Vertical descriptor<select id="v31Y"></select></label></div><div class="v31-viz v31-field"><div class="v32-fav-head"><div class="v32-fav-head-copy"><span class="v32-fav-overline">A personal listening constellation</span><p class="v32-fav-subtitle">Home remains the anchor. Smaller outlines mark songs I keep returning to—my favourites, not a modelled musical category.</p></div><button type="button" id="v32FavToggle" class="v32-fav-toggle" aria-pressed="true" aria-controls="v32FavRail">Hide favourites</button></div><svg id="v31ScatterSvg" viewBox="0 0 960 630" role="group" aria-label="Measured acoustic scatterplot with optional personal favourites highlighted"></svg><div class="v32-fav-rail" id="v32FavRail" aria-label="Select a personal favourite to inspect"></div><p class="v31-fine" id="v31FieldCaption"></p></div></div>`;
  const sig=`<div class="v31-shell"><div class="v31-kicker">Act III / a source-derived acoustic signature</div><div class="v31-intro"><h2>The anatomy <em>we can measure.</em></h2><p>Ten original acoustic descriptors, shown in their actual source units. The marks represent recording-level summaries, not moments along a song. They cannot reconstruct a waveform or a listening experience.</p></div><div class="v31-signature" id="v31Signature"></div><p class="v31-fine" id="v31SignatureText"></p></div>`;
  const gap=`<div class="v31-shell"><div class="v31-kicker">Act V / the space between measurements</div><div class="v31-intro"><h2>What a measurement <em>leaves out.</em></h2><p>Average tempo, timbre and dynamic complexity can reveal useful differences between recorded sources. They cannot tell us where a particular note begins, when a voice enters, or why a silence lands emotionally. That boundary isn't a weakness of the experience. It is part of what the experience is here to show.</p></div><div class="v31-gap"><div><span>01 / WE CAN OBSERVE</span><h3>Ten acoustic descriptors</h3><p>Actual archive features with units and original source receipts.</p></div><div><span>02 / WE CAN MODEL</span><h3>Exploratory similarity</h3><p>Modelled distances sensitive to source quality, normalization and family weighting.</p></div><div><span>03 / WE INTERPRET</span><h3>Meaning and memory</h3><p>Belonging, heartbreak and home belong to listeners, not classifiers.</p></div></div></div>`;
  const containers=[['album-atlas',html],['family',tree],['contradiction',field],['anatomy',sig],['silence',gap]];
@@ -2554,6 +2640,8 @@ function fillContainers(){
  // but only these measured sections are presented to readers in V3.1.
 }
 function init(){fillContainers();setupReachControls();
+ const faveToggle=$('v32FavToggle');if(!faveToggle)throw Error('Missing personal-landmarks toggle');
+ faveToggle.addEventListener('click',()=>{showPersonalFavorites32=!showPersonalFavorites32;faveToggle.setAttribute('aria-pressed',String(showPersonalFavorites32));faveToggle.textContent=showPersonalFavorites32?'Hide favourites':'Show favourites';drawScatter();renderPersonalFavorites32();});
  $('v31Weights').innerHTML=families.map((f,i)=>`<label><span><b>${f.name}</b><output id="v31WOut${i}">${weights[i]}%</output></span><input aria-label="${f.name} weight" id="v31W${i}" type="range" min="0" max="100" value="${weights[i]}"></label>`).join('');
  let pending=0;
  families.forEach((f,i)=>$('v31W'+i).addEventListener('input',e=>{weights[i]=Number(e.target.value);if(weights.every(x=>x===0)){weights[i]=1;e.target.value=1};$('v31WOut'+i).textContent=weights[i]+'%';clearTimeout(pending);pending=setTimeout(()=>{drawTree();showCurrent(current,false)},180)}));
