@@ -74,6 +74,35 @@ class Integration(unittest.TestCase):
   self.assertIn('const scaleMax=Math.ceil(Math.max(...albumMedians));',self.html)
   self.assertIn('g.med.toFixed(2)',self.html)
   self.assertIn('No archival measurement available',self.html)
+ def test_personal_favourites_are_not_synthetic_points(self):
+  import re
+  block=re.search(r"const personalFavorites32=\\[(.*?)\\];",self.html,re.S)
+  self.assertIsNotNone(block)
+  rows=re.findall(r"\\{title:'([^']+)',id:(null|'[^']+')",block.group(1))
+  self.assertEqual(len(rows),11)
+  self.assertEqual(sum(id!='null' for title,id in rows),8)
+  self.assertEqual(sum(id=='null' for title,id in rows),3)
+  names=[title for title,id in rows]
+  self.assertEqual(names,["The Sun and the Rainfall","Pleasure, Little Treasure","But Not Tonight","Never Let Me Down Again","Halo","Higher Love","Personal Jesus","Barrel of a Gun","I Feel You","In Your Room","Stripped"])
+  evidence=decoded_block(self.html,"window.AOF_V3_EVIDENCE = ")
+  source={r["track_id"]:r for r in evidence["records"]}
+  for title,rawid in rows:
+   if rawid=='null':continue
+   id=rawid.strip("'")
+   row=source[id]
+   self.assertEqual(row["title"],title)
+   self.assertIn(row["category"],("matched","lossy"))
+   self.assertTrue(row["feature_parity"])
+  self.assertEqual(source["a08_t01"]["category"],"missing")
+  titles={r["title"] for r in source.values()}
+  self.assertNotIn("The Sun and the Rainfall",titles)
+  self.assertNotIn("Pleasure, Little Treasure",titles)
+  self.assertIn("const personalFavoriteIds32=",self.html)
+  self.assertIn('id="v32FavToggle"',self.html)
+  self.assertIn('id="v32FavRail"',self.html)
+  self.assertIn('data-favorite-halo=',self.html)
+  self.assertIn("if(showPersonalFavorites32)",self.html)
+  self.assertIn("renderPersonalFavorites32();",self.html)
  def test_crosswalk_and_visual_disclosure(self):
   self.assertEqual(len(self.rows),147)
   self.assertEqual(len({r["track_id"] for r in self.rows}),147)
