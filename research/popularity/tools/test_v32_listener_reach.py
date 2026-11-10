@@ -78,7 +78,7 @@ class Integration(unittest.TestCase):
   import re
   block=re.search(r"const personalFavorites32=\[(.*?)\];",self.html,re.S)
   self.assertIsNotNone(block)
-  rows=re.findall(r"\{title:'([^']+)',id:(null|'[^']+)'",block.group(1))
+  rows=re.findall(r"\{title:'([^']+)',id:(null|'[^']+')",block.group(1))
   self.assertEqual(len(rows),11)
   self.assertEqual(sum(id!='null' for title,id in rows),8)
   self.assertEqual(sum(id=='null' for title,id in rows),3)
