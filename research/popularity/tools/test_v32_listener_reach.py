@@ -47,6 +47,16 @@ class Integration(unittest.TestCase):
    self.assertEqual(selected[r["track_id"]][1],r["acoustic_recording_mbid"])
    self.assertNotEqual(r["acoustic_recording_mbid"],r["listening_recording_mbid"])
    self.assertIsNone(selected[r["track_id"]][2])
+ def test_opening_has_no_notice_boxes_even_before_javascript(self):
+  opening=self.html.split('<section id="opening">',1)[1]
+  self.assertTrue(opening.lstrip().startswith('<svg class="hero-deco"'))
+  hero=opening.split('</section>',1)[0]
+  self.assertNotIn('<div class="v3-banner">',hero)
+  self.assertNotIn('<div class="warn">',hero)
+  self.assertNotIn('V3.1 · measured sonic evidence:',self.html)
+  self.assertNotIn('What is measured, and what remains personal?',self.html)
+  self.assertIn('THE<br>ARCHITECTURE<br>OF',hero)
+  self.assertIn('class="hero-meta"',hero)
  def test_crosswalk_and_visual_disclosure(self):
   self.assertEqual(len(self.rows),147)
   self.assertEqual(len({r["track_id"] for r in self.rows}),147)
