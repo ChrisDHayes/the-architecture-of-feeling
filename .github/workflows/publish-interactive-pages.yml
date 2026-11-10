@@ -108,9 +108,12 @@ jobs:
               raise SystemExit('Measured lab must remain labelled unapproved')
           if manifest.get('html_sha256')!=hashlib.sha256(lab.read_bytes()).hexdigest():
               raise SystemExit('Measured lab source hash mismatch')
+          # Main entry must be the same approved V3.2 experience as
+          # its retained preview, with only the relative lab URL adjusted.
           home=idx.read_text(encoding='utf-8')
-          if not all(href in home for href in ('archive/v2-9/index.html','previews/v3-measured-beta/index.html','previews/v3-1-measured-dna/index.html','previews/v3-2-listener-reach/index.html','research/acousticbrainz/Measured_Evidence_Lab.html')):
-              raise SystemExit('Public homepage missing core exhibit navigation')
+          expected_home=v32text.replace('href="../research/acousticbrainz/Measured_Evidence_Lab.html"', 'href="research/acousticbrainz/Measured_Evidence_Lab.html"')
+          if home != expected_home:
+              raise SystemExit('Public main experience diverges from approved V3.2 preview')
 
           # Explicit allowlist: no collector scripts, raw JSON archive, audio, lyrics, or private repo files.
           site=Path('_public_site')
